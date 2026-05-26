@@ -126,8 +126,6 @@ ad-website/
 ├── .env               # Variables de entorno (no commitear)
 ├── .env.example       # Ejemplo de variables de entorno
 ├── .gitignore         # Archivos ignorados por Git
-├── api/
-│   └── verify-auth.js # Función serverless para verificar auth
 ├── README.md          # Guía general
 └── DEPLOYMENT.md      # Guía de despliegue en Vercel
 ```

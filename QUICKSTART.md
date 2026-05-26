@@ -10,8 +10,7 @@
 4. ✅ **[.env](.env)** - Variables de entorno (ya con tus credenciales)
 5. ✅ **[.env.example](.env.example)** - Plantilla de variables de entorno
 6. ✅ **[.gitignore](.gitignore)** - Archivos ignorados por Git
-7. ✅ **[api/verify-auth.js](api/verify-auth.js)** - Función serverless para verificar autenticación
-8. ✅ **[DEPLOYMENT.md](DEPLOYMENT.md)** - Guía completa de despliegue
+7. ✅ **[DEPLOYMENT.md](DEPLOYMENT.md)** - Guía completa de despliegue
 
 ### Archivos Modificados:
 
