@@ -1,0 +1,36 @@
+# Variables de entorno
+.env
+.env.local
+.env.development
+.env.production
+
+# Dependencias de Node (si decides añadir npm más adelante)
+node_modules/
+package-lock.json
+yarn.lock
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Build outputs (por si usas algún build tool más adelante)
+dist/
+build/
+.cache/
+
+# Temporal
+.tmp/
+temp/
