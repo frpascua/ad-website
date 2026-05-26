@@ -28,13 +28,16 @@
 
     <div class="body-wrapper">
         <header>
-            <div class="topbar" style="height: 14px;">
-                <div class="topbar-right" style="display: none;">
-                    <a href="#" target="_blank">
-                        <img src="assets/images/user-stroke-rounded.png">
-                    </a>
-                    <a href="#" target="_blank">
-                        <img src="assets/images/logout-square-02-Stroke-Rounded.png">
+            <div class="topbar" style="height: 40px; background: #fff; border-bottom: 1px solid #ddd;">
+                <div class="topbar-right" style="display: flex; align-items: center; gap: 15px; padding: 0 20px; height: 100%;">
+                    <span id="userEmail" style="font-size: 14px; color: #666;"></span>
+                    <a href="/api/logout" id="logoutBtn" style="display: flex; align-items: center; gap: 5px; text-decoration: none; color: #d32f2f; font-weight: 500; font-size: 14px;">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                            <polyline points="16 17 21 12 16 7"></polyline>
+                            <line x1="21" y1="12" x2="9" y2="12"></line>
+                        </svg>
+                        Cerrar sesión
                     </a>
                 </div>
             </div>
@@ -261,6 +264,39 @@
     <script src="https://cdn.jsdelivr.net/npm/handlebars@4.7.8/dist/handlebars.min.js"></script>
 
     <script src="https://sede.unirioja.es/static/themes/lte/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Verificación de autenticación -->
+    <script>
+        // Verificar autenticación al cargar la página
+        async function checkAuth() {
+            try {
+                const response = await fetch('/api/check-auth', {
+                    credentials: 'include'
+                });
+                
+                if (response.ok) {
+                    const data = await response.json();
+                    if (data.authenticated && data.email) {
+                        // Mostrar email del usuario
+                        document.getElementById('userEmail').textContent = data.email;
+                    } else {
+                        // Redirigir a login si no está autenticado
+                        window.location.href = '/public/login.html';
+                    }
+                } else {
+                    // Redirigir a login si hay error
+                    window.location.href = '/public/login.html';
+                }
+            } catch (error) {
+                console.error('Error verificando autenticación:', error);
+                // En caso de error, redirigir a login
+                window.location.href = '/public/login.html';
+            }
+        }
+        
+        // Ejecutar verificación al cargar
+        checkAuth();
+    </script>
 
 </body>
 
