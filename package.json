@@ -1,0 +1,25 @@
+{
+  "name": "ad-website-auth",
+  "version": "1.0.0",
+  "description": "Sitio web con autenticación Supabase y Magic Link",
+  "type": "module",
+  "scripts": {
+    "dev": "vercel dev",
+    "build": "echo 'Build complete'",
+    "deploy": "vercel --prod"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.39.0"
+  },
+  "devDependencies": {
+    "vercel": "^33.0.0"
+  },
+  "keywords": [
+    "supabase",
+    "authentication",
+    "magic-link",
+    "vercel"
+  ],
+  "author": "",
+  "license": "MIT"
+}

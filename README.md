@@ -120,7 +120,16 @@ ad-website/
 ├── dashboard.html      # Página protegida (dashboard)
 ├── styles.css          # Estilos CSS
 ├── auth.js            # Lógica de autenticación con Magic Link
-└── README.md          # Este archivo
+├── middleware.js       # Middleware de Vercel para proteger rutas
+├── vercel.json        # Configuración de Vercel
+├── package.json       # Dependencias del proyecto
+├── .env               # Variables de entorno (no commitear)
+├── .env.example       # Ejemplo de variables de entorno
+├── .gitignore         # Archivos ignorados por Git
+├── api/
+│   └── verify-auth.js # Función serverless para verificar auth
+├── README.md          # Guía general
+└── DEPLOYMENT.md      # Guía de despliegue en Vercel
 ```
 
 ## 🔒 Seguridad
@@ -228,6 +237,35 @@ Este es un proyecto de ejemplo. Siéntete libre de modificarlo y mejorarlo segú
 
 Este proyecto es de código abierto y está disponible para uso libre.
 
+## 🚀 Despliegue en Vercel
+
+Para desplegar este proyecto en Vercel con protección de rutas en el servidor:
+
+1. **Instalar dependencias:**
+   ```bash
+   npm install
+   ```
+
+2. **Probar localmente:**
+   ```bash
+   npm run dev
+   ```
+
+3. **Desplegar:**
+   - Lee la [Guía de Despliegue Completa](DEPLOYMENT.md)
+   - Sigue los pasos para configurar Vercel
+   - Configura las variables de entorno
+   - El middleware protegerá el dashboard automáticamente
+
+### 🔒 Seguridad
+
+Este proyecto incluye múltiples capas de seguridad:
+
+1. **Middleware de Vercel (Edge)**: Verifica autenticación ANTES de servir el HTML
+2. **Verificación Cliente-Side**: JavaScript oculta contenido hasta verificar sesión
+3. **Row Level Security**: Configurable en Supabase para proteger datos
+4. **Headers de Seguridad**: Configurados en `vercel.json`
+
 ---
 
-¡Desarrollado con ❤️ usando Supabase!
+¡Desarrollado con ❤️ usando Supabase y Vercel!
