@@ -94,8 +94,15 @@ Usa esta lista para verificar que todo está configurado correctamente antes de 
   ├── public/login.html
   ├── ad/index.html (y otros archivos)
   ├── vercel.json
+  ├── pyproject.toml
   ├── requirements.txt
   └── .env.example
+  ```
+
+- [ ] **pyproject.toml existe y tiene el entrypoint**:
+  ```toml
+  [tool.vercel]
+  entrypoint = "api.main:app"
   ```
 
 - [ ] **requirements.txt completo**:

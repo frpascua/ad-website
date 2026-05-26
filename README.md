@@ -273,6 +273,14 @@ Este error se soluciona con el archivo `pyproject.toml`. Ver [VERCEL_TROUBLESHOO
 - **Hosting:** Vercel Serverless Functions
 - **Frontend:** HTML/CSS/JavaScript vanilla
 
+## 📖 Documentación Adicional
+
+- [SETUP.md](SETUP.md) - Guía rápida de configuración paso a paso
+- [VERCEL_TROUBLESHOOTING.md](VERCEL_TROUBLESHOOTING.md) - Solución de problemas de deployment
+- [PRE_DEPLOYMENT_CHECKLIST.md](PRE_DEPLOYMENT_CHECKLIST.md) - Checklist completo antes de desplegar
+- [EMAIL_CUSTOMIZATION.md](EMAIL_CUSTOMIZATION.md) - Cómo personalizar los emails
+- [ARCHITECTURE.md](ARCHITECTURE.md) - Arquitectura del sistema con diagramas
+
 ## 🤝 Contribuir
 
 Este es un proyecto de ejemplo. Siéntete libre de adaptarlo a tus necesidades.
