@@ -31,10 +31,20 @@ NEXT_PUBLIC_SUPABASE_URL=https://kdxfalfojxitoolfhrpr.supabase.co
 NEXT_PUBLIC_SUPABASE_ANON_KEY=sb_publishable_W38mKc7B8cOES2pNtz29bQ_Nc0Bq-vx
 ```
 
-### 3. Probar Localmente con Vercel Dev
+### 3. Probar Localmente
+
+**Opción A: Servidor HTTP Simple (Sin Middleware)**
 
 ```bash
-npm run dev
+npm run start
+```
+
+Esto inicia un servidor en `http://localhost:8000`. Útil para desarrollo rápido, pero el middleware NO funcionará localmente.
+
+**Opción B: Con Vercel Dev (Con Middleware - Recomendado)**
+
+```bash
+npx vercel dev
 ```
 
 Esto iniciará un servidor local en `http://localhost:3000` que simula el entorno de Vercel, incluyendo:
@@ -48,6 +58,8 @@ Esto iniciará un servidor local en `http://localhost:3000` que simula el entorn
 2. Intenta acceder a `http://localhost:3000/dashboard.html` (deberías ser redirigido)
 3. Inicia sesión con Magic Link
 4. Ahora deberías poder acceder al dashboard
+
+**Nota:** La primera vez que ejecutes `vercel dev`, te pedirá hacer login y configurar el proyecto.
 
 ## 🌐 Despliegue en Vercel
 
@@ -77,7 +89,12 @@ git push -u origin main
 1. Ve a [vercel.com/new](https://vercel.com/new)
 2. Haz clic en **"Import Git Repository"**
 3. Selecciona tu repositorio de GitHub
-4. Vercel detectará automáticamente la configuración
+4. **IMPORTANTE:** En la configuración del proyecto:
+   - **Framework Preset:** Selecciona "Other" o déjalo en blanco
+   - **Build Command:** Déjalo vacío o escribe `:` (dos puntos)
+   - **Output Directory:** Escribe `.` (punto)
+   - **Install Command:** `npm install`
+5. Vercel detectará automáticamente el resto de la configuración desde `vercel.json`
 
 #### Paso 3: Configurar Variables de Entorno
 
@@ -199,11 +216,16 @@ git push
 ## 🛠️ Comandos Útiles
 
 ```bash
-# Desarrollo local (simula Vercel)
-npm run dev
+# Desarrollo local simple (sin middleware)
+npm run start
+
+# Desarrollo local con Vercel (con middleware)
+npx vercel dev
 
 # Desplegar a producción
 npm run deploy
+# o directamente:
+vercel --prod
 
 # Ver logs en tiempo real
 vercel logs --follow
@@ -279,6 +301,18 @@ En el dashboard de Vercel puedes ver:
 1. Verifica que las URLs de redirect en Supabase incluyan tu dominio de Vercel
 2. Limpia las cookies del navegador
 3. Verifica que las variables de entorno sean las correctas
+
+### Error: "No Output Directory named 'public' found"
+
+**Síntomas:** Error durante el deploy sobre directorio de salida
+
+**Soluciones:**
+1. Verifica que `vercel.json` tenga `"outputDirectory": "."`
+2. En Vercel dashboard: **Settings** → **General** → **Build & Development Settings**
+   - Output Directory: `.` (punto)
+   - Build Command: `:` (dos puntos) o déjalo vacío
+3. En `package.json`, el script build debe ser `":"`
+4. Redespliega: `vercel --prod`
 
 ### El dashboard se muestra sin autenticación
 

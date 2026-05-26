@@ -42,13 +42,42 @@
 
 ### 1. Las dependencias ya están instaladas ✅
 
+### 2. Elegir Modo de Desarrollo
+
+Tienes dos opciones:
+
+#### A) Desarrollo Rápido (sin middleware)
+Para desarrollo frontend rápido sin probar el middleware:
+```bash
+npm run start
+```
+- Servidor en `http://localhost:8000`
+- Sin protección de middleware (dashboard visible sin auth)
+- Bueno para desarrollo rápido de UI
+
+#### B) Desarrollo Completo (con middleware)
+Para probar la seguridad completa como en producción:
+```bash
+npx vercel dev
+```
+- Servidor en `http://localhost:3000`
+- Middleware funcionando (dashboard protegido)
+- Simula exactamente el entorno de Vercel
+- Primera vez te pedirá login y configuración
+
 ### 2. Iniciar servidor de desarrollo:
 
+**Opción A: Servidor Simple (Desarrollo rápido)**
 ```bash
-npm run dev
+npm run start
 ```
+Inicia en `http://localhost:8000` - El middleware NO funciona, solo frontend.
 
-Esto iniciará Vercel Dev en `http://localhost:3000`
+**Opción B: Con Vercel (Probar middleware)**
+```bash
+npx vercel dev
+```
+Inicia en `http://localhost:3000` - Simula Vercel completo con middleware.
 
 ### 3. Probar la seguridad:
 
@@ -159,9 +188,19 @@ NEXT_PUBLIC_SUPABASE_ANON_KEY=sb_publishable_W38mKc7B8cOES2pNtz29bQ_Nc0Bq-vx
 - Verifica que `middleware.js` esté en la raíz (no en subcarpetas)
 - Revisa los logs: `vercel logs --follow`
 
+### Error: "No Output Directory found"
+
+**Síntomas:** Error durante deploy en Vercel
+
+**Soluciones:**
+1. Verifica que `vercel.json` incluya: `"outputDirectory": "."`
+2. El script build en `package.json` debe ser `":"`
+3. Redespliega con: `vercel --prod`
+
 ### Puedo ver el dashboard sin autenticación
-- Verifica que estés usando `npm run dev` (no un servidor HTTP simple)
+- Verifica que estés usando `npx vercel dev` (no un servidor HTTP simple)
 - El middleware solo funciona en Vercel/Vercel Dev
+- Si usas `npm run start`, el middleware NO funcionará (solo para desarrollo frontend)
 
 ## 📚 Documentación
 
@@ -178,8 +217,11 @@ NEXT_PUBLIC_SUPABASE_ANON_KEY=sb_publishable_W38mKc7B8cOES2pNtz29bQ_Nc0Bq-vx
 
 ## 💡 Comandos Útiles
 
-```bash
-# Desarrollo local
+```bash simple (sin middleware)
+npm run start
+
+# Desarrollo local con Vercel (con middleware)
+npx vercelrollo local
 npm run dev
 
 # Desplegar a producción

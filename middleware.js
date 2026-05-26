@@ -6,7 +6,7 @@ const SUPABASE_ANON_KEY = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 
 // Configurar qué rutas deben ser protegidas
 export const config = {
-  matcher: ['/dashboard.html', '/dashboard'],
+  matcher: ['/dashboard.html', '/dashboard', '/ad'],
 };
 
 /**

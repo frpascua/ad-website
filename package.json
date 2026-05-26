@@ -4,8 +4,9 @@
   "description": "Sitio web con autenticación Supabase y Magic Link",
   "type": "module",
   "scripts": {
-    "dev": "vercel dev",
-    "build": "echo 'Build complete'",
+    "start": "npx http-server -p 8000",
+    "dev:vercel": "vercel dev",
+    "build": ":",
     "deploy": "vercel --prod"
   },
   "dependencies": {
