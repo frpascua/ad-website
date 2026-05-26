@@ -1,0 +1,1278 @@
+{
+  "metadata": {
+    "timestamp": "2026-01-23T20:27:59.874196+00:00"
+  },
+  "project": {
+    "name": "PPM",
+    "description": "descripción corta",
+    "readme": " Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean porttitor eu leo ut volutpat. Sed eu euismod odio. Cras laoreet augue tellus, in consequat neque facilisis id. **Aenean in neque hendrerit, ornare nisl ut, elementum nisl. Morbi vitae ligula non mauris consectetur malesuada pharetra luctus nisl.** Donec molestie risus a sapien varius finibus. Curabitur tincidunt orci in tortor egestas dignissim. Sed posuere lectus at metus varius, eu hendrerit velit ullamcorper. Phasellus accumsan purus non turpis suscipit commodo. Aenean a mauris vel risus rutrum egestas. Fusce tincidunt ligula aliquet, porttitor magna vel, tincidunt est. Nam vehicula, purus ac porttitor venenatis, leo enim tempus ante, a facilisis ex lectus et leo. Aenean interdum semper sapien, et tempus augue dignissim at. Maecenas euismod velit ac augue semper, sit amet placerat turpis placerat. Praesent massa eros, pharetra et quam at, volutpat efficitur ligula. [Vivamus ligula ante, consectetur vitae leo quis, ultrices hendrerit lectus.](https://www.lipsum.com/feed/html)",
+    "readme_html": "<p dir=\"auto\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean porttitor eu leo ut volutpat. Sed eu euismod odio. Cras laoreet augue tellus, in consequat neque facilisis id. <strong>Aenean in neque hendrerit, ornare nisl ut, elementum nisl. Morbi vitae ligula non mauris consectetur malesuada pharetra luctus nisl.</strong> Donec molestie risus a sapien varius finibus. Curabitur tincidunt orci in tortor egestas dignissim. Sed posuere lectus at metus varius, eu hendrerit velit ullamcorper. Phasellus accumsan purus non turpis suscipit commodo. Aenean a mauris vel risus rutrum egestas. Fusce tincidunt ligula aliquet, porttitor magna vel, tincidunt est. Nam vehicula, purus ac porttitor venenatis, leo enim tempus ante, a facilisis ex lectus et leo. Aenean interdum semper sapien, et tempus augue dignissim at. Maecenas euismod velit ac augue semper, sit amet placerat turpis placerat. Praesent massa eros, pharetra et quam at, volutpat efficitur ligula. <a href=\"https://www.lipsum.com/feed/html\" rel=\"nofollow\">Vivamus ligula ante, consectetur vitae leo quis, ultrices hendrerit lectus.</a></p>"
+  },
+  "issues": [
+    {
+      "number": "33",
+      "title": "Trabajo Fin Estudios",
+      "body": "Evolutivo Rosa",
+      "body_html": "<p dir=\"auto\">Evolutivo Rosa</p>",
+      "state": "open",
+      "status": "Backlog",
+      "labels": "",
+      "assignee": "",
+      "milestone": "",
+      "milestone_created_at": "",
+      "milestone_due_on": "",
+      "created_at": "2026-01-12T08:40:01Z",
+      "updated_at": "2026-01-12T08:40:33Z",
+      "closed_at": null,
+      "comments": [],
+      "priority": "",
+      "start_date": "",
+      "target_date": "",
+      "subproject": {},
+      "initiative": {},
+      "otd_category": {},
+      "issueType": {},
+      "subtitle": ""
+    },
+    {
+      "number": "32",
+      "title": "Procedimientos Académico",
+      "body": "Automatizar el envío a Valija de los justificantes de matrícula y los certificados académicos",
+      "body_html": "<p dir=\"auto\">Automatizar el envío a Valija de los justificantes de matrícula y los certificados académicos</p>",
+      "state": "open",
+      "status": "Backlog",
+      "labels": "",
+      "assignee": "",
+      "milestone": "",
+      "milestone_created_at": "",
+      "milestone_due_on": "",
+      "created_at": "2026-01-12T08:34:49Z",
+      "updated_at": "2026-01-12T08:34:49Z",
+      "closed_at": null,
+      "comments": [],
+      "priority": "",
+      "start_date": "",
+      "target_date": "",
+      "subproject": {},
+      "initiative": {},
+      "otd_category": {},
+      "issueType": {},
+      "subtitle": ""
+    },
+    {
+      "number": "31",
+      "title": "UXXI-EC",
+      "body": "",
+      "body_html": "",
+      "state": "open",
+      "status": "Blocked",
+      "labels": "",
+      "assignee": "",
+      "milestone": "",
+      "milestone_created_at": "",
+      "milestone_due_on": "",
+      "created_at": "2025-12-22T15:44:34Z",
+      "updated_at": "2025-12-22T15:44:34Z",
+      "closed_at": null,
+      "comments": [],
+      "priority": "",
+      "start_date": "",
+      "target_date": "",
+      "subproject": {},
+      "initiative": {
+        "name": "OCU",
+        "color": "BLUE",
+        "description": ""
+      },
+      "otd_category": {
+        "name": "Transform",
+        "color": "GRAY",
+        "description": ""
+      },
+      "issueType": {
+        "name": "Initiative",
+        "color": "GRAY",
+        "description": ""
+      },
+      "subtitle": "Está contratado?"
+    },
+    {
+      "number": "30",
+      "title": "Módulo CUC de OCU",
+      "body": "",
+      "body_html": "",
+      "state": "open",
+      "status": "Blocked",
+      "labels": "",
+      "assignee": "",
+      "milestone": "",
+      "milestone_created_at": "",
+      "milestone_due_on": "",
+      "created_at": "2025-12-22T15:10:18Z",
+      "updated_at": "2025-12-22T15:10:18Z",
+      "closed_at": null,
+      "comments": [],
+      "priority": "",
+      "start_date": "",
+      "target_date": "",
+      "subproject": {},
+      "initiative": {
+        "name": "OCU",
+        "color": "BLUE",
+        "description": ""
+      },
+      "otd_category": {
+        "name": "Transform",
+        "color": "GRAY",
+        "description": ""
+      },
+      "issueType": {
+        "name": "Initiative",
+        "color": "GRAY",
+        "description": ""
+      },
+      "subtitle": ""
+    },
+    {
+      "number": "29",
+      "title": "Firma Convenios Empleabilidad",
+      "body": "",
+      "body_html": "",
+      "state": "open",
+      "status": "Backlog",
+      "labels": "",
+      "assignee": "",
+      "milestone": "",
+      "milestone_created_at": "",
+      "milestone_due_on": "",
+      "created_at": "2025-12-22T11:29:22Z",
+      "updated_at": "2025-12-22T11:29:22Z",
+      "closed_at": null,
+      "comments": [],
+      "priority": "",
+      "start_date": "",
+      "target_date": "",
+      "subproject": {},
+      "initiative": {
+        "name": "sede",
+        "color": "GREEN",
+        "description": "Sede Electrónica"
+      },
+      "otd_category": {
+        "name": "Grow",
+        "color": "GRAY",
+        "description": ""
+      },
+      "issueType": {
+        "name": "Task",
+        "color": "GRAY",
+        "description": ""
+      },
+      "subtitle": "v1.2"
+    },
+    {
+      "number": "28",
+      "title": "Defensoría Universitaria",
+      "body": "Procedimiento [Solicitud de actuación de la Defensoría Universitaria](https://sede.unirioja.es/portal/procedimientos/defensoria-universitaria)",
+      "body_html": "<p dir=\"auto\">Procedimiento <a href=\"https://sede.unirioja.es/portal/procedimientos/defensoria-universitaria\" rel=\"nofollow\">Solicitud de actuación de la Defensoría Universitaria</a></p>",
+      "state": "closed",
+      "status": "Done",
+      "labels": "",
+      "assignee": "",
+      "milestone": "",
+      "milestone_created_at": "",
+      "milestone_due_on": "",
+      "created_at": "2025-12-22T11:15:27Z",
+      "updated_at": "2025-12-22T11:16:51Z",
+      "closed_at": "2025-12-22T11:15:29Z",
+      "comments": [],
+      "priority": "",
+      "start_date": "",
+      "target_date": "",
+      "subproject": {},
+      "initiative": {
+        "name": "sede",
+        "color": "GREEN",
+        "description": "Sede Electrónica"
+      },
+      "otd_category": {
+        "name": "Grow",
+        "color": "GRAY",
+        "description": ""
+      },
+      "issueType": {
+        "name": "Project",
+        "color": "GRAY",
+        "description": ""
+      },
+      "subtitle": ""
+    },
+    {
+      "number": "27",
+      "title": "Portal vídeos",
+      "body": "",
+      "body_html": "",
+      "state": "open",
+      "status": "Blocked",
+      "labels": "",
+      "assignee": "",
+      "milestone": "",
+      "milestone_created_at": "",
+      "milestone_due_on": "",
+      "created_at": "2025-12-22T11:14:40Z",
+      "updated_at": "2025-12-22T11:14:40Z",
+      "closed_at": null,
+      "comments": [],
+      "priority": "",
+      "start_date": "",
+      "target_date": "",
+      "subproject": {},
+      "initiative": {
+        "name": "unirioja.es",
+        "color": "PINK",
+        "description": ""
+      },
+      "otd_category": {
+        "name": "Transform",
+        "color": "GRAY",
+        "description": ""
+      },
+      "issueType": {
+        "name": "Initiative",
+        "color": "GRAY",
+        "description": ""
+      },
+      "subtitle": "Kaltura/DigiRepo"
+    },
+    {
+      "number": "26",
+      "title": "Intermediación",
+      "body": "- Ofrecer intermediación mediante servicios web a la FUR\n- Utilizarlo también para sede electrónica",
+      "body_html": "<ul dir=\"auto\">\n<li>Ofrecer intermediación mediante servicios web a la FUR</li>\n<li>Utilizarlo también para sede electrónica</li>\n</ul>",
+      "state": "open",
+      "status": "Blocked",
+      "labels": "",
+      "assignee": "",
+      "milestone": "",
+      "milestone_created_at": "",
+      "milestone_due_on": "",
+      "created_at": "2025-12-22T11:13:53Z",
+      "updated_at": "2025-12-22T11:13:53Z",
+      "closed_at": null,
+      "comments": [],
+      "priority": "",
+      "start_date": "",
+      "target_date": "",
+      "subproject": {},
+      "initiative": {
+        "name": "AGE",
+        "color": "YELLOW",
+        "description": ""
+      },
+      "otd_category": {},
+      "issueType": {},
+      "subtitle": ""
+    },
+    {
+      "number": "25",
+      "title": "Académico FUR",
+      "body": "",
+      "body_html": "",
+      "state": "open",
+      "status": "Pending",
+      "labels": "",
+      "assignee": "",
+      "milestone": "",
+      "milestone_created_at": "",
+      "milestone_due_on": "",
+      "created_at": "2025-12-22T11:11:16Z",
+      "updated_at": "2025-12-22T11:11:16Z",
+      "closed_at": null,
+      "comments": [],
+      "priority": "",
+      "start_date": "",
+      "target_date": "",
+      "subproject": {},
+      "initiative": {
+        "name": "ae",
+        "color": "RED",
+        "description": "Escritorio Tramitación"
+      },
+      "otd_category": {
+        "name": "Transform",
+        "color": "GRAY",
+        "description": ""
+      },
+      "issueType": {
+        "name": "Project",
+        "color": "GRAY",
+        "description": ""
+      },
+      "subtitle": ""
+    },
+    {
+      "number": "24",
+      "title": "Gestión Facturas",
+      "body": "- Nautalia papel?",
+      "body_html": "<ul dir=\"auto\">\n<li>Nautalia papel?</li>\n</ul>",
+      "state": "open",
+      "status": "Pending",
+      "labels": "",
+      "assignee": "",
+      "milestone": "",
+      "milestone_created_at": "",
+      "milestone_due_on": "",
+      "created_at": "2025-12-22T11:10:23Z",
+      "updated_at": "2025-12-22T11:10:23Z",
+      "closed_at": null,
+      "comments": [],
+      "priority": "",
+      "start_date": "",
+      "target_date": "",
+      "subproject": {},
+      "initiative": {
+        "name": "sede",
+        "color": "GREEN",
+        "description": "Sede Electrónica"
+      },
+      "otd_category": {
+        "name": "Transform",
+        "color": "GRAY",
+        "description": ""
+      },
+      "issueType": {
+        "name": "Project",
+        "color": "GRAY",
+        "description": ""
+      },
+      "subtitle": ""
+    },
+    {
+      "number": "23",
+      "title": "Eugenio",
+      "body": "- Circuito Valija UCC OK\n- Probar si el propio envío de pfs de actividades culturales le puede valer",
+      "body_html": "<ul dir=\"auto\">\n<li>Circuito Valija UCC OK</li>\n<li>Probar si el propio envío de pfs de actividades culturales le puede valer</li>\n</ul>",
+      "state": "open",
+      "status": "Backlog",
+      "labels": "",
+      "assignee": "",
+      "milestone": "",
+      "milestone_created_at": "",
+      "milestone_due_on": "",
+      "created_at": "2025-12-22T11:09:40Z",
+      "updated_at": "2025-12-22T11:09:40Z",
+      "closed_at": null,
+      "comments": [],
+      "priority": "",
+      "start_date": "",
+      "target_date": "",
+      "subproject": {},
+      "initiative": {},
+      "otd_category": {},
+      "issueType": {},
+      "subtitle": ""
+    },
+    {
+      "number": "22",
+      "title": "Registro Convenios",
+      "body": "Carmen Novo\n- Clasificación por temas, tags\n- Forma de renovación\n\nEmpleabilidad:\n- Integración con firma de convenios",
+      "body_html": "<p dir=\"auto\">Carmen Novo</p>\n<ul dir=\"auto\">\n<li>Clasificación por temas, tags</li>\n<li>Forma de renovación</li>\n</ul>\n<p dir=\"auto\">Empleabilidad:</p>\n<ul dir=\"auto\">\n<li>Integración con firma de convenios</li>\n</ul>",
+      "state": "open",
+      "status": "Pending",
+      "labels": "",
+      "assignee": "",
+      "milestone": "",
+      "milestone_created_at": "",
+      "milestone_due_on": "",
+      "created_at": "2025-12-22T11:03:31Z",
+      "updated_at": "2025-12-22T11:05:52Z",
+      "closed_at": null,
+      "comments": [],
+      "priority": "P1",
+      "start_date": "",
+      "target_date": "",
+      "subproject": {},
+      "initiative": {
+        "name": "ae",
+        "color": "RED",
+        "description": "Escritorio Tramitación"
+      },
+      "otd_category": {
+        "name": "Grow",
+        "color": "GRAY",
+        "description": ""
+      },
+      "issueType": {
+        "name": "Task",
+        "color": "GRAY",
+        "description": ""
+      },
+      "subtitle": "v1.2"
+    },
+    {
+      "number": "21",
+      "title": "Valija Facturas V.Internacional",
+      "body": "Envío de facturas de VInt a Contabilidad\nResto de Vices?",
+      "body_html": "<p dir=\"auto\">Envío de facturas de VInt a Contabilidad<br>\nResto de Vices?</p>",
+      "state": "open",
+      "status": "Blocked",
+      "labels": "",
+      "assignee": "",
+      "milestone": "",
+      "milestone_created_at": "",
+      "milestone_due_on": "",
+      "created_at": "2025-12-22T10:58:44Z",
+      "updated_at": "2025-12-22T11:00:37Z",
+      "closed_at": null,
+      "comments": [],
+      "priority": "",
+      "start_date": "",
+      "target_date": "",
+      "subproject": {},
+      "initiative": {
+        "name": "sede",
+        "color": "GREEN",
+        "description": "Sede Electrónica"
+      },
+      "otd_category": {},
+      "issueType": {},
+      "subtitle": ""
+    },
+    {
+      "number": "20",
+      "title": "Web Comité Seguridad",
+      "body": "",
+      "body_html": "",
+      "state": "open",
+      "status": "Doing",
+      "labels": "",
+      "assignee": "",
+      "milestone": "",
+      "milestone_created_at": "",
+      "milestone_due_on": "",
+      "created_at": "2025-12-22T10:57:51Z",
+      "updated_at": "2025-12-22T10:57:51Z",
+      "closed_at": null,
+      "comments": [],
+      "priority": "",
+      "start_date": "",
+      "target_date": "",
+      "subproject": {},
+      "initiative": {
+        "name": "unirioja.es",
+        "color": "PINK",
+        "description": ""
+      },
+      "otd_category": {
+        "name": "Run",
+        "color": "GRAY",
+        "description": ""
+      },
+      "issueType": {
+        "name": "Task",
+        "color": "GRAY",
+        "description": ""
+      },
+      "subtitle": ""
+    },
+    {
+      "number": "19",
+      "title": "Contratos menores Ana",
+      "body": "",
+      "body_html": "",
+      "state": "open",
+      "status": "Pending",
+      "labels": "",
+      "assignee": "",
+      "milestone": "",
+      "milestone_created_at": "",
+      "milestone_due_on": "",
+      "created_at": "2025-12-22T10:57:34Z",
+      "updated_at": "2025-12-22T10:57:34Z",
+      "closed_at": null,
+      "comments": [],
+      "priority": "",
+      "start_date": "",
+      "target_date": "",
+      "subproject": {},
+      "initiative": {
+        "name": "sede",
+        "color": "GREEN",
+        "description": "Sede Electrónica"
+      },
+      "otd_category": {
+        "name": "Transform",
+        "color": "GRAY",
+        "description": ""
+      },
+      "issueType": {
+        "name": "Initiative",
+        "color": "GRAY",
+        "description": ""
+      },
+      "subtitle": ""
+    },
+    {
+      "number": "18",
+      "title": "Credenciales Europass",
+      "body": "- Emisión en Europass\n- Fichas microcredenciales",
+      "body_html": "<ul dir=\"auto\">\n<li>Emisión en Europass</li>\n<li>Fichas microcredenciales</li>\n</ul>",
+      "state": "open",
+      "status": "Blocked",
+      "labels": "",
+      "assignee": "",
+      "milestone": "",
+      "milestone_created_at": "",
+      "milestone_due_on": "",
+      "created_at": "2025-12-22T10:56:42Z",
+      "updated_at": "2025-12-22T11:12:29Z",
+      "closed_at": null,
+      "comments": [
+        {
+          "body": "Falla el sellado",
+          "body_html": "<p dir=\"auto\">Falla el sellado</p>",
+          "author": "frpascua",
+          "created_at": "2025-12-22T11:12:29Z",
+          "reactions": {
+            "total_count": 0,
+            "+1": 0,
+            "-1": 0,
+            "laugh": 0,
+            "hooray": 0,
+            "confused": 0,
+            "heart": 0,
+            "rocket": 0,
+            "eyes": 0
+          }
+        }
+      ],
+      "priority": "P5",
+      "start_date": "",
+      "target_date": "",
+      "subproject": {},
+      "initiative": {
+        "name": "sede",
+        "color": "GREEN",
+        "description": "Sede Electrónica"
+      },
+      "otd_category": {
+        "name": "Run",
+        "color": "GRAY",
+        "description": ""
+      },
+      "issueType": {
+        "name": "Task",
+        "color": "GRAY",
+        "description": ""
+      },
+      "subtitle": ""
+    },
+    {
+      "number": "17",
+      "title": "Web inicio Carlos",
+      "body": "",
+      "body_html": "",
+      "state": "open",
+      "status": "Doing",
+      "labels": "",
+      "assignee": "",
+      "milestone": "",
+      "milestone_created_at": "",
+      "milestone_due_on": "",
+      "created_at": "2025-12-22T10:56:21Z",
+      "updated_at": "2025-12-22T10:56:21Z",
+      "closed_at": null,
+      "comments": [],
+      "priority": "",
+      "start_date": "",
+      "target_date": "",
+      "subproject": {},
+      "initiative": {
+        "name": "unirioja.es",
+        "color": "PINK",
+        "description": ""
+      },
+      "otd_category": {
+        "name": "Transform",
+        "color": "GRAY",
+        "description": ""
+      },
+      "issueType": {},
+      "subtitle": ""
+    },
+    {
+      "number": "16",
+      "title": "Valija Art.60 VPC",
+      "body": "Añadir VB de SG",
+      "body_html": "<p dir=\"auto\">Añadir VB de SG</p>",
+      "state": "open",
+      "status": "Backlog",
+      "labels": "",
+      "assignee": "",
+      "milestone": "",
+      "milestone_created_at": "",
+      "milestone_due_on": "",
+      "created_at": "2025-12-22T10:55:58Z",
+      "updated_at": "2025-12-22T11:02:24Z",
+      "closed_at": null,
+      "comments": [],
+      "priority": "",
+      "start_date": "",
+      "target_date": "",
+      "subproject": {},
+      "initiative": {},
+      "otd_category": {},
+      "issueType": {},
+      "subtitle": ""
+    },
+    {
+      "number": "15",
+      "title": "Migración Alfresco",
+      "body": "",
+      "body_html": "",
+      "state": "closed",
+      "status": "Done",
+      "labels": "",
+      "assignee": "",
+      "milestone": "",
+      "milestone_created_at": "",
+      "milestone_due_on": "",
+      "created_at": "2025-12-22T10:54:43Z",
+      "updated_at": "2025-12-22T20:54:03Z",
+      "closed_at": "2025-12-22T20:54:03Z",
+      "comments": [],
+      "priority": "P5",
+      "start_date": "",
+      "target_date": "",
+      "subproject": {},
+      "initiative": {
+        "name": "Talos",
+        "color": "BLUE",
+        "description": "Gestor documental"
+      },
+      "otd_category": {
+        "name": "Transform",
+        "color": "GRAY",
+        "description": ""
+      },
+      "issueType": {
+        "name": "Task",
+        "color": "GRAY",
+        "description": ""
+      },
+      "subtitle": ""
+    },
+    {
+      "number": "14",
+      "title": "Estancias PDI",
+      "body": "Procedimiento del Vicerrectorado de Política Científica",
+      "body_html": "<p dir=\"auto\">Procedimiento del Vicerrectorado de Política Científica</p>",
+      "state": "open",
+      "status": "Backlog",
+      "labels": "",
+      "assignee": "",
+      "milestone": "",
+      "milestone_created_at": "",
+      "milestone_due_on": "",
+      "created_at": "2025-12-21T19:57:52Z",
+      "updated_at": "2025-12-21T19:58:46Z",
+      "closed_at": null,
+      "comments": [],
+      "priority": "",
+      "start_date": "",
+      "target_date": "",
+      "subproject": {},
+      "initiative": {
+        "name": "sede",
+        "color": "GREEN",
+        "description": "Sede Electrónica"
+      },
+      "otd_category": {
+        "name": "Grow",
+        "color": "GRAY",
+        "description": ""
+      },
+      "issueType": {
+        "name": "Project",
+        "color": "GRAY",
+        "description": ""
+      },
+      "subtitle": "Procedimiento VPC"
+    },
+    {
+      "number": "13",
+      "title": "Reglamento Voto Electrónico",
+      "body": "",
+      "body_html": "",
+      "state": "open",
+      "status": "Blocked",
+      "labels": "",
+      "assignee": "",
+      "milestone": "",
+      "milestone_created_at": "",
+      "milestone_due_on": "",
+      "created_at": "2025-12-21T19:56:54Z",
+      "updated_at": "2025-12-21T19:56:54Z",
+      "closed_at": null,
+      "comments": [],
+      "priority": "",
+      "start_date": "",
+      "target_date": "",
+      "subproject": {},
+      "initiative": {},
+      "otd_category": {},
+      "issueType": {},
+      "subtitle": ""
+    },
+    {
+      "number": "12",
+      "title": "Sistema Interno Información",
+      "body": "[Sistema interno de información en www.unirioja.es](https://www.unirioja.es/sistema-interno-informacion/)",
+      "body_html": "<p dir=\"auto\"><a href=\"https://www.unirioja.es/sistema-interno-informacion/\" rel=\"nofollow\">Sistema interno de información en www.unirioja.es</a></p>",
+      "state": "open",
+      "status": "Blocked",
+      "labels": "",
+      "assignee": "",
+      "milestone": "",
+      "milestone_created_at": "",
+      "milestone_due_on": "",
+      "created_at": "2025-12-21T19:38:20Z",
+      "updated_at": "2025-12-22T11:25:48Z",
+      "closed_at": null,
+      "comments": [],
+      "priority": "",
+      "start_date": "",
+      "target_date": "",
+      "subproject": {},
+      "initiative": {
+        "name": "unirioja.es",
+        "color": "PINK",
+        "description": ""
+      },
+      "otd_category": {},
+      "issueType": {},
+      "subtitle": ""
+    },
+    {
+      "number": "11",
+      "title": "Canal Denuncias",
+      "body": "",
+      "body_html": "",
+      "state": "open",
+      "status": "Blocked",
+      "labels": "",
+      "assignee": "",
+      "milestone": "",
+      "milestone_created_at": "",
+      "milestone_due_on": "",
+      "created_at": "2025-12-21T19:37:58Z",
+      "updated_at": "2025-12-21T19:37:58Z",
+      "closed_at": null,
+      "comments": [],
+      "priority": "",
+      "start_date": "",
+      "target_date": "",
+      "subproject": {},
+      "initiative": {
+        "name": "sede",
+        "color": "GREEN",
+        "description": "Sede Electrónica"
+      },
+      "otd_category": {},
+      "issueType": {},
+      "subtitle": ""
+    },
+    {
+      "number": "10",
+      "title": "Trámites Código Ético",
+      "body": "",
+      "body_html": "",
+      "state": "open",
+      "status": "Blocked",
+      "labels": "",
+      "assignee": "",
+      "milestone": "",
+      "milestone_created_at": "",
+      "milestone_due_on": "",
+      "created_at": "2025-12-21T19:37:40Z",
+      "updated_at": "2025-12-21T19:37:40Z",
+      "closed_at": null,
+      "comments": [],
+      "priority": "",
+      "start_date": "",
+      "target_date": "",
+      "subproject": {},
+      "initiative": {
+        "name": "sede",
+        "color": "GREEN",
+        "description": "Sede Electrónica"
+      },
+      "otd_category": {
+        "name": "Grow",
+        "color": "GRAY",
+        "description": ""
+      },
+      "issueType": {
+        "name": "Project",
+        "color": "GRAY",
+        "description": ""
+      },
+      "subtitle": ""
+    },
+    {
+      "number": "9",
+      "title": "Cargos",
+      "body": "",
+      "body_html": "",
+      "state": "open",
+      "status": "Doing",
+      "labels": "",
+      "assignee": "",
+      "milestone": "",
+      "milestone_created_at": "",
+      "milestone_due_on": "",
+      "created_at": "2025-12-21T19:16:51Z",
+      "updated_at": "2025-12-21T19:16:51Z",
+      "closed_at": null,
+      "comments": [],
+      "priority": "",
+      "start_date": "",
+      "target_date": "",
+      "subproject": {},
+      "initiative": {
+        "name": "ae",
+        "color": "RED",
+        "description": "Escritorio Tramitación"
+      },
+      "otd_category": {
+        "name": "Grow",
+        "color": "GRAY",
+        "description": ""
+      },
+      "issueType": {
+        "name": "Project",
+        "color": "GRAY",
+        "description": ""
+      },
+      "subtitle": ""
+    },
+    {
+      "number": "8",
+      "title": "Órganos Colegiados",
+      "body": "",
+      "body_html": "",
+      "state": "open",
+      "status": "Doing",
+      "labels": "",
+      "assignee": "",
+      "milestone": "",
+      "milestone_created_at": "",
+      "milestone_due_on": "",
+      "created_at": "2025-12-21T19:16:42Z",
+      "updated_at": "2025-12-21T19:16:42Z",
+      "closed_at": null,
+      "comments": [],
+      "priority": "P5",
+      "start_date": "",
+      "target_date": "",
+      "subproject": {},
+      "initiative": {
+        "name": "Consilium",
+        "color": "GREEN",
+        "description": "Órganos Colegiados"
+      },
+      "otd_category": {
+        "name": "Transform",
+        "color": "GRAY",
+        "description": ""
+      },
+      "issueType": {
+        "name": "Project",
+        "color": "GRAY",
+        "description": ""
+      },
+      "subtitle": ""
+    },
+    {
+      "number": "7",
+      "title": "Cl@ve",
+      "body": "",
+      "body_html": "",
+      "state": "open",
+      "status": "Backlog",
+      "labels": "",
+      "assignee": "",
+      "milestone": "",
+      "milestone_created_at": "",
+      "milestone_due_on": "",
+      "created_at": "2025-12-21T19:15:49Z",
+      "updated_at": "2025-12-21T19:15:49Z",
+      "closed_at": null,
+      "comments": [],
+      "priority": "",
+      "start_date": "",
+      "target_date": "",
+      "subproject": {},
+      "initiative": {
+        "name": "AGE",
+        "color": "YELLOW",
+        "description": ""
+      },
+      "otd_category": {
+        "name": "Grow",
+        "color": "GRAY",
+        "description": ""
+      },
+      "issueType": {
+        "name": "Initiative",
+        "color": "GRAY",
+        "description": ""
+      },
+      "subtitle": ""
+    },
+    {
+      "number": "6",
+      "title": "Apodera",
+      "body": "Alta en Registro de Apoderamientos (REA)\nPendiente gestión de usuarios",
+      "body_html": "<p dir=\"auto\">Alta en Registro de Apoderamientos (REA)<br>\nPendiente gestión de usuarios</p>",
+      "state": "open",
+      "status": "Doing",
+      "labels": "",
+      "assignee": "",
+      "milestone": "",
+      "milestone_created_at": "",
+      "milestone_due_on": "",
+      "created_at": "2025-12-21T19:14:23Z",
+      "updated_at": "2025-12-22T11:01:46Z",
+      "closed_at": null,
+      "comments": [
+        {
+          "body": "Adhesión al convenio CRUE",
+          "body_html": "<p dir=\"auto\">Adhesión al convenio CRUE</p>",
+          "author": "frpascua",
+          "created_at": "2025-12-22T11:01:46Z",
+          "reactions": {
+            "total_count": 0,
+            "+1": 0,
+            "-1": 0,
+            "laugh": 0,
+            "hooray": 0,
+            "confused": 0,
+            "heart": 0,
+            "rocket": 0,
+            "eyes": 0
+          }
+        }
+      ],
+      "priority": "",
+      "start_date": "",
+      "target_date": "",
+      "subproject": {},
+      "initiative": {
+        "name": "AGE",
+        "color": "YELLOW",
+        "description": ""
+      },
+      "otd_category": {
+        "name": "Transform",
+        "color": "GRAY",
+        "description": ""
+      },
+      "issueType": {
+        "name": "Initiative",
+        "color": "GRAY",
+        "description": ""
+      },
+      "subtitle": "Registro Apoderamientos"
+    },
+    {
+      "number": "5",
+      "title": "GEISER docs",
+      "body": "",
+      "body_html": "",
+      "state": "closed",
+      "status": "Done",
+      "labels": "",
+      "assignee": "",
+      "milestone": "",
+      "milestone_created_at": "",
+      "milestone_due_on": "",
+      "created_at": "2025-12-17T17:10:05Z",
+      "updated_at": "2025-12-17T17:10:07Z",
+      "closed_at": "2025-12-17T17:10:07Z",
+      "comments": [],
+      "priority": "",
+      "start_date": "",
+      "target_date": "",
+      "subproject": {},
+      "initiative": {
+        "name": "ae",
+        "color": "RED",
+        "description": "Escritorio Tramitación"
+      },
+      "otd_category": {
+        "name": "Run",
+        "color": "GRAY",
+        "description": ""
+      },
+      "issueType": {
+        "name": "Task",
+        "color": "GRAY",
+        "description": ""
+      },
+      "subtitle": ""
+    },
+    {
+      "number": "4",
+      "title": "Firma nube",
+      "body": "",
+      "body_html": "",
+      "state": "open",
+      "status": "Blocked",
+      "labels": "",
+      "assignee": "",
+      "milestone": "",
+      "milestone_created_at": "",
+      "milestone_due_on": "",
+      "created_at": "2025-12-17T17:09:37Z",
+      "updated_at": "2025-12-21T19:38:46Z",
+      "closed_at": null,
+      "comments": [],
+      "priority": "",
+      "start_date": "",
+      "target_date": "",
+      "subproject": {},
+      "initiative": {
+        "name": "sede",
+        "color": "GREEN",
+        "description": "Sede Electrónica"
+      },
+      "otd_category": {
+        "name": "Transform",
+        "color": "GRAY",
+        "description": ""
+      },
+      "issueType": {
+        "name": "Project",
+        "color": "GRAY",
+        "description": ""
+      },
+      "subtitle": "Convenio FNMT-CRUE"
+    },
+    {
+      "number": "3",
+      "title": "Órdenes de pago FUR",
+      "body": "",
+      "body_html": "",
+      "state": "open",
+      "status": "Doing",
+      "labels": "",
+      "assignee": "",
+      "milestone": "",
+      "milestone_created_at": "",
+      "milestone_due_on": "",
+      "created_at": "2025-12-16T15:33:35Z",
+      "updated_at": "2025-12-21T19:57:29Z",
+      "closed_at": null,
+      "comments": [],
+      "priority": "P5",
+      "start_date": "2025-12-17",
+      "target_date": "",
+      "subproject": {},
+      "initiative": {
+        "name": "ae",
+        "color": "RED",
+        "description": "Escritorio Tramitación"
+      },
+      "otd_category": {
+        "name": "Transform",
+        "color": "GRAY",
+        "description": ""
+      },
+      "issueType": {
+        "name": "Project",
+        "color": "GRAY",
+        "description": ""
+      },
+      "subtitle": "Algo chulooo"
+    },
+    {
+      "number": "2",
+      "title": "Inicio de convenios",
+      "body": "Procedimiento inicio convenio ORI",
+      "body_html": "<p dir=\"auto\">Procedimiento inicio convenio ORI</p>",
+      "state": "open",
+      "status": "Pending",
+      "labels": "",
+      "assignee": "frpascua",
+      "milestone": "",
+      "milestone_created_at": "",
+      "milestone_due_on": "",
+      "created_at": "2025-12-16T15:32:16Z",
+      "updated_at": "2026-01-22T18:26:18Z",
+      "closed_at": null,
+      "comments": [
+        {
+          "body": "first comment",
+          "body_html": "<p dir=\"auto\">first comment</p>",
+          "author": "frpascua",
+          "created_at": "2026-01-22T18:24:57Z",
+          "reactions": {
+            "total_count": 1,
+            "+1": 1,
+            "-1": 0,
+            "laugh": 0,
+            "hooray": 0,
+            "confused": 0,
+            "heart": 0,
+            "rocket": 0,
+            "eyes": 0
+          }
+        },
+        {
+          "body": "Another!!!",
+          "body_html": "<p dir=\"auto\">Another!!!</p>",
+          "author": "frpascua",
+          "created_at": "2026-01-22T18:26:00Z",
+          "reactions": {
+            "total_count": 0,
+            "+1": 0,
+            "-1": 0,
+            "laugh": 0,
+            "hooray": 0,
+            "confused": 0,
+            "heart": 0,
+            "rocket": 0,
+            "eyes": 0
+          }
+        },
+        {
+          "body": "Lorem **ipsum** uooo _eeeoo_",
+          "body_html": "<p dir=\"auto\">Lorem <strong>ipsum</strong> uooo <em>eeeoo</em></p>",
+          "author": "frpascua",
+          "created_at": "2026-01-22T18:26:18Z",
+          "reactions": {
+            "total_count": 0,
+            "+1": 0,
+            "-1": 0,
+            "laugh": 0,
+            "hooray": 0,
+            "confused": 0,
+            "heart": 0,
+            "rocket": 0,
+            "eyes": 0
+          }
+        }
+      ],
+      "priority": "P1",
+      "start_date": "",
+      "target_date": "",
+      "subproject": {},
+      "initiative": {
+        "name": "Civitas",
+        "color": "GREEN",
+        "description": "Sede Electrónica"
+      },
+      "otd_category": {
+        "name": "Run",
+        "color": "GRAY",
+        "description": ""
+      },
+      "issueType": {
+        "name": "Project",
+        "color": "GRAY",
+        "description": ""
+      },
+      "subtitle": "v1.0"
+    },
+    {
+      "number": "1",
+      "title": "Desarrollo MVP",
+      "body": "Lorem ipsum dolor sit amet, **consectetur adipiscing elit.** Vestibulum molestie erat leo, nec convallis libero congue eget. Sed varius nunc id dictum sagittis. Integer mollis, sem at iaculis ullamcorper, lectus ex rhoncus velit, vel viverra massa dui id tellus. Phasellus et bibendum magna. Maecenas tincidunt lorem vel mollis tempus. Suspendisse viverra pharetra nunc, sed lacinia turpis lacinia eget. Vestibulum finibus imperdiet magna sed condimentum. Nam varius ligula quis leo tristique, eu suscipit risus egestas. ",
+      "body_html": "<p dir=\"auto\">Lorem ipsum dolor sit amet, <strong>consectetur adipiscing elit.</strong> Vestibulum molestie erat leo, nec convallis libero congue eget. Sed varius nunc id dictum sagittis. Integer mollis, sem at iaculis ullamcorper, lectus ex rhoncus velit, vel viverra massa dui id tellus. Phasellus et bibendum magna. Maecenas tincidunt lorem vel mollis tempus. Suspendisse viverra pharetra nunc, sed lacinia turpis lacinia eget. Vestibulum finibus imperdiet magna sed condimentum. Nam varius ligula quis leo tristique, eu suscipit risus egestas.</p>",
+      "state": "open",
+      "status": "Pending",
+      "labels": "bug, enhancement",
+      "assignee": "frpascua",
+      "milestone": "V1",
+      "milestone_created_at": "2025-12-16T15:49:33Z",
+      "milestone_due_on": "2025-12-30T00:00:00Z",
+      "created_at": "2025-12-16T15:17:00Z",
+      "updated_at": "2025-12-18T13:06:54Z",
+      "closed_at": null,
+      "comments": [
+        {
+          "body": "Aenean at porttitor est. Nunc mi ante, convallis sit amet odio pretium, porta iaculis ipsum. Vestibulum nec semper nunc, sed auctor justo. Aliquam lacinia ex id risus rhoncus, quis euismod lacus lobortis. Sed mauris leo, aliquet eu malesuada sit amet, porta non metus. Donec tincidunt mauris in purus finibus ullamcorper. Nam accumsan ornare leo, ac ultricies metus tristique et. Morbi eleifend dignissim turpis et condimentum. Praesent nisi neque, egestas vitae ligula ut, euismod euismod enim. Nam in risus id tellus porttitor varius. Mauris placerat arcu sit amet nibh volutpat aliquam. Etiam luctus nunc quam, vel auctor ligula maximus quis. Integer vitae vulputate lectus. Phasellus at bibendum nisi, vel eleifend eros. Nullam non sapien scelerisque, bibendum neque vel, faucibus ante. Morbi vehicula ex eget ipsum iaculis eleifend. ",
+          "body_html": "<p dir=\"auto\">Aenean at porttitor est. Nunc mi ante, convallis sit amet odio pretium, porta iaculis ipsum. Vestibulum nec semper nunc, sed auctor justo. Aliquam lacinia ex id risus rhoncus, quis euismod lacus lobortis. Sed mauris leo, aliquet eu malesuada sit amet, porta non metus. Donec tincidunt mauris in purus finibus ullamcorper. Nam accumsan ornare leo, ac ultricies metus tristique et. Morbi eleifend dignissim turpis et condimentum. Praesent nisi neque, egestas vitae ligula ut, euismod euismod enim. Nam in risus id tellus porttitor varius. Mauris placerat arcu sit amet nibh volutpat aliquam. Etiam luctus nunc quam, vel auctor ligula maximus quis. Integer vitae vulputate lectus. Phasellus at bibendum nisi, vel eleifend eros. Nullam non sapien scelerisque, bibendum neque vel, faucibus ante. Morbi vehicula ex eget ipsum iaculis eleifend.</p>",
+          "author": "frpascua",
+          "created_at": "2025-12-16T15:34:42Z",
+          "reactions": {
+            "total_count": 1,
+            "+1": 1,
+            "-1": 0,
+            "laugh": 0,
+            "hooray": 0,
+            "confused": 0,
+            "heart": 0,
+            "rocket": 0,
+            "eyes": 0
+          }
+        },
+        {
+          "body": " Aenean dictum ut nulla vel pretium. Nam et mauris velit. Nunc eu sem nibh. Aenean efficitur ultrices metus id sodales. Phasellus posuere, nulla non ultrices faucibus, nunc metus eleifend neque, ut ullamcorper eros lorem ac sapien. Fusce nibh lorem, viverra quis vestibulum eu, tempus id urna. Donec convallis justo at risus hendrerit, ac imperdiet ante accumsan. Curabitur consequat ante lorem, non consectetur metus elementum consectetur. Aenean rutrum sagittis placerat. Proin gravida cursus risus et laoreet. Vivamus sed tellus augue. Sed vitae elit quam. Donec efficitur placerat ante, non hendrerit mi molestie id.\n\n",
+          "body_html": "<p dir=\"auto\">Aenean dictum ut nulla vel pretium. Nam et mauris velit. Nunc eu sem nibh. Aenean efficitur ultrices metus id sodales. Phasellus posuere, nulla non ultrices faucibus, nunc metus eleifend neque, ut ullamcorper eros lorem ac sapien. Fusce nibh lorem, viverra quis vestibulum eu, tempus id urna. Donec convallis justo at risus hendrerit, ac imperdiet ante accumsan. Curabitur consequat ante lorem, non consectetur metus elementum consectetur. Aenean rutrum sagittis placerat. Proin gravida cursus risus et laoreet. Vivamus sed tellus augue. Sed vitae elit quam. Donec efficitur placerat ante, non hendrerit mi molestie id.</p>",
+          "author": "frpascua",
+          "created_at": "2025-12-16T15:49:43Z",
+          "reactions": {
+            "total_count": 1,
+            "+1": 0,
+            "-1": 0,
+            "laugh": 1,
+            "hooray": 0,
+            "confused": 0,
+            "heart": 0,
+            "rocket": 0,
+            "eyes": 0
+          }
+        },
+        {
+          "body": "Fusce pellentesque nunc vel ex convallis, quis rutrum mauris ultrices. Maecenas congue ante mattis turpis faucibus, at eleifend est molestie. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sodales sed mauris a consequat. Donec molestie metus ac mi accumsan cursus. Cras sed finibus erat. Curabitur et sollicitudin mauris. ",
+          "body_html": "<p dir=\"auto\">Fusce pellentesque nunc vel ex convallis, quis rutrum mauris ultrices. Maecenas congue ante mattis turpis faucibus, at eleifend est molestie. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sodales sed mauris a consequat. Donec molestie metus ac mi accumsan cursus. Cras sed finibus erat. Curabitur et sollicitudin mauris.</p>",
+          "author": "frpascua",
+          "created_at": "2025-12-18T13:06:54Z",
+          "reactions": {
+            "total_count": 0,
+            "+1": 0,
+            "-1": 0,
+            "laugh": 0,
+            "hooray": 0,
+            "confused": 0,
+            "heart": 0,
+            "rocket": 0,
+            "eyes": 0
+          }
+        }
+      ],
+      "priority": "P2",
+      "start_date": "2025-12-14",
+      "target_date": "2025-12-18",
+      "subproject": {},
+      "initiative": {
+        "name": "Talos",
+        "color": "BLUE",
+        "description": "Gestor documental"
+      },
+      "otd_category": {
+        "name": "Run",
+        "color": "GRAY",
+        "description": ""
+      },
+      "issueType": {
+        "name": "Task",
+        "color": "GRAY",
+        "description": ""
+      },
+      "subtitle": ""
+    }
+  ]
+}
