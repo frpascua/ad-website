@@ -1,154 +1,161 @@
-# Sitio Web Estático con Autenticación Clerk
+# Sitio Web con Autenticación Supabase
 
-Este es un sitio web estático de ejemplo que implementa autenticación por email usando [Clerk](https://clerk.com/). Incluye middleware de protección de rutas para páginas que requieren autenticación.
+Este es un sitio web estático con autenticación mediante **Magic Link** (enlace mágico) usando Supabase Auth. Sin contraseñas, más seguro y fácil de usar.
 
-## 📋 Características
+## ✨ ¿Qué es Magic Link?
 
-- ✅ Autenticación por email con Clerk
-- ✅ Middleware de protección de rutas
+Magic Link es un método de autenticación sin contraseña donde:
+1. El usuario ingresa su email
+2. Supabase envía un enlace único al email
+3. El usuario hace clic en el enlace
+4. Queda autenticado automáticamente
+
+**Ventajas:**
+- ✅ Sin contraseñas que recordar
+- ✅ Más seguro (el enlace expira)
+- ✅ Funciona tanto para registro como login
+- ✅ Mejor experiencia de usuario
+
+## 🚀 Características
+
+- ✅ Autenticación con Magic Link (enlace mágico por email)
+- ✅ Autenticación con Google (OAuth)
 - ✅ Dashboard protegido para usuarios autenticados
+- ✅ Cierre de sesión
 - ✅ Diseño responsive y moderno
-- ✅ HTML, CSS y JavaScript puros (sin frameworks)
+- ✅ Sin contraseñas - más seguro y fácil
+- ✅ Mensajes de error y éxito
 
-## 🚀 Configuración Inicial
+## 📋 Requisitos Previos
 
-### 1. Crear una cuenta en Clerk
+1. Una cuenta en [Supabase](https://supabase.com)
+2. Un proyecto creado en Supabase
+3. Un navegador web moderno
 
-1. Ve a [https://clerk.com](https://clerk.com) y crea una cuenta gratuita
-2. Crea una nueva aplicación en el dashboard de Clerk
-3. Selecciona "Email" como método de autenticación
+## 🔧 Configuración
 
-### 2. Obtener las credenciales de Clerk
+### Paso 1: Crear un Proyecto en Supabase
 
-En el dashboard de Clerk:
+1. Ve a [https://supabase.com](https://supabase.com) y crea una cuenta gratuita
+2. Crea un nuevo proyecto
+3. Espera a que el proyecto se inicialice (puede tomar unos minutos)
 
-1. Ve a la sección **API Keys**
-2. Copia tu **Publishable Key** (clave pública)
-3. Copia tu **Frontend API** URL
+### Paso 2: Obtener las Credenciales
 
-### 3. Configurar el sitio web
+1. En tu proyecto de Supabase, ve a **Settings** (Configuración) → **API**
+2. Copia los siguientes valores:
+   - **Project URL** (URL del proyecto)
+   - **Publishable key** (Clave pública)
 
-#### Opción A: Editar directamente los archivos HTML
+### Paso 3: Configurar el Archivo auth.js
 
-Abre `index.html` y busca la línea:
+1. Abre el archivo `auth.js`
+2. Busca estas líneas al inicio del archivo:
+   ```javascript
+   const SUPABASE_URL = 'TU_SUPABASE_URL';
+   const SUPABASE_PUBLISHABLE_KEY = 'TU_SUPABASE_PUBLISHABLE_KEY';
+   ```
+3. Reemplaza `TU_SUPABASE_URL` con tu Project URL
+4. Reemplaza `TU_SUPABASE_PUBLISHABLE_KEY` con tu Publishable key
 
-```html
-<script
-    async
-    crossorigin="anonymous"
-    data-clerk-publishable-key="YOUR_CLERK_PUBLISHABLE_KEY"
-    src="https://[your-clerk-frontend-api].clerk.accounts.dev/npm/@clerk/clerk-js@latest/dist/clerk.browser.js"
-    type="text/javascript"
-></script>
-```
+### Paso 4: Configurar la Autenticación en Supabase
 
-Reemplaza:
-- `YOUR_CLERK_PUBLISHABLE_KEY` con tu Publishable Key
-- `[your-clerk-frontend-api]` con tu Frontend API (ejemplo: `clerk.amazing-app-12.lcl.dev`)
+1. En tu proyecto de Supabase, ve a **Authentication** → **Providers**
+2. Asegúrate de que **Email** esté habilitado
+3. **IMPORTANTE:** Configura las URLs de redirección:
+   - Ve a **Authentication** → **URL Configuration**
+   - Agrega tu URL local a **Redirect URLs**: `http://localhost:8000/dashboard.html` (ajusta el puerto según tu servidor)
+   - Para producción, agrega también tu dominio: `https://tudominio.com/dashboard.html`
+4. En **Authentication** → **Email Templates**, personaliza la plantilla "Magic Link" si lo deseas
+5. (Opcional) Para habilitar Google OAuth:
+   - Habilita el proveedor **Google**
+   - Sigue las instrucciones para configurar OAuth con Google
+   - Agrega tu URL de redirección autorizada
 
-Haz lo mismo en `dashboard.html`.
+## 🎯 Uso
 
-#### Opción B: Usar variables de entorno (recomendado para desarrollo local)
+### Abrir el Sitio Web
 
-Si usas un servidor local con soporte para variables de entorno, puedes crear un archivo `.env`:
+Puedes abrir el sitio de varias formas:
 
-```env
-VITE_CLERK_PUBLISHABLE_KEY=pk_test_your_key_here
-CLERK_FRONTEND_API=clerk.your-app.lcl.dev
-```
+1. **Directamente en el navegador:**
+   - Abre `index.html` en tu navegador favorito
 
-## 📂 Estructura del Proyecto
+2. **Con un servidor local (recomendado):**
+   ```bash
+   # Con Python
+   python -m http.server 8000
+   
+   # Con Node.js (npx)
+   npx http-server
+   
+   # Con VS Code Live Server
+   # Instala la extensión "Live Server" y haz clic derecho en index.html
+   ```
+
+### Iniciar Sesión con Magic Link
+
+1. Abre `index.html` en tu navegador
+2. Ingresa tu email
+3. Haz clic en **"Enviar enlace mágico"**
+4. Revisa tu email y haz clic en el enlace recibido
+5. Serás redirigido automáticamente al dashboard
+
+**Ventajas del Magic Link:**
+- No necesitas recordar contraseñas
+- Más seguro (el enlace expira)
+- Funciona tanto para registro como para login
+
+### Iniciar Sesión con Google
+
+1. Haz clic en el botón **"Continuar con Google"**
+2. Selecciona tu cuenta de Google
+3. Serás redirigido al dashboard
+
+## 📁 Estructura del Proyecto
 
 ```
 ad-website/
-├── index.html          # Página principal con login
-├── dashboard.html      # Página protegida (requiere autenticación)
+├── index.html          # Página principal (Magic Link)
+├── dashboard.html      # Página protegida (dashboard)
 ├── styles.css          # Estilos CSS
-├── auth.js             # Lógica de autenticación para index.html
-├── middleware.js       # Middleware de protección para páginas protegidas
-└── README.md           # Este archivo
+├── auth.js            # Lógica de autenticación con Magic Link
+└── README.md          # Este archivo
 ```
 
-## 🔧 Cómo Funciona
+## 🔒 Seguridad
 
-### Autenticación (auth.js)
+### Políticas de Row Level Security (RLS)
 
-El archivo `auth.js` maneja la autenticación en la página principal:
+Si planeas almacenar datos de usuarios en tablas personalizadas:
 
-1. **Inicialización**: Carga el SDK de Clerk cuando la página se carga
-2. **Verificación**: Comprueba si el usuario ya está autenticado
-3. **UI Dinámica**: Muestra el formulario de login o la información del usuario
-4. **Listeners**: Escucha cambios en el estado de autenticación
+1. Ve a **Database** → **Tables**
+2. Selecciona tu tabla
+3. Habilita **Row Level Security (RLS)**
+4. Crea políticas para proteger los datos:
 
-### Middleware (middleware.js)
+```sql
+-- Ejemplo: Los usuarios solo pueden ver sus propios datos
+CREATE POLICY "Users can view own data" 
+ON your_table
+FOR SELECT 
+USING (auth.uid() = user_id);
 
-El archivo `middleware.js` protege las páginas que requieren autenticación:
-
-1. **Verificación**: Comprueba si el usuario está autenticado al cargar la página
-2. **Redirección**: Redirige a usuarios no autenticados a la página principal
-3. **Protección**: Oculta el contenido protegido hasta verificar la autenticación
-4. **Listeners**: Detecta si el usuario cierra sesión y redirige automáticamente
-
-### Flujo de Usuario
-
+-- Ejemplo: Los usuarios solo pueden insertar sus propios datos
+CREATE POLICY "Users can insert own data" 
+ON your_table
+FOR INSERT 
+WITH CHECK (auth.uid() = user_id);
 ```
-1. Usuario visita index.html
-   ↓
-2. Si NO está autenticado → Muestra formulario de login
-   ↓
-3. Usuario ingresa email y contraseña
-   ↓
-4. Clerk autentica al usuario
-   ↓
-5. Usuario puede acceder a dashboard.html
-   ↓
-6. Middleware verifica autenticación
-   ↓
-7. Si está autenticado → Muestra contenido protegido
-   Si NO está autenticado → Redirige a index.html
-```
-
-## 🌐 Ejecutar el Sitio
-
-### Opción 1: Servidor Local Simple (Python)
-
-```bash
-# Python 3
-python -m http.server 8000
-
-# O Python 2
-python -m SimpleHTTPServer 8000
-```
-
-Luego abre: `http://localhost:8000`
-
-### Opción 2: Live Server (VS Code)
-
-1. Instala la extensión "Live Server" en VS Code
-2. Haz clic derecho en `index.html`
-3. Selecciona "Open with Live Server"
-
-### Opción 3: Node.js (http-server)
-
-```bash
-# Instalar http-server globalmente
-npm install -g http-server
-
-# Ejecutar servidor
-http-server -p 8000
-```
-
-### Opción 4: Cualquier servidor web
-
-Puedes usar cualquier servidor web que sirva archivos estáticos:
-- Apache
-- Nginx
-- Caddy
-- Netlify
-- Vercel
-- GitHub Pages
 
 ## 🎨 Personalización
+
+### Cambiar el tiempo de expiración del Magic Link
+
+En Supabase:
+1. Ve a **Authentication** → **Email Templates**
+2. Selecciona **Magic Link**
+3. Ajusta el tiempo de expiración del enlace (por defecto 1 hora)
 
 ### Cambiar Colores
 
@@ -156,178 +163,71 @@ Edita las variables CSS en `styles.css`:
 
 ```css
 :root {
-    --primary-color: #6366f1;      /* Color principal */
-    --secondary-color: #8b5cf6;    /* Color secundario */
-    --accent-color: #ec4899;       /* Color de acento */
-    /* ... más colores */
-}
-```
+    --primary-color: #3b82f6;      /* Color principal */
+    --primary-hover: #2563eb;      /* Color hover */
+Con Magic Link, puedes agregar metadata adicional:
 
-### Personalizar Clerk UI
-
-En `auth.js`, puedes personalizar la apariencia del componente de login:
+1. Modifica el formulario en `index.html` para incluir más campos
+2. Actualiza la función `handleMagicLink()` en `auth.js`:
 
 ```javascript
-Clerk.mountSignIn(signInDiv, {
-    appearance: {
-        elements: {
-            rootBox: 'clerk-root-box',
-            card: 'clerk-card',
-        },
-        variables: {
-            colorPrimary: '#6366f1',
-            // Añade más variables de personalización
+const { data, error } = await window.supabase.auth.signInWithOtp({
+    email: email,
+    options: {
+        emailRedirectTo: `${window.location.origin}/dashboard.html`,a función `handleRegister()` en `auth.js`
+3. Usa `metadata` para campos adicionales:
+
+```javascript
+const { data, error } = await supabase.auth.signUp({
+    email: email,
+    password: password,
+    options: {
+        data: {
+            nombre: nombre,
+            apellido: apellido
         }
     }
 });
 ```
 
-### Añadir Más Páginas Protegidas
-
-Para crear una nueva página protegida:
-
-1. Crea un nuevo archivo HTML (ejemplo: `profile.html`)
-2. Incluye el SDK de Clerk y `middleware.js`:
-
-```html
-<script
-    async
-    crossorigin="anonymous"
-    data-clerk-publishable-key="YOUR_CLERK_PUBLISHABLE_KEY"
-    src="https://[your-clerk-frontend-api].clerk.accounts.dev/npm/@clerk/clerk-js@latest/dist/clerk.browser.js"
-    type="text/javascript"
-></script>
-<script src="middleware.js"></script>
-```
-
-3. Añade los elementos necesarios:
-
-```html
-<div id="loading" class="loading">
-    <p>Verificando autenticación...</p>
-</div>
-
-<div id="protected-content" style="display: none;">
-    <!-- Tu contenido protegido aquí -->
-</div>
-
-<div id="unauthorized" style="display: none;">
-    <h2>Acceso No Autorizado</h2>
-    <a href="index.html">Volver al Inicio</a>
-</div>
-```
-
-## 🔐 Características Avanzadas
-
-### Control de Acceso Basado en Roles
-
-El middleware incluye funciones para verificar roles:
-
-```javascript
-// En middleware.js
-if (ClerkMiddleware.hasRole('admin')) {
-    // Mostrar contenido solo para administradores
-}
-```
-
-Para configurar roles en Clerk:
-1. Ve al dashboard de Clerk
-2. Selecciona un usuario
-3. En "Public Metadata", añade:
-
-```json
-{
-  "roles": ["admin", "user"]
-}
-```
-
-### Permisos Personalizados
-
-```javascript
-if (ClerkMiddleware.hasAccess('view_analytics')) {
-    // Mostrar analytics
-}
-```
-
-Configura permisos en el Public Metadata del usuario:
-
-```json
-{
-  "permissions": ["view_analytics", "edit_content"]
-}
-```
-
 ## 🐛 Solución de Problemas
 
-### Error: "Clerk is not defined"
+### "Invalid API Key" o "Invalid Project URL"
 
-**Causa**: El SDK de Clerk no se ha cargado completamente.
+- Verifica que hayas copiado correctamente las credenciales de Supabase
+- Asegúrate de no tener espacios al inicio o final de las credenciales
 
-**Solución**: Asegúrate de que la URL del script de Clerk sea correcta y que tenga el atributo `async`.
+### "Email not confirmed"
 
-### El formulario de login no aparece
+- Con Magic Link no necesitas confirmación manual
+- El enlace mágico autentica automáticamente al usuario
+- Si tienes problemas, verifica que el proveedor Email esté habilitado en Supabase
 
-**Causa**: La clave pública de Clerk es incorrecta o no está configurada.
+### OAuth de Google no funciona
 
-**Solución**: Verifica que `data-clerk-publishable-key` tenga el valor correcto.
+- Verifica que hayas configurado correctamente las credenciales de Google
+- Asegúrate de que la URL de redirección esté autorizada
+- Usa un servidor local (no `file://`)
 
-### Redirigido inmediatamente desde el dashboard
+### CORS Errors
 
-**Causa**: El usuario no está autenticado o la sesión expiró.
-
-**Solución**: Vuelve a iniciar sesión en `index.html`.
-
-### CORS errors
-
-**Causa**: Estás abriendo el archivo HTML directamente (`file://`) en lugar de usar un servidor.
-
-**Solución**: Usa uno de los métodos de servidor local mencionados arriba.
+- Usa un servidor local en lugar de abrir archivos directamente
+- Verifica la configuración de CORS en Supabase si usas dominios personalizados
 
 ## 📚 Recursos Adicionales
 
-- [Documentación de Clerk](https://clerk.com/docs)
-- [Clerk JavaScript SDK](https://clerk.com/docs/references/javascript/overview)
-- [Ejemplos de Clerk](https://github.com/clerk/clerk-docs)
-
-## 📝 Notas de Seguridad
-
-- ✅ **Nunca** incluyas tu Secret Key en código del lado del cliente
-- ✅ La Publishable Key es segura para usar en el frontend
-- ✅ Todas las verificaciones de autenticación del lado del servidor deben hacerse en Clerk
-- ✅ Para aplicaciones en producción, considera implementar un backend
-
-## 🚀 Deploy
-
-### Netlify
-
-1. Sube tu proyecto a GitHub
-2. Conecta tu repositorio en Netlify
-3. En "Build settings", deja todo vacío (es un sitio estático)
-4. Añade las variables de entorno si es necesario
-5. Deploy!
-
-### Vercel
-
-```bash
-npm install -g vercel
-vercel
-```
-
-### GitHub Pages
-
-1. Sube el proyecto a un repositorio de GitHub
-2. Ve a Settings → Pages
-3. Selecciona la rama `main` y carpeta `/root`
-4. Tu sitio estará en `https://tu-usuario.github.io/tu-repo`
-
-## 📄 Licencia
-
-Este proyecto es un ejemplo de código abierto. Puedes usarlo libremente para tus propios proyectos.
+- [Documentación de Supabase Auth](https://supabase.com/docs/guides/auth)
+- [Supabase JavaScript Client](https://supabase.com/docs/reference/javascript/auth-signup)
+- [Row Level Security (RLS)](https://supabase.com/docs/guides/auth/row-level-security)
 
 ## 🤝 Contribuciones
 
-Las contribuciones son bienvenidas. Por favor, abre un issue o pull request.
+Este es un proyecto de ejemplo. Siéntete libre de modificarlo y mejorarlo según tus necesidades.
+
+## 📄 Licencia
+
+Este proyecto es de código abierto y está disponible para uso libre.
 
 ---
 
-**¡Disfruta construyendo con Clerk! 🎉**
+¡Desarrollado con ❤️ usando Supabase!
