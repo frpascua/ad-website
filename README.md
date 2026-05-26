@@ -238,6 +238,10 @@ Todas estarán automáticamente protegidas por el middleware.
 
 ## ⚠️ Troubleshooting
 
+### "No FastAPI entrypoint found"
+
+Este error se soluciona con el archivo `pyproject.toml`. Ver [VERCEL_TROUBLESHOOTING.md](VERCEL_TROUBLESHOOTING.md) para detalles completos.
+
 ### "Error enviando email"
 
 - Verifica que `RESEND_API_KEY` esté correctamente configurada
