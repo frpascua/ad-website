@@ -25,12 +25,12 @@ const logTransports = [];
 // En desarrollo: logs a archivo con rotación diaria
 if (!isProduction) {
   const logDir = path.join(__dirname, '..', 'logs');
-  
+
   // Crear directorio de logs si no existe
   if (!fs.existsSync(logDir)) {
     fs.mkdirSync(logDir, { recursive: true });
   }
-  
+
   logTransports.push(
     new winston.transports.DailyRotateFile({
       filename: path.join(logDir, 'access-%DATE%.log'),
@@ -103,13 +103,13 @@ const JWT_SECRET = process.env.JWT_SECRET || 'tu-super-secreto-cambiar-en-produc
 // Lista de emails autorizados (whitelist)
 // Puede configurarse via variable de entorno ALLOWED_EMAILS (separados por comas)
 // Ejemplo: ALLOWED_EMAILS=admin@unirioja.es,user@unirioja.es,otro@example.com
-const ALLOWED_EMAILS = process.env.ALLOWED_EMAILS 
+const ALLOWED_EMAILS = process.env.ALLOWED_EMAILS
   ? process.env.ALLOWED_EMAILS.split(',').map(email => email.trim().toLowerCase())
   : [
-      'admin@unirioja.es',
-      'fran.barroso@unirioja.es',
-      // Agrega más emails permitidos aquí
-    ];
+    'admin@unirioja.es',
+    'fran.barroso@unirioja.es',
+    // Agrega más emails permitidos aquí
+  ];
 
 // Inicializar cliente de Resend (solo si hay API key configurada)
 const resend = process.env.RESEND_API_KEY ? new Resend(process.env.RESEND_API_KEY) : null;
@@ -179,8 +179,8 @@ app.post('/api/auth/magic-link', async (req, res) => {
   const { email } = req.body;
 
   if (!email || !email.includes('@')) {
-    return res.status(400).json({ 
-      error: 'Email inválido' 
+    return res.status(400).json({
+      error: 'Email inválido'
     });
   }
 
@@ -196,13 +196,13 @@ app.post('/api/auth/magic-link', async (req, res) => {
       userAgent,
       razon: 'No está en ALLOWED_EMAILS'
     });
-    return res.status(403).json({ 
+    return res.status(403).json({
       error: 'Acceso no autorizado',
-      mensaje: 'Este email no tiene permisos para acceder al sistema. Contacta con el administrador.'
+      mensaje: 'Access to the system is not available at this time. Please contact the administrator.'
     });
   }
 
-  accessLogger.info('Solicitud de Magic Link autorizada', {
+  accessLogger.info('Magic link authorized', {
     email: emailLowerCase,
     ip,
     userAgent
@@ -243,7 +243,7 @@ app.post('/api/auth/magic-link', async (req, res) => {
     const { data, error } = await resend.emails.send({
       from: process.env.RESEND_FROM_EMAIL || 'onboarding@resend.dev',
       to: email,
-      subject: '🔐 Tu enlace mágico de acceso',
+      subject: '🔐 Access to unirioja workspace',
       html: `
         <!DOCTYPE html>
         <html>
@@ -289,7 +289,7 @@ app.post('/api/auth/magic-link', async (req, res) => {
                 text-decoration: none;
                 border-radius: 8px;
                 font-weight: 600;
-                font-size: 16px;
+                font-size: 24px;
                 margin: 20px 0;
               }
               .info {
@@ -310,37 +310,37 @@ app.post('/api/auth/magic-link', async (req, res) => {
           </head>
           <body>
             <div class="container">
-              <h1>🔐 Acceso Seguro</h1>
-              <p class="subtitle">Tu enlace mágico está listo</p>
+              <h1>🔐 Access to unirioja workspace</h1>
+              <p class="subtitle">Your magic link is ready</p>
               
               <div class="content">
                 <p style="font-size: 18px; color: #2d3748; margin-bottom: 10px;">
                   ¡Hola! 👋
                 </p>
                 <p style="color: #718096; margin-bottom: 30px;">
-                  Haz clic en el botón de abajo para iniciar sesión en tu cuenta.
-                  No necesitas recordar ninguna contraseña.
+                  Click the button below to sign in to your account.
+                  You don't need to remember any passwords.
                 </p>
                 
                 <a href="${enlaceVerificacion}" class="button">
-                  ✨ Iniciar ahora
+                  ✨ Sign in now
                 </a>
                 
                 <div class="info">
-                  <p style="margin: 0 0 10px 0;"><strong>⏱️ Este enlace expira en 15 minutos</strong></p>
+                  <p style="margin: 0 0 10px 0;"><strong>⏱️ This link expires in 15 minutes</strong></p>
                   <p style="margin: 0; font-size: 13px;">
-                    Si no solicitaste este enlace, puedes ignorar este correo de forma segura.
+                    If you didn't request this link, you can safely ignore this email.
                   </p>
                 </div>
                 
                 <p style="font-size: 12px; color: #a0aec0; margin-top: 30px; margin-bottom: 0;">
-                  ¿El botón no funciona? Copia y pega este enlace en tu navegador:<br>
+                  Does the button not work? Copy and paste this link into your browser:<br>
                   <span style="color: #667eea; word-break: break-all;">${enlaceVerificacion}</span>
                 </p>
               </div>
               
               <div class="footer">
-                <p>🔒 Autenticación segura sin contraseñas</p>
+                <p>🔒 Secure authentication without passwords</p>
               </div>
             </div>
           </body>
@@ -414,8 +414,8 @@ app.get('/api/auth/verificar', (req, res) => {
       userAgent
     });
 
-    // Redirigir al dashboard
-    res.redirect('/dashboard');
+    // Redirigir al inicio
+    res.redirect('/app/index.html');
 
   } catch (error) {
     const ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
@@ -506,6 +506,10 @@ app.get('/api/auth/logout', (req, res) => {
 // ============================================
 app.use('/public', express.static(path.join(__dirname, '..', 'public')));
 
+// Servir assets directamente (sin prefijo /public)
+app.use('/assets', express.static(path.join(__dirname, '..', 'public', 'assets')));
+app.use('/css', express.static(path.join(__dirname, '..', 'public', 'css')));
+
 // Rutas para login (con y sin .html para compatibilidad)
 app.get('/login', (req, res) => {
   res.sendFile(path.join(__dirname, '..', 'public', 'login.html'));
@@ -519,10 +523,15 @@ app.get('/login.html', (req, res) => {
 // RUTAS PROTEGIDAS - VISTAS PRIVADAS
 // ============================================
 
-// Ruta para dashboard (por defecto)
-app.get('/dashboard', verificarSesion, (req, res) => {
-  res.sendFile(path.join(__dirname, '..', 'views', 'dashboard.html'));
+// Redirect a app/index.html
+app.get('/unirioja', verificarSesion, (req, res) => {
+  res.redirect('/app/index.html');
 });
+
+app.get('/dashboard', verificarSesion, (req, res) => {
+  res.redirect('/app/index.html');
+});
+
 
 // Ruta para perfil
 app.get('/profile', verificarSesion, (req, res) => {
@@ -533,7 +542,7 @@ app.get('/profile', verificarSesion, (req, res) => {
 // IMPORTANTE: Esta ruta captura cualquier intento de acceder a /views/* directamente
 app.get('/views/*', verificarSesion, (req, res) => {
   const rutaRelativa = req.params[0]; // Captura todo después de /views/
-  
+
   // Prevenir path traversal attacks (pero permitir subdirectorios normales)
   if (rutaRelativa.includes('..')) {
     return res.status(403).send('Acceso denegado');
@@ -545,7 +554,7 @@ app.get('/views/*', verificarSesion, (req, res) => {
 // Ruta alternativa con prefijo /app
 app.get('/app/*', verificarSesion, (req, res) => {
   const rutaRelativa = req.params[0]; // Captura todo después de /app/
-  
+
   if (rutaRelativa.includes('..')) {
     return res.status(403).send('Acceso denegado');
   }
@@ -643,7 +652,7 @@ if (process.env.NODE_ENV !== 'production') {
     console.log('📍 URL:', `http://localhost:${PORT}`);
     console.log('🔐 Modo:', 'Desarrollo');
     console.log('');
-    
+
     // Escribir log de inicio
     accessLogger.info('Servidor iniciado', {
       puerto: PORT,

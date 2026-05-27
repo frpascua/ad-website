@@ -9,7 +9,7 @@
      * @returns {Promise<Object>} Schema data
      */
     function fetchSchema() {
-        return fetch('/schema.json')
+        return fetch('/views/assets/js/schema.json')
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Failed to load schema.json');
@@ -65,7 +65,7 @@
         th.scope = 'row';
         th.className = 'ka-table__header';
         const link = document.createElement('a');
-        link.href = item.url;
+        link.href = '/app' + item.url;
         link.textContent = item.title;
         th.appendChild(link);
 

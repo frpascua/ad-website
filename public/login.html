@@ -1,40 +1,31 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Iniciar Sesión - Magic Link</title>
+  <title>Access unirioja workspace</title>
   <link rel="stylesheet" href="/public/css/styles.css">
 </head>
+
 <body>
   <div class="login-container">
     <div class="login-box">
       <div class="logo">
-        <svg width="60" height="60" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
+        <img src="/public/assets/images/dev-tasker-logo.png" style="  mix-blend-mode: screen; height: 128px;" />
       </div>
-      
-      <h1>Bienvenido</h1>
-      <p class="subtitle">Ingresa tu correo electrónico para recibir un enlace mágico de acceso</p>
-      
+
+      <h1>Welcome to <span style="color: #7159B5;">unirioja</span> workspace</h1>
+      <p class="subtitle">Enter your email address to receive a secure sign-in link.</p>
+
       <form id="loginForm">
         <div class="form-group">
-          <label for="email">Correo Electrónico</label>
-          <input 
-            type="email" 
-            id="email" 
-            name="email" 
-            placeholder="tu@email.com" 
-            required
-            autocomplete="email"
-          >
+          <label for="email">Email address</label>
+          <input type="email" id="email" name="email" placeholder="your@email.com" required autocomplete="email">
         </div>
-        
+
         <button type="submit" class="btn-primary" id="submitBtn">
-          <span class="btn-text">Continuar</span>
+          <span class="btn-text">Continue</span>
           <span class="btn-loader" style="display: none;">
             <svg class="spinner" viewBox="0 0 50 50">
               <circle class="path" cx="25" cy="25" r="20" fill="none" stroke-width="5"></circle>
@@ -42,18 +33,18 @@
           </span>
         </button>
       </form>
-      
+
       <div id="message" class="message" style="display: none;"></div>
-      
+
       <div class="info-box">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
-          <path d="M12 16V12M12 8H12.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" />
+          <path d="M12 16V12M12 8H12.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
         </svg>
-        <p>No usamos contraseñas. Te enviaremos un enlace seguro que expira en 15 minutos.</p>
+        <p>We don't use passwords. We'll send you a secure link that expires in 15 minutes.</p>
       </div>
     </div>
-    
+
     <footer>
       <p>Made with ❤️ at Universidad de La Rioja</p>
     </footer>
@@ -68,9 +59,9 @@
 
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
-      
+
       const email = document.getElementById('email').value;
-      
+
       // Mostrar loader
       submitBtn.disabled = true;
       btnText.style.display = 'none';
@@ -90,7 +81,7 @@
 
         if (response.ok) {
           messageDiv.className = 'message success';
-          
+
           // Verificar si es modo desarrollo o producción
           if (data.desarrollo) {
             // Modo desarrollo (sin Resend configurado)
@@ -110,17 +101,17 @@
           } else {
             // Modo producción (con Resend)
             messageDiv.innerHTML = `
-              <strong>✅ ¡Email Enviado!</strong>
-              <p>Hemos enviado un enlace a <strong>${email}</strong></p>
-              <p>📧 Revisa tu bandeja de entrada y haz clic en el botón del email.</p>
+              <strong>✅ Email sent!</strong>
+              <p>We have sent a link to <strong>${email}</strong></p>
+              <p>📧 Check your inbox and click the button in the email.</p>
               <p style="font-size: 0.875rem; color: #718096; margin-top: 1rem;">
-                ⏱️ El enlace expira en 15 minutos.<br>
-                📬 Si no ves el email, revisa tu carpeta de spam.
+              ⏱️ The link expires in 15 minutes.<br>
+              📬 If you don’t see the email, check your spam folder.
               </p>
             `;
           }
           messageDiv.style.display = 'block';
-          
+
           // Resetear formulario
           form.reset();
         } else {
@@ -147,4 +138,5 @@
     });
   </script>
 </body>
+
 </html>
