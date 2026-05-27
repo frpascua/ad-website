@@ -525,13 +525,8 @@ app.get('/dashboard', verificarSesion, (req, res) => {
 });
 
 // Ruta para perfil
-app.get('/perfil', verificarSesion, (req, res) => {
+app.get('/profile', verificarSesion, (req, res) => {
   res.sendFile(path.join(__dirname, '..', 'views', 'perfil.html'));
-});
-
-// Ruta para reportes
-app.get('/reportes', verificarSesion, (req, res) => {
-  res.sendFile(path.join(__dirname, '..', 'views', 'reportes.html'));
 });
 
 // Ruta dinámica para cualquier archivo en /views
