@@ -1,294 +1,481 @@
-# 🔐 Sistema de Autenticación con Magic Link - FastAPI + Vercel
+# 🔐 Autenticación Magic Link con JWT en Vercel
 
-Sistema completo de autenticación sin contraseña usando magic links para proteger contenido estático en Vercel.
+Aplicación web minimalista y segura con autenticación sin contraseña mediante **Magic Links** (Enlaces Mágicos) usando JWT y Express, optimizada para despliegue en Vercel Serverless con pnpm.
 
-## 🎯 Características
+## ✨ Características Principales
 
-- ✅ Autenticación sin contraseña mediante magic link
-- ✅ Protección de rutas `/ad/*` con middleware
-- ✅ Whitelist de emails hardcodeada (sin base de datos)
-- ✅ JWT para tokens de sesión y magic links
-- ✅ Envío de emails con Resend
-- ✅ Cookies seguras (httpOnly, secure, sameSite)
-- ✅ Desplegable en Vercel serverless
+- ✅ **Autenticación sin contraseña** mediante Magic Links por correo electrónico
+- � **Control de acceso por whitelist** - Solo emails autorizados pueden iniciar sesión- 📊 **Sistema de logging completo** - Auditoría de todos los accesos con rotación diaria- �🔒 **Protección absoluta de carpetas** - La carpeta `/views/` es completamente inaccesible sin autenticación
+- 🛡️ **JWT seguro** con cookies HTTP-Only
+- 🚫 **Prevención de descargas no autorizadas** - Imposible usar wget, curl u otras herramientas sin sesión válida
+- ⚡ **Optimizado para Vercel Serverless** (capa gratuita Hobby)
+- 📦 **Gestor de paquetes pnpm** para instalaciones rápidas y eficientes
+- 🎨 **UI moderna y responsive** con gradientes y animaciones
 
 ## 📁 Estructura del Proyecto
 
 ```
-/
+mi-proyecto/
+├── public/                  # ✅ Archivos públicos accesibles por cualquiera
+│   ├── css/
+│   │   └── styles.css      # Estilos CSS globales
+│   └── login.html          # Formulario de login público
+├── views/                   # 🔒 CARPETA PROTEGIDA - Solo con autenticación válida
+│   ├── dashboard.html      # Panel principal (requiere sesión)
+│   ├── perfil.html         # Página de perfil (requiere sesión)
+│   └── reportes.html       # Reportes analíticos (requiere sesión)
 ├── api/
-│   └── main.py              # FastAPI backend con todos los endpoints
-├── ad/
-│   ├── index.html           # Página protegida (ejemplo)
-│   └── ...                  # Otros archivos protegidos
-├── public/
-│   └── login.html           # Página de login
-├── vercel.json              # Configuración de Vercel
-├── pyproject.toml           # Configuración del entrypoint FastAPI
-├── requirements.txt         # Dependencias Python
-├── .env.example             # Variables de entorno de ejemplo
-└── README.md                # Este archivo
+│   └── index.js            # 🚀 Aplicación Express (Serverless Function de Vercel)
+├── vercel.json             # ⚙️ Configuración de rutas y builds de Vercel
+├── package.json            # 📦 Dependencias del proyecto (configurado para pnpm)
+├── .gitignore              # 🚫 Archivos ignorados por Git
+└── README.md               # 📖 Este archivo
 ```
 
-## 🚀 Despliegue en Vercel
+## 🚀 Instalación y Configuración
 
-### 1. Preparación
+### Prerrequisitos
 
-Asegúrate de tener:
-- Una cuenta en [Vercel](https://vercel.com)
-- Una cuenta en [Resend](https://resend.com) para envío de emails
-- Un dominio verificado en Resend (o usar el dominio de prueba)
+- **Node.js** >= 18.0.0
+- **pnpm** >= 8.0.0 (Instalación: `npm install -g pnpm`)
 
-### 2. Clonar o Inicializar el Proyecto
+### Paso 1: Inicializar el Proyecto
 
-```bash
-git clone <tu-repositorio>
-cd ad-website
+```powershell
+# Crear carpeta del proyecto (si no existe)
+mkdir mi-proyecto
+cd mi-proyecto
+
+# Inicializar pnpm (opcional, el package.json ya existe)
+# pnpm init
 ```
 
-### 3. Configurar Variables de Entorno en Vercel
+### Paso 2: Instalar Dependencias con pnpm
 
-Ve a tu proyecto en Vercel → Settings → Environment Variables y agrega las siguientes 4 variables:
-
-| Variable | Descripción | Ejemplo |
-|----------|-------------|---------|
-| `JWT_SECRET` | Clave secreta para firmar JWT (genera una aleatoria) | `your-super-secret-key-min-32-chars` |
-| `RESEND_API_KEY` | API Key de Resend | `re_123abc...` |
-| `BASE_URL` | URL de tu aplicación en producción | `https://tu-dominio.vercel.app` |
-| `FROM_EMAIL` | Email remitente verificado en Resend | `login@tudominio.com` |
-
-**Importante:** 
-- Las variables deben configurarse en el **Dashboard de Vercel**, no en `vercel.json`
-- Genera un JWT_SECRET seguro:
-```bash
-python -c "import secrets; print(secrets.token_urlsafe(32))"
+```powershell
+# Instalar todas las dependencias del proyecto
+pnpm install
 ```
 
-### 4. Configurar Whitelist de Emails
+**Dependencias instaladas:**
+- `express` - Framework web minimalista
+- `jsonwebtoken` - Generación y verificación de JWT
+- `cookie-parser` - Manejo de cookies en Express
 
-Edita `api/main.py` y actualiza la lista `ALLOWED_EMAILS`:
+### Paso 3: Configurar Variables de Entorno (Opcional para Desarrollo)
 
-```python
-ALLOWED_EMAILS = [
-    "usuario1@correo.com",
-    "usuario2@correo.com",
-    "admin@tudominio.com"
-]
+Para usar Resend en desarrollo local, crea un archivo `.env`:
+
+```powershell
+# Copiar el archivo de ejemplo
+copy .env.example .env
 ```
 
-### 5. Desplegar
+Edita `.env` y agrega tu API Key de Resend:
 
-#### Opción A: Desde la CLI de Vercel
-```bash
-npm i -g vercel
+```env
+RESEND_API_KEY=re_tu_api_key_aqui
+RESEND_FROM_EMAIL=onboarding@resend.dev
+```
+
+**Obtener API Key de Resend:**
+1. Regístrate gratis en [resend.com](https://resend.com)
+2. Ve a [API Keys](https://resend.com/api-keys)
+3. Crea una nueva API Key
+4. Cópiala en tu archivo `.env`
+
+> **Nota:** Si no configuras Resend, la app funcionará en **modo desarrollo** mostrando los Magic Links en la consola.
+
+### Paso 4: Ejecutar el Servidor en Desarrollo Local
+
+```powershell
+# Iniciar servidor Express en modo desarrollo
+pnpm dev
+
+# O directamente con Node.js
+node api/index.js
+```
+
+El servidor estará disponible en: **http://localhost:3000**
+
+### Paso 5: Probar la Aplicación
+
+**Con Resend configurado:**
+1. Abre tu navegador en `http://localhost:3000`
+2. Ingresa tu correo electrónico real
+3. Haz clic en "Enviar Enlace Mágico"
+4. **Revisa tu bandeja de entrada** (o spam)
+5. Haz clic en el botón del email
+6. ¡Serás autenticado y redirigido al dashboard!
+
+**Sin Resend (modo desarrollo):**
+1. Ingresa cualquier correo electrónico
+2. El Magic Link aparecerá:
+   - En la consola del servidor (terminal)
+   - Como botón clickeable en la página web
+3. Haz clic en el enlace
+4. Serás autenticado y redirigido a `/dashboard`
+
+## 🌐 Despliegue en Vercel
+
+### Opción 1: Despliegue Automático desde Git
+
+1. Sube tu código a GitHub, GitLab o Bitbucket
+2. Importa el repositorio en [Vercel](https://vercel.com)
+3. Vercel detectará automáticamente la configuración de `vercel.json`
+4. Haz clic en "Deploy"
+
+### Opción 2: Despliegue desde la CLI de Vercel
+
+```powershell
+# Instalar Vercel CLI globalmente
+npm install -g vercel
+
+# Iniciar sesión en Vercel
+vercel login
+
+# Desplegar a preview (ambiente de prueba)
+vercel
+
+# Desplegar a producción
 vercel --prod
+
+# O usando el script predefinido en package.json
+pnpm deploy
 ```
 
-#### Opción B: Desde GitHub
-1. Conecta tu repositorio con Vercel
-2. Las variables de entorno se tomarán de la configuración del proyecto
-3. Cada push a `main` desplegará automáticamente
+### Variables de Entorno en Vercel (OBLIGATORIO)
 
-### 6. Verificar Despliegue
+En producción, **DEBES configurar las siguientes variables**:
 
-1. Visita `https://tu-dominio.vercel.app`
-2. Deberías ver la página de login
-3. Intenta acceder a `https://tu-dominio.vercel.app/ad/` → debe redirigir a login
-4. Solicita un magic link con un email autorizado
-5. Verifica que llegue el email y haz clic en el enlace
+1. Ve a tu proyecto en Vercel Dashboard
+2. Settings → Environment Variables
+3. Agrega las siguientes variables:
 
-## 🔒 Configuración de Resend
+| Variable | Valor | Descripción |
+|----------|-------|-------------|
+| `JWT_SECRET` | Cadena aleatoria larga | Clave para firmar tokens JWT |
+| `RESEND_API_KEY` | `re_xxxxx...` | API Key de Resend |
+| `RESEND_FROM_EMAIL` | `tu-email@tu-dominio.com` | Email verificado en Resend |
+| `ALLOWED_EMAILS` | `admin@unirioja.es,user@example.com` | Emails autorizados (separados por comas) |
+| `NODE_ENV` | `production` | Entorno de ejecución |
 
-### Obtener API Key
-
-1. Regístrate en [Resend](https://resend.com)
-2. Ve a API Keys → Create API Key
-3. Copia la key y agrégala como variable de entorno en Vercel
-
-### Verificar Dominio
-
-Para enviar desde tu propio dominio:
-
-1. Ve a Domains en Resend
-2. Agrega tu dominio
-3. Configura los registros DNS (MX, TXT, CNAME) según las instrucciones
-4. Espera la verificación (puede tardar hasta 48h)
-
-**Mientras tanto:** Puedes usar el dominio de prueba `onboarding@resend.dev` para testing.
-
-## 📧 Flujo de Autenticación
-
-```mermaid
-sequenceDiagram
-    participant U as Usuario
-    participant F as Frontend (login.html)
-    participant B as Backend (FastAPI)
-    participant R as Resend
-    participant E as Email
-
-    U->>F: Introduce email
-    F->>B: POST /api/request-login
-    B->>B: Verifica whitelist
-    B->>B: Genera magic token (JWT)
-    B->>R: Envía email con magic link
-    R->>E: Entrega email
-    E->>U: Usuario recibe email
-    U->>B: Click en magic link (GET /api/verify?token=...)
-    B->>B: Valida token JWT
-    B->>B: Crea session token
-    B->>U: Redirige a /ad con cookie de sesión
-    U->>B: Accede a /ad/*
-    B->>B: Middleware verifica cookie
-    B->>U: Sirve contenido protegido
+**Generar JWT_SECRET seguro (PowerShell):**
+```powershell
+-join ((48..57) + (65..90) + (97..122) | Get-Random -Count 32 | ForEach-Object {[char]$_})
 ```
 
-## 🔐 Seguridad
+**Obtener RESEND_API_KEY:**
+1. Regístrate en [resend.com](https://resend.com)
+2. Obtén tu API Key en [resend.com/api-keys](https://resend.com/api-keys)
+3. Para usar un dominio propio:
+   - Ve a [Domains](https://resend.com/domains)
+   - Agrega tu dominio y verifica los registros DNS
+   - Usa un email como `noreply@tudominio.com`
+4. Para desarrollo/testing, puedes usar `onboarding@resend.dev`
 
-### Tokens JWT
+## 🔐 Funcionamiento de la Autenticación
 
-**Magic Link Token:**
-- Duración: 15 minutos
-- Tipo: `magic`
-- Uso único (verificado una vez)
+### Flujo de Autenticación Magic Link
 
-**Session Token:**
-- Duración: 7 días
-- Tipo: `session`
-- Almacenado en cookie httpOnly
+1. **Solicitud de Magic Link:**
+   - Usuario ingresa su email en `/login.html`
+   - POST a `/api/auth/magic-link`
+   - Backend genera un JWT temporal (expira en 15 minutos)
+   - Crea URL: `https://tu-app.vercel.app/api/auth/verificar?token=...`
 
-### Cookies
+2. **Verificación del Magic Link:**
+   - Usuario hace clic en el enlace recibido
+   - GET a `/api/auth/verificar?token=...`
+   - Backend verifica el JWT del Magic Link
+   - Si es válido, genera un nuevo JWT de sesión (válido 24 horas)
+   - Establece cookie segura `session_token` (HTTP-Only, Secure, SameSite)
+   - Redirige a `/dashboard`
 
-Configuración de seguridad:
-- `httpOnly=true` → No accesible desde JavaScript
-- `secure=true` → Solo HTTPS
-- `sameSite='lax'` → Protección CSRF
+3. **Acceso a Páginas Protegidas:**
+   - Usuario intenta acceder a `/dashboard`, `/perfil`, `/reportes`, etc.
+   - Middleware `verificarSesion` intercepta la petición
+   - Verifica la cookie `session_token`
+   - Si es válida: sirve el archivo HTML solicitado
+   - Si es inválida o no existe: redirige a `/login.html`
 
-### Whitelist
+4. **Cierre de Sesión:**
+   - Usuario hace clic en "Cerrar Sesión"
+   - GET a `/api/auth/logout`
+   - Backend elimina la cookie `session_token`
+   - Redirige a `/login.html`
 
-Los emails autorizados están hardcodeados en el backend:
-- No se exponen al frontend
-- Se comparan en minúsculas
-- No se revela si un email está o no autorizado
+### Seguridad Implementada
 
-## 🧪 Testing Local
+| Característica | Implementación |
+|---------------|----------------|
+| **Protección de archivos** | Middleware `verificarSesion` en todas las rutas de `/views/` |
+| **Cookies HTTP-Only** | Token no accesible desde JavaScript del cliente |
+| **Cookies Secure** | Solo transmitidas por HTTPS en producción |
+| **Expiración de tokens** | Magic Links: 15 min, Sesiones: 24 horas |
+| **Path Traversal Protection** | Bloqueo de caracteres `..` y `/` en nombres de archivo |
+| **Redirección automática** | Usuarios no autenticados → `/login.html` |
+| **Prevención de wget/curl** | Sin cookie válida = imposible descargar archivos de `/views/` |
+| **Control de acceso por whitelist** | Solo emails autorizados pueden solicitar Magic Links |
 
+### Control de Acceso (Whitelist)
+
+La aplicación implementa un sistema de **lista blanca** que restringe el acceso solo a emails autorizados.
+
+**Configuración en desarrollo (.env):**
+```env
+ALLOWED_EMAILS=admin@unirioja.es,user1@unirioja.es,user2@example.com
+```
+
+**Configuración en Vercel:**
+1. Settings → Environment Variables
+2. Agrega `ALLOWED_EMAILS` con los emails separados por comas
+3. Ejemplo: `admin@unirioja.es,staff@unirioja.es`
+
+**Comportamiento:**
+- ✅ Emails autorizados → Reciben Magic Link
+- ⛔ Emails NO autorizados → Error 403 "Acceso no autorizado"
+- 📋 Si no se configura → Usa lista por defecto en `api/index.js`
+
+**Ver documentación completa:** [WHITELIST.md](WHITELIST.md)
+
+### Sistema de Logging y Auditoría
+
+La aplicación registra **todos los intentos de acceso** en archivos de log con rotación diaria automática.
+
+**¿Qué se registra?**
+- ✅ Logins exitosos y fallidos
+- ⛔ Intentos de acceso con emails no autorizados
+- 🔒 Accesos sin token o con token expirado
+- 📊 IP, navegador, fecha/hora de cada evento
+
+**Ubicación de logs:**
+```
+logs/
+├── access-2026-05-27.log
+├── access-2026-05-26.log
+└── ...
+```
+
+**Características:**
+- 📅 Rotación diaria automática (solo en desarrollo local)
+- 🗂️ Retención de 30 días (local)
+- 📏 Máximo 20 MB por archivo
+- 🔍 Formato JSON para análisis
+
+**Analizar logs:**
+```powershell
+# Ver reporte del día (desarrollo local)
+.\analyze-logs.ps1
+
+# Ver reporte de fecha específica
+.\analyze-logs.ps1 2026-05-27
+
+# Ver logs en tiempo real
+Get-Content logs/access-$(Get-Date -Format "yyyy-MM-dd").log -Wait
+```
+
+**Producción (Vercel):**
+- ✅ Logs automáticos en Vercel Dashboard → Functions → Logs
+- ✅ Retención según plan (1 hora gratis, 7 días Pro, 30+ Enterprise)
+- ✅ Configura Log Drains para servicios externos (Datadog, Logtail, etc.)
+
+**Ver documentación completa:** [LOGGING.md](LOGGING.md)
+
+## 🛠️ API Endpoints
+
+### Públicos (Sin autenticación)
+
+- `GET /` - Redirige a `/login.html` o `/dashboard` según sesión
+- `GET /login.html` - Formulario de login
+- `GET /public/*` - Archivos estáticos públicos
+- `POST /api/auth/magic-link` - Genera Magic Link
+- `GET /api/auth/verificar?token=...` - Verifica Magic Link y crea sesión
+- `GET /api/auth/logout` - Cierra sesión
+
+### Protegidos (Requieren autenticación)
+
+- `GET /dashboard` - Panel principal
+- `GET /perfil` - Página de perfil
+- `GET /reportes` - Reportes analíticos
+- `GET /views/:archivo` - Acceso directo a archivos protegidos
+- `GET /app/:archivo` - Alias para acceder a vistas
+- `GET /api/status` - Estado de autenticación (útil para debugging)
+
+## 🧪 Pruebas de Seguridad
+
+### Verificar Protección contra Descarga Directa
+
+```powershell
+# Intentar descargar dashboard.html sin autenticación (DEBE FALLAR)
+curl https://tu-app.vercel.app/views/dashboard.html
+
+# Resultado esperado: Redirección a /login.html (código 302)
+```
+
+```powershell
+# Intentar con wget (DEBE FALLAR)
+wget https://tu-app.vercel.app/views/perfil.html
+
+# Resultado esperado: Descarga login.html en lugar del archivo protegido
+```
+
+### VeConfiguración de Resend para Envío de Emails
+
+La aplicación ya tiene **Resend integrado** y listo para usar.
+
+### Configuración en Desarrollo Local
+
+1. **Obtén tu API Key:**
+   - Regístrate gratis en [resend.com](https://resend.com)
+   - Ve a [API Keys](https://resend.com/api-keys)
+   - Crea una nueva API Key
+
+2. **Crea archivo `.env`:**
 ```bash
-# 1. Crear entorno virtual
-python -m venv venv
-source venv/bin/activate  # En Windows: venv\Scripts\activate
-
-# 2. Instalar dependencias
-pip install -r requirements.txt
-
-# 3. Crear archivo .env (copiar de .env.example)
-cp .env.example .env
-
-# 4. Editar .env con tus valores reales
-
-# 5. Ejecutar servidor local
-uvicorn api.main:app --reload --port 8000
-
-# 6. Abrir navegador
-# http://localhost:8000/public/login.html
+RESEND_API_KEY=re_tu_api_key_aqui
+RESEND_FROM_EMAIL=onboarding@resend.dev
+JWT_SECRET=tu-secreto-local-123
 ```
 
-**Nota:** En local, necesitarás configurar `secure=False` en las cookies o usar HTTPS local.
-
-## 📝 Endpoints Disponibles
-
-| Método | Ruta | Descripción |
-|--------|------|-------------|
-| POST | `/api/request-login` | Solicitar magic link |
-| GET | `/api/verify?token=...` | Verificar magic link y crear sesión |
-| GET | `/api/logout` | Cerrar sesión |
-| GET | `/api/check-auth` | Verificar si hay sesión activa |
-| GET | `/api/health` | Health check |
-| GET | `/ad/*` | Contenido protegido (requiere autenticación) |
-
-## 🔧 Personalización
-
-### Cambiar Duración de Tokens
-
-En `api/main.py`:
-
-```python
-# Magic link expira en 30 minutos en lugar de 15
-MAGIC_LINK_EXPIRE_MINUTES = 30
-
-# Sesión válida por 30 días en lugar de 7
-SESSION_EXPIRE_DAYS = 30
+3. **Reinicia el servidor:**
+```powershell
+pnpm dev
 ```
 
-### Personalizar Email
+### Configuración en Producción (Vercel)
 
-Edita el HTML del email en el endpoint `/api/request-login` en `api/main.py`.
+1. **En Vercel Dashboard:**
+   - Settings → Environment Variables
+   - Agrega `RESEND_API_KEY`, `RESEND_FROM_EMAIL`, `JWT_SECRET`
 
-### Agregar Más Páginas Protegidas
+2. **Usar Dominio Propio (Opcional):**
+   - Ve a [Resend Domains](https://resend.com/domains)
+   - Agrega tu dominio (ej: `tudominio.com`)
+   - Verifica los registros DNS (SPF, DKIM, DMARC)
+   - Cambia `RESEND_FROM_EMAIL` a `noreply@tudominio.com`
 
-Simplemente crea archivos dentro de `/ad/`:
+### Plan Gratuito de Resend
+
+✅ **100 emails/día** (3,000/mes)  
+✅ Sin tarjeta de crédito requerida  
+✅ Verificación de dominio gratuita  
+✅ Perfecto para proyectos pequeños/medianos  
+
+### Email de Prueba
+
+Para desarrollo, puedes usar `onboarding@resend.dev` sin verificar dominio.
+
+### Modo Sin Resend
+
+Si `RESEND_API_KEY` no está configurada, la app funciona en **modo desarrollo** mostrando los Magic Links en consola.ón</a>
+      <p><small>Este enlace expira en 15 minutos.</small></p>
+    `
+  });
+  
+  res.json({ mensaje: 'Enlace enviado a tu correo' });
+});
 ```
-/ad/
-  ├── index.html
-  ├── dashboard.html
-  ├── reports.html
-  └── settings.html
+
+### Otras Opciones de Email
+
+- **SendGrid** - Popular, plan gratuito generoso
+- **Mailgun** - Buena documentación, fácil de usar
+- **Postmark** - Excelente entregabilidad
+- **AWS SES** - Muy económico para volúmenes altos
+
+## 🔧 Comandos Útiles de pnpm
+
+```powershell
+# Instalar dependencias
+pnpm install
+
+# Agregar nueva dependencia
+pnpm add nombre-paquete
+
+# Agregar dependencia de desarrollo
+pnpm add -D nombre-paquete
+
+# Actualizar dependencias
+pnpm update
+
+# Remover dependencia
+pnpm remove nombre-paquete
+
+# Listar dependencias instaladas
+pnpm list
+
+# Limpiar caché de pnpm
+pnpm store prune
+
+# Ejecutar script definido en package.json
+pnpm dev          # Desarrollo local
+pnpm vercel-dev   # Simular ambiente Vercel localmente
+pnpm deploy       # Desplegar a producción
 ```
 
-Todas estarán automáticamente protegidas por el middleware.
+## 🐛 Solución de Problemas
 
-## ⚠️ Troubleshooting
+### Error: "Cannot find module 'express'"
 
-### "No FastAPI entrypoint found"
+```powershell
+# Reinstalar dependencias
+pnpm install
+```
 
-Este error se soluciona con el archivo `pyproject.toml`. Ver [VERCEL_TROUBLESHOOTING.md](VERCEL_TROUBLESHOOTING.md) para detalles completos.
+### Error: "JWT_SECRET is not defined"
 
-### "Error enviando email"
+En producción, asegúrate de configurar la variable de entorno `JWT_SECRET` en Vercel.
 
-- Verifica que `RESEND_API_KEY` esté correctamente configurada
-- Asegúrate de que el dominio del `FROM_EMAIL` esté verificado en Resend
-- Revisa los logs de Vercel: `vercel logs`
+### El Magic Link no funciona
 
-### "Token inválido o expirado"
+1. Verifica que el token no haya expirado (15 minutos)
+2. Revisa la consola del navegador en busca de errores
+3. Verifica que la URL del enlace sea correcta
 
-- El magic link expira en 15 minutos
-- Solicita un nuevo magic link
-- Verifica que `JWT_SECRET` sea la misma en todas las instancias
+### Redirige a login.html constantemente
 
-### "Redirección infinita a login"
+1. Abre las DevTools → Application → Cookies
+2. Verifica que existe la cookie `session_token`
+3. Si no existe, intenta autenticarte de nuevo
+4. Verifica que el servidor esté usando la misma `JWT_SECRET`
 
-- Verifica que las cookies se estén estableciendo correctamente
-- En producción, asegúrate de estar usando HTTPS
-- Revisa la consola del navegador para errores
+### Error 404 en Vercel
 
-### "Email no autorizado"
+Verifica que `vercel.json` esté correctamente configurado. Todas las rutas deben redirigirse a `api/index.js`.
 
-- Agrega el email a `ALLOWED_EMAILS` en `api/main.py`
-- Redespliega la aplicación
+## 📚 Recursos Adicionales
 
-## 📚 Tecnologías Utilizadas
+- [Documentación de Express](https://expressjs.com/)
+- [Documentación de JWT](https://jwt.io/)
+- [Documentación de Vercel](https://vercel.com/docs)
+- [Documentación de pnpm](https://pnpm.io/)
 
-- **Backend:** FastAPI (Python)
-- **Autenticación:** JWT (python-jose)
-- **Email:** Resend API
-- **Hosting:** Vercel Serverless Functions
-- **Frontend:** HTML/CSS/JavaScript vanilla
+## 🤝 Contribuciones
 
-## 📖 Documentación Adicional
+Las mejoras son bienvenidas:
 
-- [SETUP.md](SETUP.md) - Guía rápida de configuración paso a paso
-- [VERCEL_TROUBLESHOOTING.md](VERCEL_TROUBLESHOOTING.md) - Solución de problemas de deployment
-- [PRE_DEPLOYMENT_CHECKLIST.md](PRE_DEPLOYMENT_CHECKLIST.md) - Checklist completo antes de desplegar
-- [EMAIL_CUSTOMIZATION.md](EMAIL_CUSTOMIZATION.md) - Cómo personalizar los emails
-- [ARCHITECTURE.md](ARCHITECTURE.md) - Arquitectura del sistema con diagramas
+1. Fork el proyecto
+2. Crea una rama para tu feature (`git checkout -b feature/nueva-funcionalidad`)
+3. Commit tus cambios (`git commit -m 'Agregar nueva funcionalidad'`)
+4. Push a la rama (`git push origin feature/nueva-funcionalidad`)
+5. Abre un Pull Request
 
-## 🤝 Contribuir
+## 📝 Licencia
 
-Este es un proyecto de ejemplo. Siéntete libre de adaptarlo a tus necesidades.
+MIT License - Siéntete libre de usar este código en tus proyectos.
 
-## 📄 Licencia
+## 🎯 Próximos Pasos Recomendados
 
-MIT License - Úsalo libremente para tus proyectos.
+- [ ] Integrar servicio de email real (Resend, SendGrid, etc.)
+- [ ] Agregar base de datos para almacenar usuarios (PostgreSQL, MongoDB)
+- [ ] Implementar límite de intentos de login (rate limiting)
+- [ ] Agregar refresh tokens para sesiones más largas
+- [ ] Implementar 2FA opcional
+- [ ] Agregar logs de auditoría de accesos
+- [ ] Implementar CORS para APIs externas
+- [ ] Agregar tests unitarios y de integración
 
 ---
 
-**¿Preguntas o problemas?** Abre un issue en el repositorio.
+**Hecho con ❤️ usando Node.js, Express, JWT y Vercel Serverless**

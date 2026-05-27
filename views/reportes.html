@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reportes - Área Privada</title>
+  <link rel="stylesheet" href="/public/css/styles.css">
+</head>
+<body class="protected-page">
+  <!-- Barra de navegación -->
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <div class="icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <span>Mi Aplicación</span>
+    </div>
+    
+    <div class="navbar-menu">
+      <a href="/dashboard" class="nav-link">Dashboard</a>
+      <a href="/perfil" class="nav-link">Perfil</a>
+      <a href="/reportes" class="nav-link active">Reportes</a>
+      <a href="/api/auth/logout" class="btn-logout">Cerrar Sesión</a>
+    </div>
+  </nav>
+
+  <!-- Contenido principal -->
+  <main class="main-content">
+    <div class="page-header">
+      <h1>📈 Reportes y Analíticas</h1>
+      <p>Contenido exclusivo protegido por autenticación JWT</p>
+    </div>
+
+    <!-- Estadísticas principales -->
+    <div class="cards-grid">
+      <div class="card">
+        <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 1rem;">
+          <div>
+            <p style="color: #718096; font-size: 0.875rem; margin: 0;">Sesiones Activas</p>
+            <h2 style="font-size: 2.5rem; margin: 0.5rem 0; color: #667eea;">1</h2>
+          </div>
+          <div class="card-icon" style="margin: 0; width: 40px; height: 40px;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M17 21V19C17 17.9391 16.5786 16.9217 15.8284 16.1716C15.0783 15.4214 14.0609 15 13 15H5C3.93913 15 2.92172 15.4214 2.17157 16.1716C1.42143 16.9217 1 17.9391 1 19V21" stroke="currentColor" stroke-width="2"/>
+              <circle cx="9" cy="7" r="4" stroke="currentColor" stroke-width="2"/>
+              <path d="M23 21V19C23 17.9391 22.5786 16.9217 21.8284 16.1716C21.0783 15.4214 20.0609 15 19 15" stroke="currentColor" stroke-width="2"/>
+              <path d="M16 3.13C16.8604 3.35031 17.623 3.85071 18.1676 4.55232C18.7122 5.25392 19.0078 6.11683 19.0078 7.005C19.0078 7.89318 18.7122 8.75608 18.1676 9.45769C17.623 10.1593 16.8604 10.6597 16 10.88" stroke="currentColor" stroke-width="2"/>
+            </svg>
+          </div>
+        </div>
+        <div style="width: 100%; height: 4px; background: #e2e8f0; border-radius: 2px;">
+          <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #667eea, #764ba2); border-radius: 2px;"></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 1rem;">
+          <div>
+            <p style="color: #718096; font-size: 0.875rem; margin: 0;">Nivel de Seguridad</p>
+            <h2 style="font-size: 2.5rem; margin: 0.5rem 0; color: #48bb78;">Alto</h2>
+          </div>
+          <div class="card-icon" style="margin: 0; width: 40px; height: 40px; background: linear-gradient(135deg, #48bb78, #38a169);">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" stroke-width="2"/>
+              <path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+        </div>
+        <span class="badge success">✓ JWT Activo</span>
+      </div>
+
+      <div class="card">
+        <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 1rem;">
+          <div>
+            <p style="color: #718096; font-size: 0.875rem; margin: 0;">Archivos Protegidos</p>
+            <h2 style="font-size: 2.5rem; margin: 0.5rem 0; color: #764ba2;">3</h2>
+          </div>
+          <div class="card-icon" style="margin: 0; width: 40px; height: 40px;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M13 2H6C5.46957 2 4.96086 2.21071 4.58579 2.58579C4.21071 2.96086 4 3.46957 4 4V20C4 20.5304 4.21071 21.0391 4.58579 21.4142C4.96086 21.7893 5.46957 22 6 22H18C18.5304 22 19.0391 21.7893 19.4142 21.4142C19.7893 21.0391 20 20.5304 20 20V9L13 2Z" stroke="currentColor" stroke-width="2"/>
+              <path d="M13 2V9H20" stroke="currentColor" stroke-width="2"/>
+            </svg>
+          </div>
+        </div>
+        <p style="color: #718096; font-size: 0.875rem; margin: 0;">dashboard.html, perfil.html, reportes.html</p>
+      </div>
+    </div>
+
+    <!-- Tabla de actividad -->
+    <div class="card" style="margin-top: 2rem; overflow-x: auto;">
+      <h3 style="margin-bottom: 1.5rem;">📊 Registro de Actividad Reciente</h3>
+      <table style="width: 100%; border-collapse: collapse;">
+        <thead>
+          <tr style="border-bottom: 2px solid #e2e8f0; text-align: left;">
+            <th style="padding: 1rem; color: #4a5568; font-weight: 600;">Acción</th>
+            <th style="padding: 1rem; color: #4a5568; font-weight: 600;">Página</th>
+            <th style="padding: 1rem; color: #4a5568; font-weight: 600;">Estado</th>
+            <th style="padding: 1rem; color: #4a5568; font-weight: 600;">Fecha</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom: 1px solid #e2e8f0;">
+            <td style="padding: 1rem;">
+              <div style="display: flex; align-items: center; gap: 0.5rem;">
+                <span style="width: 8px; height: 8px; background: #48bb78; border-radius: 50%;"></span>
+                Acceso
+              </div>
+            </td>
+            <td style="padding: 1rem; color: #718096;">/reportes</td>
+            <td style="padding: 1rem;">
+              <span class="badge success">Autorizado</span>
+            </td>
+            <td style="padding: 1rem; color: #718096;" id="currentTime">Ahora</td>
+          </tr>
+          <tr style="border-bottom: 1px solid #e2e8f0;">
+            <td style="padding: 1rem;">
+              <div style="display: flex; align-items: center; gap: 0.5rem;">
+                <span style="width: 8px; height: 8px; background: #48bb78; border-radius: 50%;"></span>
+                Navegación
+              </div>
+            </td>
+            <td style="padding: 1rem; color: #718096;">/perfil</td>
+            <td style="padding: 1rem;">
+              <span class="badge success">Autorizado</span>
+            </td>
+            <td style="padding: 1rem; color: #718096;">Hace 2 min</td>
+          </tr>
+          <tr style="border-bottom: 1px solid #e2e8f0;">
+            <td style="padding: 1rem;">
+              <div style="display: flex; align-items: center; gap: 0.5rem;">
+                <span style="width: 8px; height: 8px; background: #48bb78; border-radius: 50%;"></span>
+                Autenticación
+              </div>
+            </td>
+            <td style="padding: 1rem; color: #718096;">/api/auth/verificar</td>
+            <td style="padding: 1rem;">
+              <span class="badge success">Exitoso</span>
+            </td>
+            <td style="padding: 1rem; color: #718096;">Hace 5 min</td>
+          </tr>
+          <tr>
+            <td style="padding: 1rem;">
+              <div style="display: flex; align-items: center; gap: 0.5rem;">
+                <span style="width: 8px; height: 8px; background: #667eea; border-radius: 50%;"></span>
+                Magic Link
+              </div>
+            </td>
+            <td style="padding: 1rem; color: #718096;">/api/auth/magic-link</td>
+            <td style="padding: 1rem;">
+              <span class="badge">Generado</span>
+            </td>
+            <td style="padding: 1rem; color: #718096;">Hace 20 min</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Información de protección -->
+    <div class="card" style="margin-top: 2rem; background: linear-gradient(135deg, #667eea10, #764ba210);">
+      <h3>🛡️ Detalles de Protección de Archivos</h3>
+      <p style="color: #718096; margin: 1rem 0;">
+        Esta página y todas las vistas en la carpeta <code style="background: white; padding: 0.25rem 0.5rem; border-radius: 0.25rem; color: #667eea; font-weight: 600;">/views/</code> 
+        están completamente protegidas mediante:
+      </p>
+      <ul style="color: #718096; line-height: 2; margin-top: 1rem; padding-left: 1.5rem;">
+        <li><strong>Middleware verificarSesion:</strong> Valida el token JWT antes de servir cualquier contenido</li>
+        <li><strong>Prevención de acceso directo:</strong> Imposible descargar con wget, curl, o navegación directa sin sesión</li>
+        <li><strong>Cookies HTTP-Only:</strong> El token no puede ser robado mediante XSS</li>
+        <li><strong>Redirección automática:</strong> Usuarios no autenticados son enviados a /login</li>
+        <li><strong>Path Traversal Protection:</strong> Bloqueo de intentos de acceder a rutas fuera de /views/</li>
+      </ul>
+    </div>
+
+    <!-- Navegación -->
+    <div style="margin-top: 2rem; text-align: center;">
+      <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+        <a href="/dashboard" class="nav-link" style="background: white; padding: 0.75rem 1.5rem;">← Dashboard</a>
+        <a href="/perfil" class="nav-link" style="background: white; padding: 0.75rem 1.5rem;">Perfil</a>
+        <a href="/api/auth/logout" class="btn-logout" style="padding: 0.75rem 1.5rem;">Cerrar Sesión</a>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div style="margin-top: 3rem; text-align: center; color: #a0aec0; font-size: 0.875rem;">
+      <p>🔒 Datos confidenciales - Protegidos con autenticación JWT</p>
+    </div>
+  </main>
+
+  <script>
+    // Actualizar timestamp en tiempo real
+    function actualizarTiempo() {
+      const ahora = new Date();
+      const hora = ahora.toLocaleTimeString('es-ES', { 
+        hour: '2-digit', 
+        minute: '2-digit' 
+      });
+      document.getElementById('currentTime').textContent = hora;
+    }
+
+    actualizarTiempo();
+    setInterval(actualizarTiempo, 60000); // Actualizar cada minuto
+  </script>
+</body>
+</html>

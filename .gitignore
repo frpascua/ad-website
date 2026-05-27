@@ -1,26 +1,24 @@
-# Dependencies
+# Dependencias
 node_modules/
-package-lock.json
-yarn.lock
-pnpm-lock.yaml
 
 # Vercel
 .vercel
 
-# Environment variables
+# Variables de entorno
 .env
 .env.local
 .env.production
-.env.development
 
-# OS
+# Logs
+logs/
+*.log
+npm-debug.log*
+pnpm-debug.log*
+
+# Sistema operativo
 .DS_Store
 Thumbs.db
-*.log
 
-# IDE
-.vscode/
-.idea/
-*.swp
-*.swo
-*.sublime-*
+# Lock file (opcional - comentar si quieres versionarlo)
+# pnpm-lock.yaml
+.env*

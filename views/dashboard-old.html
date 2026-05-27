@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - Área Privada</title>
+  <link rel="stylesheet" href="/public/css/styles.css">
+</head>
+<body class="protected-page">
+  <!-- Barra de navegación -->
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <div class="icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <span>Mi Aplicación</span>
+    </div>
+    
+    <div class="navbar-menu">
+      <a href="/dashboard" class="nav-link active">Dashboard</a>
+      <a href="/perfil" class="nav-link">Perfil</a>
+      <a href="/reportes" class="nav-link">Reportes</a>
+      <a href="/api/auth/logout" class="btn-logout">Cerrar Sesión</a>
+    </div>
+  </nav>
+
+  <!-- Contenido principal -->
+  <main class="main-content">
+    <div class="page-header">
+      <h1>🎯 Dashboard</h1>
+      <p>Bienvenido a tu área privada protegida con autenticación Magic Link</p>
+    </div>
+
+    <!-- Grid de tarjetas -->
+    <div class="cards-grid">
+      <div class="card">
+        <div class="card-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="currentColor" stroke-width="2"/>
+            <path d="M12 6V12L16 14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <h3>Sesión Activa</h3>
+        <p>Tu sesión está protegida con JWT y expirará automáticamente en 24 horas por seguridad.</p>
+        <span class="badge success">✓ Autenticado</span>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="3" y="11" width="18" height="11" rx="2" stroke="currentColor" stroke-width="2"/>
+            <path d="M7 11V7C7 4.79086 8.79086 3 11 3H13C15.2091 3 17 4.79086 17 7V11" stroke="currentColor" stroke-width="2"/>
+          </svg>
+        </div>
+        <h3>Contenido Protegido</h3>
+        <p>Esta página y todos los archivos en /views/ están completamente protegidos del acceso público.</p>
+        <span class="badge">🔒 Privado</span>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M9 11L12 14L22 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M21 12V19C21 20.1046 20.1046 21 19 21H5C3.89543 21 3 20.1046 3 19V5C3 3.89543 3.89543 3 5 3H16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <h3>Sin Contraseñas</h3>
+        <p>Autenticación moderna mediante enlaces mágicos enviados a tu correo electrónico.</p>
+        <span class="badge">⚡ Magic Link</span>
+      </div>
+    </div>
+
+    <!-- Sección de información -->
+    <div class="card" style="margin-top: 2rem;">
+      <h3>📋 Características de Seguridad Implementadas</h3>
+      <ul style="color: #718096; line-height: 2; margin-top: 1rem; padding-left: 1.5rem;">
+        <li><strong>Middleware de Verificación:</strong> Todas las rutas protegidas validan el token JWT antes de servir contenido</li>
+        <li><strong>Cookies HTTP-Only:</strong> El token de sesión no es accesible desde JavaScript del cliente</li>
+        <li><strong>Protección Anti-Descarga:</strong> Imposible descargar archivos de /views/ con wget, curl u otras herramientas sin cookie válida</li>
+        <li><strong>Expiración de Tokens:</strong> Magic Links expiran en 15 minutos, sesiones en 24 horas</li>
+        <li><strong>Servicio Dinámico:</strong> Express sirve los archivos bajo demanda solo si el usuario está autenticado</li>
+        <li><strong>Redirección Automática:</strong> Intentos de acceso no autorizados redirigen a /login</li>
+      </ul>
+    </div>
+
+    <!-- Prueba de navegación interna -->
+    <div class="card" style="margin-top: 2rem; background: linear-gradient(135deg, #667eea10, #764ba210);">
+      <h3>🔗 Navegación Interna Protegida</h3>
+      <p style="margin-bottom: 1rem; color: #718096;">
+        Puedes navegar libremente entre las páginas protegidas mientras tu sesión esté activa:
+      </p>
+      <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+        <a href="/dashboard" class="nav-link" style="background: white;">📊 Dashboard</a>
+        <a href="/perfil" class="nav-link" style="background: white;">👤 Perfil</a>
+        <a href="/reportes" class="nav-link" style="background: white;">📈 Reportes</a>
+      </div>
+    </div>
+
+    <!-- Footer de la página -->
+    <div style="margin-top: 3rem; text-align: center; color: #a0aec0; font-size: 0.875rem;">
+      <p>✨ Desarrollado con Node.js, Express, JWT y desplegado en Vercel Serverless</p>
+      <p style="margin-top: 0.5rem;">🔐 Autenticación sin contraseñas mediante Magic Link</p>
+    </div>
+  </main>
+
+  <script>
+    // Verificar estado de autenticación periódicamente
+    async function verificarSesion() {
+      try {
+        const response = await fetch('/api/status');
+        if (!response.ok) {
+          console.log('Sesión expirada, redirigiendo...');
+          window.location.href = '/login';
+        }
+      } catch (error) {
+        console.error('Error al verificar sesión:', error);
+      }
+    }
+
+    // Verificar cada 5 minutos
+    setInterval(verificarSesion, 5 * 60 * 1000);
+  </script>
+</body>
+</html>

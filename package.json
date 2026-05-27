@@ -1,0 +1,33 @@
+{
+  "name": "magic-link-auth-vercel",
+  "version": "1.0.0",
+  "description": "Aplicación con autenticación Magic Link usando JWT y Express en Vercel Serverless",
+  "main": "api/index.js",
+  "scripts": {
+    "dev": "node api/index.js",
+    "vercel-dev": "vercel dev",
+    "deploy": "vercel --prod"
+  },
+  "keywords": [
+    "express",
+    "jwt",
+    "magic-link",
+    "vercel",
+    "serverless"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "cookie-parser": "^1.4.6",
+    "dotenv": "^17.4.2",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.2",
+    "resend": "^3.2.0",
+    "winston": "^3.19.0",
+    "winston-daily-rotate-file": "^5.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "packageManager": "pnpm@8.15.0"
+}

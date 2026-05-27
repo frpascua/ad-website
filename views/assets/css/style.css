@@ -1,0 +1,108 @@
+html {
+    font-size: 16px;
+}
+
+body {
+    font-size: 16px;
+}
+
+.loading-fade {
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.loading-fade.show {
+    opacity: 1;
+}
+
+.kanban-card {
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-shadow: 0 0 3px #ccc;
+    margin-bottom: 10px;
+    cursor: pointer;
+
+    .box-body {
+        font-size: .8rem;
+    }
+
+    .box-bottom {
+        font-size: 12px;
+    }
+}
+
+.kanban-column-count {
+    padding: 0 4px;
+    color: #999;
+}
+
+.kanban-card:hover {
+    background-color: #f9f9f9;
+}
+
+.kanban-header {
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+
+.badge {
+    display: inline-block;
+    padding: 0.25em 0.6em;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 1;
+    color: #fff;
+    background-color: #007bff;
+    /* Primary color */
+    border-radius: 0.2rem;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.box-header {
+    font-weight: 700;
+}
+
+.reactions-container-modal {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.reaction-modal {
+    display: inline-flex;
+    align-items: center;
+    gap: 2px;
+    background: #f1f1f1;
+    padding: 3px 8px;
+    border-radius: 14px;
+    font-size: 1rem;
+}
+
+.priority-container {
+    display: flex;
+    gap: 2px;
+    margin: 0;
+
+    .square {
+        margin: 6px 0;
+        width: 12px;
+        height: 12px;
+        background-color: #d2d6de;
+        /* inactive color */
+        transition: background-color 0.3s;
+    }
+
+    .square-mini {
+        width: 8px;
+        height: 8px;
+    }
+
+    .square.active {
+        background-color: hsl(192, 100%, 70%);
+        /* active color for priority */
+    }
+
+}
