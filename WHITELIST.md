@@ -1,17 +1,16 @@
-# 🔐 Control de Acceso - Lista de Emails Permitidos
+# 🔐 Control de Acceso - Lista de uid Permitidos
 
-La aplicación implementa un sistema de **whitelist** (lista blanca) que restringe el acceso solo a emails autorizados.
+La aplicación implementa un sistema de **whitelist** (lista blanca) que restringe el acceso solo a los `uid` autorizados. La identidad se obtiene autenticando contra el **SSO de la Universidad de La Rioja** (Apereo CAS, OAuth 2.0) en `https://sso.unirioja.es/dorus`.
 
 ---
 
 ## 🎯 ¿Cómo Funciona?
 
-Solo los emails incluidos en la lista `ALLOWED_EMAILS` pueden:
-- Solicitar un Magic Link
-- Recibir emails de autenticación
-- Iniciar sesión en la aplicación
+1. El usuario pulsa **"Iniciar sesión con SSO UniRioja"** y es redirigido al CAS.
+2. Tras autenticarse, el CAS devuelve un `uid`.
+3. Solo los `uid` incluidos en la lista `ALLOWED_UIDS` pueden iniciar sesión.
 
-Los intentos de acceso con emails no autorizados son bloqueados automáticamente.
+Los intentos de acceso con `uid` no autorizados son bloqueados automáticamente y se registra un aviso por email a la dirección de auditoría.
 
 ---
 
@@ -22,28 +21,29 @@ Los intentos de acceso con emails no autorizados son bloqueados automáticamente
 Edita tu archivo `.env` y agrega:
 
 ```env
-ALLOWED_EMAILS=admin@unirioja.es,user1@unirioja.es,user2@example.com
+ALLOWED_UIDS=jperez,mgomez,fbarroso
 ```
 
-- Separa los emails con **comas** (sin espacios)
-- Los emails NO son case-sensitive (Admin@Unirioja.es = admin@unirioja.es)
-- Espacios antes/después de cada email son ignorados automáticamente
+- Separa los `uid` con **comas**
+- Los `uid` NO son case-sensitive (JPerez = jperez)
+- Espacios antes/después de cada `uid` son ignorados automáticamente
 
 ### Opción 2: Hardcodeado en el Código
 
-Si no configuras `ALLOWED_EMAILS`, se usa la lista por defecto en `api/index.js`:
+Si no configuras `ALLOWED_UIDS`, se usa la lista por defecto en `api/index.js`:
 
 ```javascript
-const ALLOWED_EMAILS = [
-  'franpas@gmail.com'
-  // Agrega más emails aquí
+const ALLOWED_UIDS = [
+  'admin',
+  'fran.barroso'
+  // Agrega más uid aquí
 ];
 ```
 
-**Para agregar emails permanentemente:**
+**Para agregar uid permanentemente:**
 1. Abre `api/index.js`
-2. Busca `const ALLOWED_EMAILS`
-3. Agrega emails al array
+2. Busca `const ALLOWED_UIDS`
+3. Agrega los `uid` al array
 
 ---
 
@@ -57,7 +57,7 @@ const ALLOWED_EMAILS = [
 
    | Name | Value | Environment |
    |------|-------|-------------|
-   | `ALLOWED_EMAILS` | `admin@unirioja.es,user1@example.com` | Production, Preview, Development |
+   | `ALLOWED_UIDS` | `jperez,mgomez,fbarroso` | Production, Preview, Development |
 
 4. Haz clic en **"Save"**
 5. **Redeploy** el proyecto
@@ -66,10 +66,10 @@ const ALLOWED_EMAILS = [
 
 ```powershell
 # Configurar la variable
-vercel env add ALLOWED_EMAILS production
+vercel env add ALLOWED_UIDS production
 
 # Cuando te pida el valor, escribe (sin comillas):
-# admin@unirioja.es,user1@unirioja.es,user2@example.com
+# jperez,mgomez,fbarroso
 
 # Redesplegar
 vercel --prod
@@ -79,61 +79,33 @@ vercel --prod
 
 ## 🧪 Probar el Control de Acceso
 
-### ✅ Email Permitido (200 OK)
-
-```powershell
-curl -X POST https://ad-website-beta.vercel.app/api/auth/magic-link `
-  -H "Content-Type: application/json" `
-  -d '{"email":"admin@unirioja.es"}'
-```
-
-**Respuesta esperada:**
-```json
-{
-  "mensaje": "✅ Enlace mágico enviado a admin@unirioja.es..."
-}
-```
-
-### ⛔ Email NO Permitido (403 Forbidden)
-
-```powershell
-curl -X POST https://ad-website-beta.vercel.app/api/auth/magic-link `
-  -H "Content-Type: application/json" `
-  -d '{"email":"unauthorized@example.com"}'
-```
-
-**Respuesta esperada:**
-```json
-{
-  "error": "Acceso no autorizado",
-  "mensaje": "Este email no tiene permisos para acceder al sistema. Contacta con el administrador."
-}
-```
+- **uid autorizado**: tras iniciar sesión en el SSO, se crea la sesión y se redirige al workspace. Llega un email de auditoría con resultado `concedido`.
+- **uid NO autorizado**: se muestra una página **403** y llega un email de auditoría con resultado `denegado`.
 
 ---
 
 ## 📋 Ejemplos de Configuración
 
-### Ejemplo 1: Solo Dominios de la Universidad
+### Ejemplo 1: Personal de la Universidad
 
 ```env
-ALLOWED_EMAILS=admin@unirioja.es,jefe.departamento@unirioja.es,secretaria@unirioja.es
+ALLOWED_UIDS=admin,jefe.departamento,secretaria
 ```
 
 ### Ejemplo 2: Equipo de Desarrollo
 
 ```env
-ALLOWED_EMAILS=dev1@company.com,dev2@company.com,qa@company.com,manager@company.com
+ALLOWED_UIDS=dev1,dev2,qa,manager
 ```
 
 ### Ejemplo 3: Producción + Testing
 
 ```env
 # Producción
-ALLOWED_EMAILS=admin@unirioja.es,staff@unirioja.es
+ALLOWED_UIDS=admin,staff
 
 # Preview/Development (en Vercel puedes tener diferentes valores por entorno)
-ALLOWED_EMAILS=admin@unirioja.es,test@example.com,dev@localhost
+ALLOWED_UIDS=admin,test,dev
 ```
 
 ---
@@ -142,15 +114,14 @@ ALLOWED_EMAILS=admin@unirioja.es,test@example.com,dev@localhost
 
 Cuando un usuario intenta acceder, verás en los logs:
 
-**Email permitido:**
+**uid permitido:**
 ```
-✅ Email autorizado: admin@unirioja.es
-✅ Magic Link enviado exitosamente
+Login exitoso - OAuth verificado {"uid":"admin",...}
 ```
 
-**Email bloqueado:**
+**uid bloqueado:**
 ```
-⛔ Intento de acceso denegado para: hacker@spam.com
+Intento de login denegado - uid no autorizado {"uid":"hacker",...}
 ```
 
 ---
@@ -159,10 +130,9 @@ Cuando un usuario intenta acceder, verás en los logs:
 
 ### Buenas Prácticas
 
-- ✅ **No uses emails personales en producción** - Solo emails corporativos verificados
-- ✅ **Revisa la lista periódicamente** - Elimina emails de ex-empleados
-- ✅ **Usa variables de entorno** - No hardcodees emails sensibles en Git
-- ✅ **Logs de auditoría** - Monitorea intentos de acceso fallidos
+- ✅ **Revisa la lista periódicamente** - Elimina `uid` de ex-empleados
+- ✅ **Usa variables de entorno** - No hardcodees la lista en Git
+- ✅ **Logs de auditoría** - Monitorea intentos de acceso fallidos y el email de aviso
 - ⚠️ **No compartas la lista públicamente** - Es información sensible
 
 ### Mejoras Futuras (Opcional)
@@ -179,27 +149,19 @@ Si necesitas más control, podrías implementar:
 
 ## ❓ Preguntas Frecuentes
 
-### ¿Qué pasa si dejo ALLOWED_EMAILS vacío?
+### ¿Qué pasa si dejo ALLOWED_UIDS vacío?
 
-Solo los emails en el código (lista por defecto) podrán acceder.
+Solo los `uid` en el código (lista por defecto) podrán acceder.
 
-### ¿Los emails son case-sensitive?
+### ¿Los uid son case-sensitive?
 
-No. `Admin@Example.com` = `admin@example.com`
+No. `JPerez` = `jperez`
 
-### ¿Puedo usar wildcards como `*@unirioja.es`?
+### ¿Puedo permitir a cualquier usuario del SSO?
 
-No actualmente. Debes listar cada email completo. Si necesitas esta función, modifica `api/index.js`:
+No por defecto. Debes listar cada `uid`. Si necesitas permitir a todos los usuarios válidos del CAS, elimina la comprobación contra `ALLOWED_UIDS` en `api/index.js` (no recomendado).
 
-```javascript
-// Permitir todos los emails de un dominio
-const emailDomain = emailLowerCase.split('@')[1];
-if (emailDomain === 'unirioja.es' || ALLOWED_EMAILS.includes(emailLowerCase)) {
-  // Permitir acceso
-}
-```
-
-### ¿Cómo agrego o quito emails sin redesplegar?
+### ¿Cómo agrego o quito uid sin redesplegar?
 
 Actualmente necesitas redesplegar. Para cambios sin redeploy, considera usar:
 - Base de datos (PostgreSQL, MongoDB)
@@ -210,9 +172,9 @@ Actualmente necesitas redesplegar. Para cambios sin redeploy, considera usar:
 
 ## 📚 Archivos Relacionados
 
-- `api/index.js` - Lógica de validación de whitelist
+- `api/index.js` - Lógica de OAuth y validación de whitelist por uid
 - `.env` - Configuración local
-- `public/login.html` - Formulario de login con manejo de errores
+- `public/login.html` - Botón de inicio de sesión con el SSO
 
 ---
 

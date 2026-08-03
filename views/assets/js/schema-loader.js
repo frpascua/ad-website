@@ -65,7 +65,7 @@
         th.scope = 'row';
         th.className = 'ka-table__header';
         const link = document.createElement('a');
-        link.href = '/app' + item.url;
+        link.href = '/berkana/app' + item.url;
         link.textContent = item.title;
         th.appendChild(link);
 

@@ -16,32 +16,18 @@
       </div>
 
       <h1>Welcome to <span style="color: #7159B5;">unirioja</span> workspace</h1>
-      <p class="subtitle">Enter your email address to receive a secure sign-in link.</p>
+      <p class="subtitle">Accede con tu cuenta de la Universidad de La Rioja.</p>
 
-      <form id="loginForm">
-        <div class="form-group">
-          <label for="email">Email address</label>
-          <input type="email" id="email" name="email" placeholder="your@email.com" required autocomplete="email">
-        </div>
-
-        <button type="submit" class="btn-primary" id="submitBtn">
-          <span class="btn-text">Continue</span>
-          <span class="btn-loader" style="display: none;">
-            <svg class="spinner" viewBox="0 0 50 50">
-              <circle class="path" cx="25" cy="25" r="20" fill="none" stroke-width="5"></circle>
-            </svg>
-          </span>
-        </button>
-      </form>
-
-      <div id="message" class="message" style="display: none;"></div>
+      <a href="/api/auth/login" class="btn-primary" id="ssoBtn" role="button" style="text-decoration: none;">
+        Iniciar sesión con SSO UniRioja
+      </a>
 
       <div class="info-box">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" />
           <path d="M12 16V12M12 8H12.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
         </svg>
-        <p>We don't use passwords. We'll send you a secure link that expires in 15 minutes.</p>
+        <p>Serás redirigido al inicio de sesión único (SSO) de la Universidad de La Rioja para autenticarte de forma segura.</p>
       </div>
     </div>
 
@@ -49,94 +35,6 @@
       <p>Made with ❤️ at Universidad de La Rioja</p>
     </footer>
   </div>
-
-  <script>
-    const form = document.getElementById('loginForm');
-    const submitBtn = document.getElementById('submitBtn');
-    const btnText = submitBtn.querySelector('.btn-text');
-    const btnLoader = submitBtn.querySelector('.btn-loader');
-    const messageDiv = document.getElementById('message');
-
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-
-      const email = document.getElementById('email').value;
-
-      // Mostrar loader
-      submitBtn.disabled = true;
-      btnText.style.display = 'none';
-      btnLoader.style.display = 'inline-block';
-      messageDiv.style.display = 'none';
-
-      try {
-        const response = await fetch('/api/auth/magic-link', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ email })
-        });
-
-        const data = await response.json();
-
-        if (response.ok) {
-          messageDiv.className = 'message success';
-
-          // Verificar si es modo desarrollo o producción
-          if (data.desarrollo) {
-            // Modo desarrollo (sin Resend configurado)
-            messageDiv.innerHTML = `
-              <strong>✅ ¡Enlace Generado!</strong>
-              <p><strong>⚠️ MODO DESARROLLO:</strong> Resend no está configurado.</p>
-              <p>Opciones para continuar:</p>
-              <ol style="text-align: left; margin: 1rem 0; padding-left: 1.5rem;">
-                <li>Haz clic en el botón de abajo</li>
-                <li>O revisa la consola del servidor (terminal)</li>
-              </ol>
-              ${data.desarrollo ? `<a href="${data.desarrollo}" class="magic-link-btn">🔗 Abrir Enlace Mágico</a>` : ''}
-              <p style="margin-top: 1rem; font-size: 0.875rem; color: #718096;">
-                💡 Para enviar emails reales, configura <code>RESEND_API_KEY</code> en tu archivo .env
-              </p>
-            `;
-          } else {
-            // Modo producción (con Resend)
-            messageDiv.innerHTML = `
-              <strong>✅ Email sent!</strong>
-              <p>We have sent a link to <strong>${email}</strong></p>
-              <p>📧 Check your inbox and click the button in the email.</p>
-              <p style="font-size: 0.875rem; color: #718096; margin-top: 1rem;">
-              ⏱️ The link expires in 15 minutes.<br>
-              📬 If you don’t see the email, check your spam folder.
-              </p>
-            `;
-          }
-          messageDiv.style.display = 'block';
-
-          // Resetear formulario
-          form.reset();
-        } else {
-          // Manejar errores específicos por código de estado
-          if (response.status === 403) {
-            throw new Error(data.mensaje || 'Acceso no autorizado');
-          } else {
-            throw new Error(data.error || 'Error al generar el enlace');
-          }
-        }
-      } catch (error) {
-        messageDiv.className = 'message error';
-        messageDiv.innerHTML = `
-          <strong>❌ Error</strong>
-          <p>${error.message}</p>
-        `;
-        messageDiv.style.display = 'block';
-      } finally {
-        // Ocultar loader
-        submitBtn.disabled = false;
-        btnText.style.display = 'inline';
-        btnLoader.style.display = 'none';
-      }
-    });
-  </script>
 </body>
 
 </html>
