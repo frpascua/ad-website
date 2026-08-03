@@ -14,7 +14,7 @@ require('winston-daily-rotate-file');
 const app = express();
 
 // Prefijo base de la aplicación (solo en desarrollo; en producción Vercel monta en raíz)
-const BASE_PATH = process.env.NODE_ENV !== 'production' ? (process.env.BASE_PATH || '/berkana') : '';
+const BASE_PATH = process.env.NODE_ENV !== 'production' ? (process.env.BASE_PATH || '') : '';
 
 // ============================================
 // CONFIGURACIÓN DE LOGGING
@@ -655,7 +655,7 @@ if (process.env.NODE_ENV !== 'production') {
     console.log('🔑 OAuth config:');
     console.log('   CLIENT_ID    :', OAUTH_CLIENT_ID || '⚠️  NO CONFIGURADO');
     console.log('   REDIRECT_URI :', OAUTH_REDIRECT_URI || '⚠️  NO CONFIGURADO');
-    console.log('   CALLBACK esperado:', `http://localhost:${PORT}/berkana/api/auth/callback`);
+    console.log('   CALLBACK esperado:', `http://localhost:${PORT}/api/auth/callback`);
     console.log('');
 
     // Escribir log de inicio
