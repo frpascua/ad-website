@@ -222,7 +222,7 @@
       "frontmatter": {
         "title": "Apodera",
         "summary": "Registro de Apoderamientos (Apodera)",
-        "category": "PASFAS",
+        "category": "AGE",
         "otd": "grow"
       },
       "url": "/projects/apodera.html"
@@ -286,6 +286,17 @@
         "summary": "Gestor de expedientes internos"
       },
       "url": "/projects/gravitas.html"
+    },
+    "hello.md": {
+      "path": "projects/hello.md",
+      "type": "markdown",
+      "frontmatter": {
+        "title": "Hello",
+        "summary": "Registro de Apoderamientos (Apodera)",
+        "category": "AGE",
+        "otd": "grow"
+      },
+      "url": "/projects/hello.html"
     },
     "kaltura.md": {
       "path": "projects/kaltura.md",
