@@ -307,6 +307,97 @@ app.get('/api/auth/login', (req, res) => {
   const ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
   const userAgent = req.headers['user-agent'];
 
+  // EN DESARROLLO: Mostrar página de selección de usuario mock
+  if (!isProduction) {
+    accessLogger.info('Login en modo desarrollo - mostrando selección de usuario mock', { ip, userAgent });
+    return res.send(`
+      <html>
+        <head>
+          <title>Login de Desarrollo</title>
+          <style>
+            body {
+              font-family: system-ui, -apple-system, sans-serif;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              min-height: 100vh;
+              margin: 0;
+              background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            }
+            .container {
+              background: white;
+              padding: 3rem;
+              border-radius: 1rem;
+              box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+              text-align: center;
+              max-width: 500px;
+            }
+            h1 { color: #2d3748; margin: 0 0 0.5rem 0; }
+            .dev-badge {
+              display: inline-block;
+              background: #f59e0b;
+              color: white;
+              padding: 0.25rem 0.75rem;
+              border-radius: 0.25rem;
+              font-size: 0.875rem;
+              font-weight: 600;
+              margin-bottom: 1.5rem;
+            }
+            p { color: #4a5568; margin-bottom: 2rem; }
+            .user-list {
+              display: flex;
+              flex-direction: column;
+              gap: 0.75rem;
+              margin-bottom: 2rem;
+            }
+            .user-btn {
+              display: block;
+              background: #667eea;
+              color: white;
+              padding: 1rem;
+              text-decoration: none;
+              border-radius: 0.5rem;
+              font-weight: 600;
+              border: none;
+              cursor: pointer;
+              transition: all 0.2s;
+            }
+            .user-btn:hover {
+              background: #5a67d8;
+              transform: translateY(-2px);
+              box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+            }
+            .note {
+              font-size: 0.875rem;
+              color: #718096;
+              margin-top: 1.5rem;
+              padding-top: 1.5rem;
+              border-top: 1px solid #e2e8f0;
+            }
+          </style>
+        </head>
+        <body>
+          <div class="container">
+            <h1>🔧 Modo Desarrollo</h1>
+            <div class="dev-badge">AUTENTICACIÓN MOCK</div>
+            <p>Selecciona un usuario para iniciar sesión sin conectar al CAS SSO:</p>
+            <div class="user-list">
+              ${ALLOWED_UIDS.map(uid => `
+                <a href="${BASE_PATH}/api/auth/dev-login?uid=${encodeURIComponent(uid)}" class="user-btn">
+                  👤 ${uid}
+                </a>
+              `).join('')}
+            </div>
+            <div class="note">
+              ℹ️ En producción se usará autenticación real con SSO Unirioja
+            </div>
+          </div>
+        </body>
+      </html>
+    `);
+  }
+
+  // EN PRODUCCIÓN: Flujo OAuth real
   if (!OAUTH_CLIENT_ID || !OAUTH_REDIRECT_URI) {
     accessLogger.error('OAuth mal configurado', {
       falta: {
@@ -339,6 +430,62 @@ app.get('/api/auth/login', (req, res) => {
 
   accessLogger.info('Inicio de flujo OAuth', { ip, userAgent });
   res.redirect(`${OAUTH_AUTHORIZE_URL}?${params.toString()}`);
+});
+
+// Endpoint de login mock para desarrollo (sin autenticación real)
+app.get('/api/auth/dev-login', (req, res) => {
+  const ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
+  const userAgent = req.headers['user-agent'];
+
+  // Solo permitir en desarrollo
+  if (isProduction) {
+    accessLogger.warn('Intento de acceso a dev-login en producción', { ip, userAgent });
+    return res.status(403).send(paginaError('No disponible', 'Este endpoint solo está disponible en modo desarrollo.'));
+  }
+
+  const { uid } = req.query;
+
+  if (!uid) {
+    accessLogger.warn('Dev-login sin uid', { ip, userAgent });
+    return res.status(400).send(paginaError('Falta usuario', 'Debes proporcionar un uid para el login de desarrollo.'));
+  }
+
+  const uidNormalizado = uid.toLowerCase().trim();
+
+  // Validar contra la whitelist
+  const uidAutorizado = ALLOWED_UIDS.includes(uidNormalizado);
+  
+  if (!uidAutorizado) {
+    accessLogger.warn('Dev-login con uid no autorizado', {
+      uid: uidNormalizado,
+      ip,
+      userAgent
+    });
+    return res.status(403).send(paginaError('Usuario no autorizado', `El usuario "${uidNormalizado}" no está en la lista de permitidos.`));
+  }
+
+  // Crear sesión mock (cookie JWT httpOnly, válida 1 día)
+  const sessionToken = jwt.sign(
+    { uid: uidNormalizado, tipo: 'sesion' },
+    JWT_SECRET,
+    { expiresIn: '1d' }
+  );
+  res.cookie('session_token', sessionToken, {
+    httpOnly: true,
+    secure: false, // En desarrollo no usamos HTTPS
+    sameSite: 'lax',
+    maxAge: 24 * 60 * 60 * 1000
+  });
+
+  accessLogger.info('Login mock exitoso (desarrollo)', { 
+    uid: uidNormalizado, 
+    ip, 
+    userAgent,
+    modo: 'desarrollo-mock'
+  });
+
+  // NO enviar aviso de acceso en modo desarrollo mock para no saturar el email
+  res.redirect(`${BASE_PATH}/app/index.html`);
 });
 
 // Endpoint de retorno del CAS: intercambia el código por token, obtiene el
