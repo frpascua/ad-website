@@ -22,3 +22,9 @@ Thumbs.db
 # Lock file (opcional - comentar si quieres versionarlo)
 # pnpm-lock.yaml
 .env*
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
+!.env.example
