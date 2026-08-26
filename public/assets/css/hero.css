@@ -8,12 +8,14 @@
 
 :root {
     /* Tipografía */
+    --font-family: "Source Sans 3", "Open Sans", sans-serif;
+
     --font-size-xs: 0.875rem;
     /* 14px */
     --font-size-sm: 1rem;
     /* 16px */
     --font-size-base: 1.1875rem;
-    /* 19px (GOV.UK body) */
+    /* 19px */
     --font-size-lg: 1.5rem;
     /* 24px */
     --font-size-xl: 2rem;
@@ -22,6 +24,10 @@
     /* 36px */
     --font-size-3xl: 3rem;
     /* 48px */
+
+    --font-weight-normal: 400;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
 
     /* Line heights */
     --line-height-tight: 1.2;
@@ -44,11 +50,12 @@
 
 body {
     margin: 0;
+    font-family: var(--font-family);
     font-size: var(--font-size-base);
+    font-weight: var(--font-weight-normal);
     line-height: var(--line-height-base);
     color: var(--color-black1);
 }
-
 
 .hero {
     min-height: 50vh;
@@ -69,7 +76,9 @@ body {
 }
 
 .hero-text p {
-    font-size: 1.1rem;
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-normal);
+    line-height: var(--line-height-base);
     color: #4b5563;
     margin-bottom: 2rem;
 }
@@ -162,13 +171,11 @@ body {
 }
 
 main {
-    padding: 4rem 8%;
+    padding: 4rem 4%;
     gap: 3rem;
-    font-weight: 600;
 }
 
 .guk-section {
-    font-weight: 600;
 
     .heading {
         margin-bottom: 1rem;
@@ -176,6 +183,7 @@ main {
         border-bottom: 2px solid var(--color-black1);
 
         h2 {
+            font-weight: var(--font-weight-semibold);
             font-size: 2rem;
             color: var(--color-black1);
         }
@@ -184,6 +192,7 @@ main {
     .body {
         p {
             font-size: 1.1rem;
+            font-weight: var(--font-weight-normal);
             color: #4b5563;
         }
     }
