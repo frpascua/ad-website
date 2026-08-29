@@ -1,7 +1,7 @@
 /**
  * Schema Loader - Loads schema.json and populates tables dynamically
  */
-(function() {
+(function () {
     'use strict';
 
     /**
@@ -19,6 +19,29 @@
     }
 
     /**
+     * Translate status to Spanish
+     * @param {string} status - Status key
+     * @returns {string} Translated status
+     */
+    function translateStatus(status) {
+        const translations = {
+            'todo': 'Planificado',
+            'planned': 'Planificado',
+            'scheduled': 'Programado',
+            'doing': 'En curso',
+            'run': 'En curso',
+            'waiting': 'En espera',
+            'completed': 'Completado',
+            'done': 'Completado',
+            'cancelled': 'No continuado',
+            'cancel': 'No continuado',
+            'rejected': 'No continuado'
+        };
+
+        return translations[status.toLowerCase()] || status;
+    }
+
+    /**
      * Extract and sort items from schema section
      * @param {Object} items - Schema section (e.g., schema.projects)
      * @returns {Array} Sorted array of items with title, summary, and url
@@ -31,7 +54,7 @@
         const itemList = [];
         Object.keys(items).forEach(key => {
             const item = items[key];
-            
+
             // Skip if not a file (could be a subfolder)
             if (!item.url) {
                 return;
@@ -40,20 +63,21 @@
             const frontmatter = item.frontmatter || {};
             const title = frontmatter.title || key;
             const summary = frontmatter.summary || '';
+            const status = frontmatter.status || '';
             const url = item.url;
 
-            itemList.push({ title, summary, url });
+            itemList.push({ title, summary, url, status });
         });
 
         // Sort by title alphabetically
         itemList.sort((a, b) => a.title.localeCompare(b.title));
-        
+
         return itemList;
     }
 
     /**
      * Create a table row element
-     * @param {Object} item - Item with title, summary, url
+     * @param {Object} item - Item with title, summary, url, status
      * @returns {HTMLElement} Table row element
      */
     function createTableRow(item) {
@@ -70,13 +94,26 @@
         th.appendChild(link);
 
         // Create description cell
-        const td = document.createElement('td');
-        td.className = 'ka-table__cell';
-        td.textContent = item.summary;
+        const tdSummary = document.createElement('td');
+        tdSummary.className = 'ka-table__cell';
+        tdSummary.textContent = item.summary;
 
         // Append cells to row
         tr.appendChild(th);
-        tr.appendChild(td);
+        tr.appendChild(tdSummary);
+
+        // Create status cell with badge
+        const tdStatus = document.createElement('td');
+        tdStatus.className = 'ka-table__cell';
+
+        if (item.status) {
+            const statusBadge = document.createElement('span');
+            statusBadge.className = 'status-badge status-badge--' + item.status.toLowerCase().replace(/\s+/g, '-');
+            statusBadge.textContent = translateStatus(item.status);
+            tdStatus.appendChild(statusBadge);
+        }
+
+        tr.appendChild(tdStatus);
 
         return tr;
     }

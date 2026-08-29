@@ -197,3 +197,43 @@ main {
         }
     }
 }
+
+
+.status-badge {
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+
+.status-badge--planned,
+.status-badge--todo,
+.status-badge--scheduled {
+    background-color: #f3f2f1;
+    color: #0b0c0c;
+}
+
+.status-badge--doing,
+.status-badge--run {
+    background-color: #d2e2f1;
+    color: #0f385c;
+}
+
+.status-badge--waiting {
+    background-color: #fff2cc;
+    color: #594a00;
+}
+
+.status-badge--done {
+    background-color: #cfe4dc;
+    color: #005a30;
+}
+
+.status-badge--cancelled,
+.status-badge--cancel,
+.status-badge--rejected {
+    background-color: #f4d7d7;
+    color: #651b1b;
+}

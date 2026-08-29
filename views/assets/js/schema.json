@@ -12,168 +12,33 @@
     "type": "html",
     "url": "/index.html"
   },
-  "projects": {
-    "hello.md": {
-      "path": "projects/hello.md",
+  "architecture": {
+    "example.md": {
+      "path": "architecture/example.md",
       "type": "markdown",
       "frontmatter": {
-        "title": "Hello",
-        "summary": "Registro de Apoderamientos (Apodera)",
-        "category": "AGE",
-        "otd": "grow"
+        "title": "Example Page with Custom Tokens",
+        "template": "layout.html"
       },
-      "url": "/projects/hello.html"
+      "url": "/architecture/example.html"
     },
-    "apodera.md": {
-      "path": "projects/apodera.md",
+    "overview.md": {
+      "path": "architecture/overview.md",
       "type": "markdown",
       "frontmatter": {
-        "title": "Apodera",
-        "summary": "Registro de Apoderamientos (Apodera)",
-        "category": "AGE",
-        "otd": "grow"
+        "title": "Overview",
+        "template": "layout.html"
       },
-      "url": "/projects/apodera.html"
+      "url": "/architecture/overview.html"
     },
-    "consilium.md": {
-      "path": "projects/consilium.md",
+    "principles.md": {
+      "path": "architecture/principles.md",
       "type": "markdown",
       "frontmatter": {
-        "title": "Consilium",
-        "template": "layout.html",
-        "summary": "Plataforma de órganos colegiados y unipersonales"
+        "title": "Example Page with Custom Tokens",
+        "template": "layout.html"
       },
-      "url": "/projects/consilium.html"
-    },
-    "firma-cloud.md": {
-      "path": "projects/firma-cloud.md",
-      "type": "markdown",
-      "frontmatter": {
-        "title": "Firma en la nube",
-        "template": "layout.html",
-        "summary": "Firma digital centralizada"
-      },
-      "url": "/projects/firma-cloud.html"
-    },
-    "ocu-cuc.md": {
-      "path": "projects/ocu-cuc.md",
-      "type": "markdown",
-      "frontmatter": {
-        "title": "Cursos Cortos OCU",
-        "template": "layout.html",
-        "summary": "Módulo de cursos cortos de OCU"
-      },
-      "url": "/projects/ocu-cuc.html"
-    },
-    "compliance.md": {
-      "path": "projects/compliance.md",
-      "type": "markdown",
-      "frontmatter": {
-        "title": "Compliance",
-        "template": "layout.html",
-        "summary": "Cumplimiento normativo"
-      },
-      "url": "/projects/compliance.html"
-    },
-    "sia.md": {
-      "path": "projects/sia.md",
-      "type": "markdown",
-      "frontmatter": {
-        "title": "SIA",
-        "template": "layout.html",
-        "summary": "Catálogo de Procedimientos"
-      },
-      "url": "/projects/sia.html"
-    },
-    "civitas.md": {
-      "path": "projects/civitas.md",
-      "type": "markdown",
-      "frontmatter": {
-        "title": "Civitas",
-        "summary": "Solicitudes de Sede Electrónica"
-      },
-      "url": "/projects/civitas.html"
-    },
-    "staff-pages.md": {
-      "path": "projects/staff-pages.md",
-      "type": "markdown",
-      "frontmatter": {
-        "title": "Staff pages",
-        "template": "layout.html",
-        "summary": "Revisión diseño inicio web (www.unirioja.es)"
-      },
-      "url": "/projects/staff-pages.html"
-    },
-    "transparencia.md": {
-      "path": "projects/transparencia.md",
-      "type": "markdown",
-      "frontmatter": {
-        "title": "Transparencia",
-        "template": "layout.html",
-        "summary": "Contenidos para el Portal de Transparencia"
-      },
-      "url": "/projects/transparencia.html"
-    },
-    "registro-convenios.md": {
-      "path": "projects/registro-convenios.md",
-      "type": "markdown",
-      "frontmatter": {
-        "title": "Registro Convenios",
-        "template": "layout.html",
-        "summary": "Aplicación de Registro de Convenios para Secretaría General"
-      },
-      "url": "/projects/registro-convenios.html"
-    },
-    "voto-electronico.md": {
-      "path": "projects/voto-electronico.md",
-      "type": "markdown",
-      "frontmatter": {
-        "title": "Voto Electrónico",
-        "template": "layout.html",
-        "summary": "Voto Electrónico para elecciones y órganos colegiados"
-      },
-      "url": "/projects/voto-electronico.html"
-    },
-    "comite-seguridad.md": {
-      "path": "projects/comite-seguridad.md",
-      "type": "markdown",
-      "frontmatter": {
-        "title": "Web Comité de Seguridad",
-        "template": "layout.html",
-        "summary": "Web dentro de www.unirioja.es para el Comité de Seguridad",
-        "aside": "estado DONE, enlaces"
-      },
-      "url": "/projects/comite-seguridad.html"
-    },
-    "gravitas.md": {
-      "path": "projects/gravitas.md",
-      "type": "markdown",
-      "frontmatter": {
-        "title": "Gestor de expedientes",
-        "template": "layout.html",
-        "summary": "Gestor de expedientes internos"
-      },
-      "url": "/projects/gravitas.html"
-    },
-    "talos.md": {
-      "path": "projects/talos.md",
-      "type": "markdown",
-      "frontmatter": {
-        "title": "Archivo Electrónico",
-        "template": "layout.html",
-        "summary": "Gestor documental de administración electrónica"
-      },
-      "url": "/projects/talos.html"
-    },
-    "kaltura.md": {
-      "path": "projects/kaltura.md",
-      "type": "markdown",
-      "frontmatter": {
-        "title": "Kaltura",
-        "template": "layout.html",
-        "summary": "Repositorio vídeos Universidad"
-      },
-      "url": "/projects/kaltura.html"
+      "url": "/architecture/principles.html"
     }
   },
   "delivery": {
@@ -187,187 +52,6 @@
       "url": "/delivery/recently-shipped.html"
     }
   },
-  "procedures": {
-    "g-licencias-ptgas.md": {
-      "path": "procedures/g-licencias-ptgas.md",
-      "type": "markdown",
-      "frontmatter": {
-        "title": "Licencias de estudios para PTGAS",
-        "template": "layout.html",
-        "summary": "Solicitud de licencias de estudio para personal de administración y servicios"
-      },
-      "url": "/procedures/g-licencias-ptgas.html"
-    },
-    "ec-credito.md": {
-      "path": "procedures/ec-credito.md",
-      "type": "markdown",
-      "frontmatter": {
-        "title": "Transferencia de crédito",
-        "template": "layout.html",
-        "summary": "Solicitudes de Transferencia de crédito"
-      },
-      "url": "/procedures/ec-credito.html"
-    },
-    "vpc-premios-ciencia.md": {
-      "path": "procedures/vpc-premios-ciencia.md",
-      "type": "markdown",
-      "frontmatter": {
-        "title": "Premios de Ciencia, Tecnología e Innovación",
-        "template": "layout.html",
-        "summary": "Convocatoria de premios a la investigación científica y tecnológica"
-      },
-      "url": "/procedures/vpc-premios-ciencia.html"
-    },
-    "fur-ordenes-pago.md": {
-      "path": "procedures/fur-ordenes-pago.md",
-      "type": "markdown",
-      "frontmatter": {
-        "title": "Órdenes de pago FUR",
-        "template": "layout.html",
-        "summary": "Envío de órdenes de pago desde la FUR"
-      },
-      "url": "/procedures/fur-ordenes-pago.html"
-    },
-    "epe-convenios.md": {
-      "path": "procedures/epe-convenios.md",
-      "type": "markdown",
-      "frontmatter": {
-        "title": "Convenios Empleabilidad",
-        "template": "layout.html",
-        "summary": "Firma de convenios de Empleabilidad"
-      },
-      "url": "/procedures/epe-convenios.html"
-    },
-    "vi-convenios.md": {
-      "path": "procedures/vi-convenios.md",
-      "type": "markdown",
-      "frontmatter": {
-        "title": "Convenios de colaboración",
-        "template": "layout.html",
-        "summary": "Gestión de convenios de colaboración institucional"
-      },
-      "url": "/procedures/vi-convenios.html"
-    },
-    "inv-estancias-pdi.md": {
-      "path": "procedures/inv-estancias-pdi.md",
-      "type": "markdown",
-      "frontmatter": {
-        "title": "Estancias/Visitas PDI",
-        "template": "layout.html",
-        "summary": "Solicitud y autorización de estancias/visitas de PDI"
-      },
-      "url": "/procedures/inv-estancias-pdi.html"
-    },
-    "ccp-contratos-menores.md": {
-      "path": "procedures/ccp-contratos-menores.md",
-      "type": "markdown",
-      "frontmatter": {
-        "title": "Firma Contratos Menores",
-        "template": "layout.html",
-        "summary": "Firma digital de contratos menores"
-      },
-      "url": "/procedures/ccp-contratos-menores.html"
-    },
-    "ac-titulo-oficial.md": {
-      "path": "procedures/ac-titulo-oficial.md",
-      "type": "markdown",
-      "frontmatter": {
-        "title": "Solicitud Título Oficial",
-        "template": "layout.html",
-        "summary": "Solicitud de Título Oficial"
-      },
-      "url": "/procedures/ac-titulo-oficial.html"
-    },
-    "du-solicitud.md": {
-      "path": "procedures/du-solicitud.md",
-      "type": "markdown",
-      "frontmatter": {
-        "title": "Solicitud Defensora Universitaria",
-        "template": "layout.html",
-        "summary": "Solicitud de actuación de la Defensora Universitaria"
-      },
-      "url": "/procedures/du-solicitud.html"
-    },
-    "g-central-compras.md": {
-      "path": "procedures/g-central-compras.md",
-      "type": "markdown",
-      "frontmatter": {
-        "title": "Central de Compras",
-        "template": "layout.html",
-        "summary": "Gestión de Compras Unificadas"
-      },
-      "url": "/procedures/g-central-compras.html"
-    },
-    "ac-certificado-academico.md": {
-      "path": "procedures/ac-certificado-academico.md",
-      "type": "markdown",
-      "frontmatter": {
-        "title": "Certificado Académico Oficial",
-        "template": "layout.html",
-        "summary": "Automatización completa del procedimiento"
-      },
-      "url": "/procedures/ac-certificado-academico.html"
-    },
-    "fur-titulos-propios.md": {
-      "path": "procedures/fur-titulos-propios.md",
-      "type": "markdown",
-      "frontmatter": {
-        "title": "Envío Títulos propios FUR",
-        "template": "layout.html",
-        "summary": "Emisión y firma de Títulos Propios FUR"
-      },
-      "url": "/procedures/fur-titulos-propios.html"
-    },
-    "facturas.md": {
-      "path": "procedures/facturas.md",
-      "type": "markdown",
-      "frontmatter": {
-        "title": "Facturas",
-        "template": "layout.html",
-        "summary": "Revisión y firma de facturas"
-      },
-      "url": "/procedures/facturas.html"
-    },
-    "sg-canal-etico.md": {
-      "path": "procedures/sg-canal-etico.md",
-      "type": "markdown",
-      "frontmatter": {
-        "title": "Canal ético y de denuncias",
-        "template": "layout.html",
-        "summary": "Sistema de información de conductas irregulares y canal ético"
-      },
-      "url": "/procedures/sg-canal-etico.html"
-    }
-  },
-  "architecture": {
-    "principles.md": {
-      "path": "architecture/principles.md",
-      "type": "markdown",
-      "frontmatter": {
-        "title": "Example Page with Custom Tokens",
-        "template": "layout.html"
-      },
-      "url": "/architecture/principles.html"
-    },
-    "overview.md": {
-      "path": "architecture/overview.md",
-      "type": "markdown",
-      "frontmatter": {
-        "title": "Overview",
-        "template": "layout.html"
-      },
-      "url": "/architecture/overview.html"
-    },
-    "example.md": {
-      "path": "architecture/example.md",
-      "type": "markdown",
-      "frontmatter": {
-        "title": "Example Page with Custom Tokens",
-        "template": "layout.html"
-      },
-      "url": "/architecture/example.html"
-    }
-  },
   "discovery": {
     "initiatives.md": {
       "path": "discovery/initiatives.md",
@@ -377,6 +61,351 @@
         "template": "layout.html"
       },
       "url": "/discovery/initiatives.html"
+    }
+  },
+  "procedures": {
+    "ac-certificado-academico.md": {
+      "path": "procedures/ac-certificado-academico.md",
+      "type": "markdown",
+      "frontmatter": {
+        "title": "Certificado Académico Oficial",
+        "template": "layout.html",
+        "summary": "Automatización completa del procedimiento",
+        "status": "todo"
+      },
+      "url": "/procedures/ac-certificado-academico.html"
+    },
+    "ac-titulo-oficial.md": {
+      "path": "procedures/ac-titulo-oficial.md",
+      "type": "markdown",
+      "frontmatter": {
+        "title": "Solicitud Título Oficial",
+        "template": "layout.html",
+        "summary": "Solicitud de Título Oficial",
+        "status": "todo"
+      },
+      "url": "/procedures/ac-titulo-oficial.html"
+    },
+    "ccp-contratos-menores.md": {
+      "path": "procedures/ccp-contratos-menores.md",
+      "type": "markdown",
+      "frontmatter": {
+        "title": "Firma Contratos Menores",
+        "template": "layout.html",
+        "summary": "Firma digital de contratos menores",
+        "status": "todo"
+      },
+      "url": "/procedures/ccp-contratos-menores.html"
+    },
+    "du-solicitud.md": {
+      "path": "procedures/du-solicitud.md",
+      "type": "markdown",
+      "frontmatter": {
+        "title": "Solicitud Defensora Universitaria",
+        "template": "layout.html",
+        "summary": "Solicitud de actuación de la Defensora Universitaria",
+        "status": "done"
+      },
+      "url": "/procedures/du-solicitud.html"
+    },
+    "ec-credito.md": {
+      "path": "procedures/ec-credito.md",
+      "type": "markdown",
+      "frontmatter": {
+        "title": "Transferencia de crédito",
+        "template": "layout.html",
+        "summary": "Solicitudes de Transferencia de crédito",
+        "status": "todo"
+      },
+      "url": "/procedures/ec-credito.html"
+    },
+    "epe-convenios.md": {
+      "path": "procedures/epe-convenios.md",
+      "type": "markdown",
+      "frontmatter": {
+        "title": "Convenios Empleabilidad",
+        "template": "layout.html",
+        "summary": "Firma de convenios de Empleabilidad",
+        "status": "done"
+      },
+      "url": "/procedures/epe-convenios.html"
+    },
+    "facturas.md": {
+      "path": "procedures/facturas.md",
+      "type": "markdown",
+      "frontmatter": {
+        "title": "Facturas",
+        "template": "layout.html",
+        "summary": "Revisión y firma de facturas",
+        "status": "scheduled"
+      },
+      "url": "/procedures/facturas.html"
+    },
+    "fur-ordenes-pago.md": {
+      "path": "procedures/fur-ordenes-pago.md",
+      "type": "markdown",
+      "frontmatter": {
+        "title": "Órdenes de pago FUR",
+        "template": "layout.html",
+        "summary": "Envío de órdenes de pago desde la FUR",
+        "status": "done"
+      },
+      "url": "/procedures/fur-ordenes-pago.html"
+    },
+    "fur-titulos-propios.md": {
+      "path": "procedures/fur-titulos-propios.md",
+      "type": "markdown",
+      "frontmatter": {
+        "title": "Envío Títulos propios FUR",
+        "template": "layout.html",
+        "summary": "Emisión y firma de Títulos Propios FUR",
+        "status": "done"
+      },
+      "url": "/procedures/fur-titulos-propios.html"
+    },
+    "g-central-compras.md": {
+      "path": "procedures/g-central-compras.md",
+      "type": "markdown",
+      "frontmatter": {
+        "title": "Central de Compras",
+        "template": "layout.html",
+        "summary": "Gestión de Compras Unificadas",
+        "status": "scheduled"
+      },
+      "url": "/procedures/g-central-compras.html"
+    },
+    "g-licencias-ptgas.md": {
+      "path": "procedures/g-licencias-ptgas.md",
+      "type": "markdown",
+      "frontmatter": {
+        "title": "Licencias de estudios para PTGAS",
+        "template": "layout.html",
+        "summary": "Solicitud de licencias de estudio para personal de administración y servicios",
+        "status": "scheduled"
+      },
+      "url": "/procedures/g-licencias-ptgas.html"
+    },
+    "inv-estancias-pdi.md": {
+      "path": "procedures/inv-estancias-pdi.md",
+      "type": "markdown",
+      "frontmatter": {
+        "title": "Estancias/Visitas PDI",
+        "template": "layout.html",
+        "summary": "Solicitud y autorización de estancias/visitas de PDI",
+        "status": "run"
+      },
+      "url": "/procedures/inv-estancias-pdi.html"
+    },
+    "sg-canal-etico.md": {
+      "path": "procedures/sg-canal-etico.md",
+      "type": "markdown",
+      "frontmatter": {
+        "title": "Canal ético y de denuncias",
+        "template": "layout.html",
+        "summary": "Sistema de información de conductas irregulares y canal ético",
+        "status": "done"
+      },
+      "url": "/procedures/sg-canal-etico.html"
+    },
+    "vi-convenios.md": {
+      "path": "procedures/vi-convenios.md",
+      "type": "markdown",
+      "frontmatter": {
+        "title": "Convenios de colaboración",
+        "template": "layout.html",
+        "summary": "Gestión de convenios de colaboración institucional",
+        "status": "run"
+      },
+      "url": "/procedures/vi-convenios.html"
+    },
+    "vpc-premios-ciencia.md": {
+      "path": "procedures/vpc-premios-ciencia.md",
+      "type": "markdown",
+      "frontmatter": {
+        "title": "Premios de Ciencia, Tecnología e Innovación",
+        "template": "layout.html",
+        "summary": "Convocatoria de premios a la investigación científica y tecnológica",
+        "status": "done"
+      },
+      "url": "/procedures/vpc-premios-ciencia.html"
+    }
+  },
+  "projects": {
+    "apodera.md": {
+      "path": "projects/apodera.md",
+      "type": "markdown",
+      "frontmatter": {
+        "title": "Apodera",
+        "summary": "Registro de Apoderamientos (Apodera)",
+        "category": "AGE",
+        "otd": "grow",
+        "status": "done"
+      },
+      "url": "/projects/apodera.html"
+    },
+    "civitas.md": {
+      "path": "projects/civitas.md",
+      "type": "markdown",
+      "frontmatter": {
+        "title": "Civitas",
+        "summary": "Solicitudes de Sede Electrónica",
+        "status": "doing"
+      },
+      "url": "/projects/civitas.html"
+    },
+    "comite-seguridad.md": {
+      "path": "projects/comite-seguridad.md",
+      "type": "markdown",
+      "frontmatter": {
+        "title": "Web Comité de Seguridad",
+        "template": "layout.html",
+        "summary": "Web dentro de www.unirioja.es para el Comité de Seguridad",
+        "status": "done"
+      },
+      "url": "/projects/comite-seguridad.html"
+    },
+    "compliance.md": {
+      "path": "projects/compliance.md",
+      "type": "markdown",
+      "frontmatter": {
+        "title": "Compliance",
+        "template": "layout.html",
+        "summary": "Cumplimiento normativo",
+        "status": "waiting"
+      },
+      "url": "/projects/compliance.html"
+    },
+    "consilium.md": {
+      "path": "projects/consilium.md",
+      "type": "markdown",
+      "frontmatter": {
+        "title": "Consilium",
+        "template": "layout.html",
+        "summary": "Plataforma de órganos colegiados y unipersonales",
+        "status": "run"
+      },
+      "url": "/projects/consilium.html"
+    },
+    "firma-cloud.md": {
+      "path": "projects/firma-cloud.md",
+      "type": "markdown",
+      "frontmatter": {
+        "title": "Firma en la nube",
+        "template": "layout.html",
+        "summary": "Firma digital centralizada",
+        "status": "done"
+      },
+      "url": "/projects/firma-cloud.html"
+    },
+    "gravitas.md": {
+      "path": "projects/gravitas.md",
+      "type": "markdown",
+      "frontmatter": {
+        "title": "Gestor de expedientes",
+        "template": "layout.html",
+        "summary": "Gestor de expedientes internos",
+        "status": "run"
+      },
+      "url": "/projects/gravitas.html"
+    },
+    "hello.md": {
+      "path": "projects/hello.md",
+      "type": "markdown",
+      "frontmatter": {
+        "title": "Hello",
+        "summary": "Registro de Apoderamientos (Apodera)",
+        "category": "AGE",
+        "otd": "grow"
+      },
+      "url": "/projects/hello.html"
+    },
+    "kaltura.md": {
+      "path": "projects/kaltura.md",
+      "type": "markdown",
+      "frontmatter": {
+        "title": "Kaltura",
+        "template": "layout.html",
+        "summary": "Repositorio vídeos Universidad",
+        "status": "cancelled"
+      },
+      "url": "/projects/kaltura.html"
+    },
+    "ocu-cuc.md": {
+      "path": "projects/ocu-cuc.md",
+      "type": "markdown",
+      "frontmatter": {
+        "title": "Cursos Cortos OCU",
+        "template": "layout.html",
+        "summary": "Módulo de cursos cortos de OCU",
+        "status": "waiting"
+      },
+      "url": "/projects/ocu-cuc.html"
+    },
+    "registro-convenios.md": {
+      "path": "projects/registro-convenios.md",
+      "type": "markdown",
+      "frontmatter": {
+        "title": "Registro Convenios",
+        "template": "layout.html",
+        "summary": "Aplicación de Registro de Convenios para Secretaría General",
+        "status": "done"
+      },
+      "url": "/projects/registro-convenios.html"
+    },
+    "sia.md": {
+      "path": "projects/sia.md",
+      "type": "markdown",
+      "frontmatter": {
+        "title": "SIA",
+        "template": "layout.html",
+        "summary": "Catálogo de Procedimientos",
+        "status": "scheduled"
+      },
+      "url": "/projects/sia.html"
+    },
+    "staff-pages.md": {
+      "path": "projects/staff-pages.md",
+      "type": "markdown",
+      "frontmatter": {
+        "title": "Staff pages",
+        "template": "layout.html",
+        "summary": "Revisión diseño inicio web (www.unirioja.es)",
+        "status": "waiting"
+      },
+      "url": "/projects/staff-pages.html"
+    },
+    "talos.md": {
+      "path": "projects/talos.md",
+      "type": "markdown",
+      "frontmatter": {
+        "title": "Archivo Electrónico",
+        "template": "layout.html",
+        "summary": "Gestor documental de administración electrónica",
+        "status": "todo"
+      },
+      "url": "/projects/talos.html"
+    },
+    "transparencia.md": {
+      "path": "projects/transparencia.md",
+      "type": "markdown",
+      "frontmatter": {
+        "title": "Transparencia",
+        "template": "layout.html",
+        "summary": "Contenidos para el Portal de Transparencia",
+        "status": "done"
+      },
+      "url": "/projects/transparencia.html"
+    },
+    "voto-electronico.md": {
+      "path": "projects/voto-electronico.md",
+      "type": "markdown",
+      "frontmatter": {
+        "title": "Voto Electrónico",
+        "template": "layout.html",
+        "summary": "Voto Electrónico para elecciones y órganos colegiados",
+        "status": "run"
+      },
+      "url": "/projects/voto-electronico.html"
     }
   }
 }

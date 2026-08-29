@@ -170,3 +170,36 @@ main {
         }
     }
 }
+
+
+.status-badge {
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.875rem;
+}
+
+.status-badge--doing {
+    background-color: #10b981;
+    color: white;
+}
+.status-badge--done {
+    background-color: #10b981;
+    color: white;
+}
+.status-badge--todo {
+    background-color: #f59e0b;
+    color: white;
+}
+.status-badge--scheduled {
+    background-color: #6366f1;
+    color: white;
+}
+.status-badge--rejected {
+    background-color: #10b981;
+    color: white;
+}
+
+.status-badge--waiting {
+    background-color: #f59e0b;
+    color: white;
+}
