@@ -341,6 +341,17 @@
       },
       "url": "/projects/ocu-cuc.html"
     },
+    "pauta.md": {
+      "path": "projects/pauta.md",
+      "type": "markdown",
+      "frontmatter": {
+        "title": "Tarjetas PAU",
+        "summary": "Análisis tarjetas PAU",
+        "otd": "transform",
+        "status": "done"
+      },
+      "url": "/projects/pauta.html"
+    },
     "registro-convenios.md": {
       "path": "projects/registro-convenios.md",
       "type": "markdown",
