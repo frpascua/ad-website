@@ -196,6 +196,17 @@
       },
       "url": "/procedures/inv-estancias-pdi.html"
     },
+    "sad-ceu.md": {
+      "path": "procedures/sad-ceu.md",
+      "type": "markdown",
+      "frontmatter": {
+        "title": "Comisiones Servicio Estudiantes",
+        "template": "layout.html",
+        "summary": "Comisiones de Servicio y otros trámites de Deportes",
+        "status": "doing"
+      },
+      "url": "/procedures/sad-ceu.html"
+    },
     "sg-canal-etico.md": {
       "path": "procedures/sg-canal-etico.md",
       "type": "markdown",
@@ -406,6 +417,17 @@
         "status": "done"
       },
       "url": "/projects/transparencia.html"
+    },
+    "valija.md": {
+      "path": "projects/valija.md",
+      "type": "markdown",
+      "frontmatter": {
+        "title": "Valija",
+        "template": "layout.html",
+        "summary": "Circuitos de Valija",
+        "status": "done"
+      },
+      "url": "/projects/valija.html"
     },
     "voto-electronico.md": {
       "path": "projects/voto-electronico.md",
