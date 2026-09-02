@@ -916,3 +916,7 @@ a.gem-c-image-card__link:hover {
     text-decoration: underline;
   }
 }
+
+.heart {
+  color: #d4351c;
+}

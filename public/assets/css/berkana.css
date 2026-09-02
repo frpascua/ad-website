@@ -124,8 +124,8 @@ main img {
 
 .sidebar-metadata {
   background-color: #ffffff;
-  border-top: 3px solid #1d70b8;
-  padding: 20px 0;
+  border-top: 6px solid #00823b;
+  padding: 10px 0;
   margin-bottom: 30px;
 }
 
@@ -920,4 +920,8 @@ a.gem-c-image-card__link:hover {
   .gem-print-force-link-styles {
     text-decoration: underline;
   }
+}
+
+.heart {
+  color: #d4351c;
 }

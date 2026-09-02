@@ -83,12 +83,20 @@
 <li>Integración del <a href="./voto-electronico.html">Voto Electrónico</a> para aquellos puntos del orden del día que se someten a votación.</li>
 <li>Archivo de los acuerdos alcanzados</li>
 </ul>
+<h2>Alternativas consideradas</h2>
+<p>En el momento inicial de plantamiento de la necesidad, se pensó en adquirir una solución que aunara tanto la gestión de órganos colegiados como el voto electrónico. Pronto se observó que la vía a seguir es buscar dos productos separados que permitan una relativa comunicación.</p>
+<p>Fruto de una revisión y comunicación con distintas universidades, se obtienen hallazgos tanto en cuanto a <a href="./voto-electronico.html">voto electrónico</a> como la gestión de órganos colegiados.</p>
+<p>En cuanto a órganos colegiados, la solución pasa por aplicaciones compradas, desarrolladas <em>in-house</em> o gestión sin aplicación. Resulta relevante el caso de <a href="https://universitatjaumei.atlassian.net/wiki/spaces/MANUJI/pages/5231772159/Gesti+d+rgans+col+legiats">GOC</a>, aplicación desarrollada inicialmente en la Universitat Jaume I con el apoyo de las universidades valencianas y adoptada por algunas universidades mediante licitación para que desarrollen necesidades propias.</p>
+<p>Gracias al contacto de nuestro SG y la SG de la UJI, me pongo en contacto con el técnico Ricardo Borillo. Su software es abierto y libre pero era necesario que nos dieran acceso a algunos componentes adicionales. La comunicación es fluida, y se monta aquí con alguna personalización propia y nuestra autenticación con CUASI:</p>
+<p><img src="./consilium-goc01.png" alt="GOC" /></p>
+<p>No obstante, para que esta aplicación funcione es necesario desarrollar <a href="https://bitbucket.org/ujiapps/goc/src/master/">servicios que provean información</a>. Se empieza el desarrollo de una aplicación para gestionar los miembros de órganos y que sirva para dar esa información a GOC mediante servicios.</p>
+<p>Según se va desarrollando esta aplicación propia y valorando el esfuerzo que sería necesario para personalizar GOC para usarse en la UR, se opta por desarrollar una aplicación propia en la que va a resultar más fácil desarrollar nuestras propias necesidades, eso sí, con un diseño muy general. Es decir, un diseño que permita la gestión de órganos colegiados en sentido amplio: Consejo de Gobierno, COMACA, comisiones de plazas, etc.</p>
 <h2>Órganos unipersonales</h2>
 <p>Se plantea la siguiente casuística:</p>
 <ul>
 <li>Supervisión de altas/bajas de cargos. Sistema de avisos de los cambios que se derivan (a Personal, Servicio Informático, etc.).</li>
 </ul>
-<p>Para dar respuesta a esta necesidad, el primer planteamiento puede ser incluirlo dentro de esta aplicación, ya que comparte ciertas similitudes en cuanto al modelo de datos. Además, se pueden integrar otras funcionalidades:</p>
+<p>Para dar respuesta a esta necesidad, el primer planteamiento puede ser incluirlo dentro de esta aplicación, ya que comparte ciertas similitudes en cuanto al modelo de datos. Además, se pueden integrar otras funcionalidades (a fin de cuentas se trata de órganos):</p>
 <ul>
 <li>Archivo de las resoluciones y otros documentos que emite el órgano unipersonal.</li>
 <li>Petición de número de resolución rectoral.</li>
@@ -101,10 +109,10 @@
                         
                         
                         <div class="sidebar-metadata">
-                            <h3>Metadata</h3>
+                            <h3>Acerca de</h3>
                             
                             <div class="metadata-item">
-                                <div class="metadata-label">Title</div>
+                                <div class="metadata-label">Título</div>
                                 <div class="metadata-value">Consilium</div>
                             </div>
                             
@@ -112,7 +120,7 @@
                             
                             
                             <div class="metadata-item">
-                                <div class="metadata-label">Status</div>
+                                <div class="metadata-label">Estado</div>
                                 <div class="metadata-value">
                                     <span class="status-badge status-badge--run">En curso</span>
                                 </div>
@@ -134,8 +142,8 @@
             <div class="footer-bar">
 
             </div>
-            <div class="footer-content">
-                <p>Universidad de La Rioja</p>
+            <div class="footer-content made-with-love">
+                <p>Made with <span class="heart" aria-hidden="true">♥</span> at Universidad de La Rioja</p>
         </footer>
     </div>
 

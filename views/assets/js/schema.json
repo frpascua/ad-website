@@ -12,55 +12,57 @@
     "type": "html",
     "url": "/index.html"
   },
-  "architecture": {
-    "example.md": {
-      "path": "architecture/example.md",
+  "blog": {
+    "recently-shipped.md": {
+      "path": "blog/recently-shipped.md",
       "type": "markdown",
       "frontmatter": {
         "title": "Example Page with Custom Tokens",
         "template": "layout.html"
       },
-      "url": "/architecture/example.html"
-    },
-    "overview.md": {
-      "path": "architecture/overview.md",
+      "url": "/blog/recently-shipped.html"
+    }
+  },
+  "examples": {
+    "example.md": {
+      "path": "examples/example.md",
       "type": "markdown",
       "frontmatter": {
-        "title": "Overview",
+        "title": "Example Page with Custom Tokens",
         "template": "layout.html"
       },
-      "url": "/architecture/overview.html"
+      "url": "/examples/example.html"
+    },
+    "hello.md": {
+      "path": "examples/hello.md",
+      "type": "markdown",
+      "frontmatter": {
+        "title": "Hello",
+        "summary": "Registro de Apoderamientos (Apodera)",
+        "category": "AGE",
+        "otd": "grow"
+      },
+      "url": "/examples/hello.html"
+    }
+  },
+  "overview": {
+    "architecture.md": {
+      "path": "overview/architecture.md",
+      "type": "markdown",
+      "frontmatter": {
+        "title": "Ecosistema",
+        "template": "layout.html"
+      },
+      "url": "/overview/architecture.html"
     },
     "principles.md": {
-      "path": "architecture/principles.md",
+      "path": "overview/principles.md",
       "type": "markdown",
       "frontmatter": {
         "title": "Example Page with Custom Tokens",
         "template": "layout.html"
       },
-      "url": "/architecture/principles.html"
-    }
-  },
-  "delivery": {
-    "recently-shipped.md": {
-      "path": "delivery/recently-shipped.md",
-      "type": "markdown",
-      "frontmatter": {
-        "title": "Example Page with Custom Tokens",
-        "template": "layout.html"
-      },
-      "url": "/delivery/recently-shipped.html"
-    }
-  },
-  "discovery": {
-    "initiatives.md": {
-      "path": "discovery/initiatives.md",
-      "type": "markdown",
-      "frontmatter": {
-        "title": "Example Page with Custom Tokens",
-        "template": "layout.html"
-      },
-      "url": "/discovery/initiatives.html"
+      "url": "/overview/principles.html"
     }
   },
   "procedures": {
@@ -264,6 +266,17 @@
       },
       "url": "/projects/civitas.html"
     },
+    "clave.md": {
+      "path": "projects/clave.md",
+      "type": "markdown",
+      "frontmatter": {
+        "title": "Cl@ve",
+        "summary": "Identificación con Cl@ve",
+        "otd": "grow",
+        "status": "todo"
+      },
+      "url": "/projects/clave.html"
+    },
     "comite-seguridad.md": {
       "path": "projects/comite-seguridad.md",
       "type": "markdown",
@@ -318,17 +331,6 @@
         "status": "run"
       },
       "url": "/projects/gravitas.html"
-    },
-    "hello.md": {
-      "path": "projects/hello.md",
-      "type": "markdown",
-      "frontmatter": {
-        "title": "Hello",
-        "summary": "Registro de Apoderamientos (Apodera)",
-        "category": "AGE",
-        "otd": "grow"
-      },
-      "url": "/projects/hello.html"
     },
     "kaltura.md": {
       "path": "projects/kaltura.md",
