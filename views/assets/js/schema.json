@@ -55,6 +55,15 @@
       },
       "url": "/overview/architecture.html"
     },
+    "platform.md": {
+      "path": "overview/platform.md",
+      "type": "markdown",
+      "frontmatter": {
+        "title": "Ecosistema",
+        "template": "layout.html"
+      },
+      "url": "/overview/platform.html"
+    },
     "principles.md": {
       "path": "overview/principles.md",
       "type": "markdown",
