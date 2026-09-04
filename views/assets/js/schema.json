@@ -217,7 +217,7 @@
       "path": "blog/recently-shipped.md",
       "type": "markdown",
       "frontmatter": {
-        "title": "Example Page with Custom Tokens",
+        "title": "Blog",
         "template": "layout.html"
       },
       "url": "/blog/recently-shipped.html"
@@ -433,15 +433,6 @@
       },
       "url": "/overview/principles.html"
     },
-    "platform.md": {
-      "path": "overview/platform.md",
-      "type": "markdown",
-      "frontmatter": {
-        "title": "Ecosistema",
-        "template": "layout.html"
-      },
-      "url": "/overview/platform.html"
-    },
     "architecture.md": {
       "path": "overview/architecture.md",
       "type": "markdown",
@@ -450,6 +441,15 @@
         "template": "layout.html"
       },
       "url": "/overview/architecture.html"
+    },
+    "system-map.md": {
+      "path": "overview/system-map.md",
+      "type": "markdown",
+      "frontmatter": {
+        "title": "Ecosistema",
+        "template": "layout.html"
+      },
+      "url": "/overview/system-map.html"
     }
   }
 }
