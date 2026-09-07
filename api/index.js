@@ -110,8 +110,8 @@ const JWT_SECRET = process.env.JWT_SECRET || 'tu-super-secreto-cambiar-en-produc
 const ALLOWED_UIDS = process.env.ALLOWED_UIDS
   ? process.env.ALLOWED_UIDS.split(',').map(uid => uid.trim().toLowerCase())
   : [
-    'admin',
-    'fran.barroso',
+    'fran',
+    '',
     '72789486',
     // Agrega más uid permitidos aquí
   ];

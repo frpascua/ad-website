@@ -17,7 +17,7 @@
       "path": "blog/recently-shipped.md",
       "type": "markdown",
       "frontmatter": {
-        "title": "Example Page with Custom Tokens",
+        "title": "Blog",
         "template": "layout.html"
       },
       "url": "/blog/recently-shipped.html"
@@ -55,14 +55,14 @@
       },
       "url": "/overview/architecture.html"
     },
-    "platform.md": {
-      "path": "overview/platform.md",
+    "discovery.md": {
+      "path": "overview/discovery.md",
       "type": "markdown",
       "frontmatter": {
-        "title": "Ecosistema",
+        "title": "Discovery",
         "template": "layout.html"
       },
-      "url": "/overview/platform.html"
+      "url": "/overview/discovery.html"
     },
     "principles.md": {
       "path": "overview/principles.md",
@@ -72,6 +72,15 @@
         "template": "layout.html"
       },
       "url": "/overview/principles.html"
+    },
+    "system-map.md": {
+      "path": "overview/system-map.md",
+      "type": "markdown",
+      "frontmatter": {
+        "title": "Ecosistema",
+        "template": "layout.html"
+      },
+      "url": "/overview/system-map.html"
     }
   },
   "procedures": {
@@ -189,9 +198,8 @@
       "path": "procedures/g-licencias-ptgas.md",
       "type": "markdown",
       "frontmatter": {
-        "title": "Licencias de estudios para PTGAS",
+        "title": "Comisiones de servicios para PTGAS",
         "template": "layout.html",
-        "summary": "Solicitud de licencias de estudio para personal de administración y servicios",
         "status": "scheduled"
       },
       "url": "/procedures/g-licencias-ptgas.html"
@@ -211,7 +219,7 @@
       "path": "procedures/sad-ceu.md",
       "type": "markdown",
       "frontmatter": {
-        "title": "Comisiones Servicio Estudiantes",
+        "title": "Comisiones de servicio Estudiantes",
         "template": "layout.html",
         "summary": "Comisiones de Servicio y otros trámites de Deportes",
         "status": "doing"
@@ -222,9 +230,8 @@
       "path": "procedures/sg-canal-etico.md",
       "type": "markdown",
       "frontmatter": {
-        "title": "Canal ético y de denuncias",
+        "title": "Canal ético",
         "template": "layout.html",
-        "summary": "Sistema de información de conductas irregulares y canal ético",
         "status": "done"
       },
       "url": "/procedures/sg-canal-etico.html"
