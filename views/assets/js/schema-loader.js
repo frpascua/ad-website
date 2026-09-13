@@ -164,10 +164,12 @@
             .then(schema => {
                 populateTable('projects-table', 'projects', schema);
                 populateTable('procedures-table', 'procedures', schema);
+                populateTable('blog-table', 'blog', schema);
             })
             .catch(error => {
                 console.error('Error loading schema:', error);
             });
+            
     }
 
     // Load when DOM is ready

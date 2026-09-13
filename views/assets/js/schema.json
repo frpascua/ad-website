@@ -1,4 +1,9 @@
 {
+  "blog.html": {
+    "path": "blog.html",
+    "type": "html",
+    "url": "/blog.html"
+  },
   "example-2.md": {
     "path": "example-2.md",
     "type": "markdown",
@@ -13,14 +18,24 @@
     "url": "/index.html"
   },
   "blog": {
-    "recently-shipped.md": {
-      "path": "blog/recently-shipped.md",
+    "2026-09-03.md": {
+      "path": "blog/2026-09-03.md",
       "type": "markdown",
       "frontmatter": {
-        "title": "Blog",
+        "title": "Bienvenida",
         "template": "layout.html"
       },
-      "url": "/blog/recently-shipped.html"
+      "url": "/blog/2026-09-03.html"
+    },
+    "2026-09-07.md": {
+      "path": "blog/2026-09-07.md",
+      "type": "markdown",
+      "frontmatter": {
+        "title": "2026-09-07",
+        "template": "layout.html",
+        "summary": "Semana del 07/09/2026"
+      },
+      "url": "/blog/2026-09-07.html"
     }
   },
   "examples": {
