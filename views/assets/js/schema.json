@@ -240,9 +240,9 @@
       "path": "procedures/vi-convenios.md",
       "type": "markdown",
       "frontmatter": {
-        "title": "Convenios de colaboración",
+        "title": "Convenios V.Internacionalización",
         "template": "layout.html",
-        "summary": "Gestión de convenios de colaboración institucional",
+        "summary": "Inicio de convenios V.Internacionalización",
         "status": "run"
       },
       "url": "/procedures/vi-convenios.html"
