@@ -47,6 +47,36 @@
         "summary": "Semana del 14/09/2026"
       },
       "url": "/blog/2026-09-14.html"
+    },
+    "2026-09-28.md": {
+      "path": "blog/2026-09-28.md",
+      "type": "markdown",
+      "frontmatter": {
+        "title": "2026-09-28",
+        "template": "layout.html",
+        "summary": "Semana del 28/09/2026"
+      },
+      "url": "/blog/2026-09-28.html"
+    },
+    "2026-10-05.md": {
+      "path": "blog/2026-10-05.md",
+      "type": "markdown",
+      "frontmatter": {
+        "title": "2026-10-05",
+        "template": "layout.html",
+        "summary": "Semana del 5/10/2026"
+      },
+      "url": "/blog/2026-10-05.html"
+    },
+    "2026-10-12.md": {
+      "path": "blog/2026-10-12.md",
+      "type": "markdown",
+      "frontmatter": {
+        "title": "2026-10-12",
+        "template": "layout.html",
+        "summary": "Semana del 12/10/2026"
+      },
+      "url": "/blog/2026-10-12.html"
     }
   },
   "examples": {
