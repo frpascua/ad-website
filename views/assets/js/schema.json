@@ -77,6 +77,16 @@
         "summary": "Semana del 12/10/2026"
       },
       "url": "/blog/2026-10-12.html"
+    },
+    "2026-10-19.md": {
+      "path": "blog/2026-10-19.md",
+      "type": "markdown",
+      "frontmatter": {
+        "title": "2026-10-19",
+        "template": "layout.html",
+        "summary": "Semana del 19/10/2026"
+      },
+      "url": "/blog/2026-10-19.html"
     }
   },
   "examples": {
