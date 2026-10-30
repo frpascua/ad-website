@@ -87,6 +87,28 @@
         "summary": "Semana del 19/10/2026"
       },
       "url": "/blog/2026-10-19.html"
+    },
+    "2026-10-26.md": {
+      "path": "blog/2026-10-26.md",
+      "type": "markdown",
+      "frontmatter": {
+        "title": "2026-10-26",
+        "template": "layout.html",
+        "summary": "Semana del 26/10/2026"
+      },
+      "url": "/blog/2026-10-26.html"
+    },
+    "Europass (Jornada RUEPEP).md": {
+      "path": "blog/Europass (Jornada RUEPEP).md",
+      "type": "markdown",
+      "frontmatter": {},
+      "url": "/blog/Europass (Jornada RUEPEP).html"
+    },
+    "europass.md": {
+      "path": "blog/europass.md",
+      "type": "markdown",
+      "frontmatter": {},
+      "url": "/blog/europass.html"
     }
   },
   "examples": {
